@@ -15,34 +15,38 @@
     <input id="invio" type="submit" value="Filtra">
 </div>
 
-<section id="catalogo">
-    <div id="name_a">
-        <h1>NOME AZIENDA</h1>
+<div id="catalogo">
+    @isset($catalogo)
+        @foreach ($catalogo as $offer)
+        <div id="name_a">
+            <h1>NOME AZIENDA</h1>
+        </div>
+        <div id="promo">
+            <div id="left_c">
+                <h2>{{ $offer->Descrizione }}</h2>
+                <p>Data di scadenza: {{ $offer->Scadenza }}</p>
+                <p>Descrizione: Sono un coupon carino e coccoloso</p>
+                <a href="#">Genera Coupon</a>
+            </div>
+            <div id="right_c">
+                <img src="../../public/images/coup.jpg" alt="Coupon">
+            </div>
+        </div>
+        <!--<div id="promo">
+            <div id="left_c">
+                <h2>Nome Coupon</h2>
+                <p>Data di scadenza: 28/10/2023</p>
+                <p>Descrizione: Sono un coupon carino e coccoloso</p>
+                <a href="#">Genera Coupon</a>
+            </div>
+            <div id="right_c">
+                <img src="../../public/images/coup.jpg" alt="Coupon">
+            </div>
+        </div>--> 
+        @endforeach
+    @endisset
     </div>
-    <div id="promo">
-        <div id="left_c">
-            <h2>Nome Coupon</h2>
-            <p>Data di scadenza: 28/10/2023</p>
-            <p>Descrizione: Sono un coupon carino e coccoloso</p>
-            <a href="#">Genera Coupon</a>
-        </div>
-        <div id="right_c">
-            <img src="../../public/images/coup.jpg" alt="Coupon">
-        </div>
-    </div>
-    <div id="promo">
-        <div id="left_c">
-            <h2>Nome Coupon</h2>
-            <p>Data di scadenza: 28/10/2023</p>
-            <p>Descrizione: Sono un coupon carino e coccoloso</p>
-            <a href="#">Genera Coupon</a>
-        </div>
-        <div id="right_c">
-            <img src="../../public/images/coup.jpg" alt="Coupon">
-        </div>
-    </div>
-</section>
-
+@endsection
 
 
 
@@ -67,4 +71,3 @@ function filterFunction() {
   }
 }
 </script>
-@endsection

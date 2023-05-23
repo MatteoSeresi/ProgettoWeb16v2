@@ -11,7 +11,7 @@ use App\Http\Controllers\StaffController;
 Route::get('/', [PublicController::class, 'showHome'])
         ->name('home');
 
-Route::view('/catalogo', 'catalogo')
+Route::get('/catalogo', [PublicController::class, 'showCatalogo'])
         ->name('catalogo');
 
 Route::get('/aziende', [PublicController::class, 'showAziende'])
