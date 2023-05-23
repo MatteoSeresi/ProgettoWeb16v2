@@ -6,19 +6,19 @@
                         <tbody>
                             <tr class="align-middle">
                                 <td class="p-0">
-                                    <a href="{{ route('managecompany') }}" class="spa platform p-1 ps-3 px-lg-2 text-black text-decoration-none">Modifica azienda</a>
+                                    <a href="{{ route('managecompany') }}" class="spa platform p-1 ps-3 px-lg-2 text-black text-decoration-none">Gestione aziende</a>
                                 </td>
                                 <td>
                                     <div class="vr"></div>
                                 </td>
                                 <td class="p-0">
-                                    <a href="ps5" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Cancella utente</a>
+                                    <a href="ps5" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Cancella utenti</a>
                                 </td>
                                                             <td>
                                     <div class="vr"></div>
                                 </td>
                                 <td class="p-0">
-                                    <a href="nintendo-switch" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Modifica staff</a>
+                                    <a href="nintendo-switch" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Gestione staff</a>
                                 </td>
                                                             <td>
                                     <div class="vr"></div>
