@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\UserController;
@@ -34,5 +35,9 @@ Route::get('/user', [UserController::class, 'userarea'])
 //Livello2
 Route::get('/staff', [StaffController::class, 'staffarea'])
         ->name('staff');
+
+//Livello3
+Route::get('/admin', [AdminController::class, 'adminarea'])
+        ->name('admin');
 
 require __DIR__.'/auth.php';
