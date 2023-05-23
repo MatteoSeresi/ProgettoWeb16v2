@@ -2,9 +2,12 @@
 
 @section('title', 'Area Admin')
 
+
+
 @section('content')
+
 <section id="us_ar">
-    
+   
 
     <div id="central">
         

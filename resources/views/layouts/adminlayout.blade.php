@@ -22,6 +22,8 @@
 
     @include('layouts/_navadmin')
 
+    @include('layouts/_navadminoptions')
+
     <div id="container" class="overflow-hidden">
             <div class="container-fluid container-lg py-4 px-3 px-lg-0">
                 @yield('content')
