@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resources\Company;
-use App\Models\Offer;
+use App\Models\Resources\Offer;
 use Illuminate\Support\Facades\Log;
 
 
