@@ -22,4 +22,9 @@ class AdminController extends Controller {
     public function modificaAdmin() {
         return view('admin.adminmodify');
     }
+
+    public function gestioneAzienda() {
+        return view('admin.managecompany');
+    }
+
 }

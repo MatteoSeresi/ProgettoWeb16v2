@@ -6,7 +6,7 @@
                         <tbody>
                             <tr class="align-middle">
                                 <td class="p-0">
-                                    <a href="*" class="spa platform p-1 ps-3 px-lg-2 text-black text-decoration-none">Modifica azienda</a>
+                                    <a href="{{ route('managecompany') }}" class="spa platform p-1 ps-3 px-lg-2 text-black text-decoration-none">Modifica azienda</a>
                                 </td>
                                 <td>
                                     <div class="vr"></div>

@@ -49,4 +49,7 @@ Route::get('/admin', [AdminController::class, 'adminarea'])
 Route::get('/admin/adminmodify', [AdminController::class, 'modificaAdmin'])
         ->name('adminmodify');
 
+Route::get('/admin/managecompany', [AdminController::class, 'gestioneAzienda'])
+        ->name('managecompany');
+
 require __DIR__.'/auth.php';
