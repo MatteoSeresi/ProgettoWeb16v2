@@ -19,10 +19,8 @@
     @isset($utenti)
         @foreach ($utenti as $utente)
         <section id="azienda">
-            <h1 class="text-center">Utente</h1>
+            <h1 class="text-center">{{ $utente->Nome }} {{ $utente->Cognome }}</h1>
             <div id="dati">
-                <p>Nome: {{ $utente->Nome }}</p>
-                <p>Cognome: {{ $utente->Cognome }}</p>
                 <p>Data di nascita: {{ $utente->Data_Nascita }}</p>
                 <p>Telefono: {{ $utente->Telefono }}</p>
                 <p>Email: {{ $utente->Email }}</p>
