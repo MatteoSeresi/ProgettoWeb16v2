@@ -36,6 +36,12 @@ Route::get('/user', [UserController::class, 'userarea'])
 Route::get('/staff', [StaffController::class, 'staffarea'])
         ->name('staff');
 
+Route::get('/staff/staffmodify', [StaffController::class, 'modificaStaff'])
+        ->name('staffmodify');
+
+Route::get('/staff/offermodify', [StaffController::class, 'modificaOfferta'])
+        ->name('offermodify');
+
 //Livello3
 Route::get('/admin', [AdminController::class, 'adminarea'])
         ->name('admin');
