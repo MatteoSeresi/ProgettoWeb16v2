@@ -31,12 +31,10 @@ class PublicController extends Controller
     }
 
     public function showCatalogo() {
-        //$cat = $this->_offerModel->getCatalogo(); 
-        $aznd = $this->_companyModel->getAzienda();
-        $azndOff = $this->_catalogModel->getAziendaWithOffer($this->_companyModel->getAziendaID());
+        $aziende = $this->_companyModel->getAzienda();
+        $azndOff = $this->_catalogModel->getAziendaWithOffer($aziende);
+
         return view('catalogo')
-                    ->with('aziende', $aznd)
-                    ->with('offerteAznd', $azndOff);
-                    //->with('catalogo', $cat)
+                ->with('aziende', $azndOff);
     }
 }

@@ -19,4 +19,9 @@ class Company extends Model
     {
         return Company::select('id')->get();
     }
+
+    public function offerte()
+    {
+        return $this->hasMany(Offer::class, 'ID_Azienda', 'id');
+    }
 }

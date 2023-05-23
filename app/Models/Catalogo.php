@@ -6,17 +6,12 @@ use App\Models\Resources\Company;
 use App\Models\Resources\Offer;
 
 class Catalogo {
-    public function getAziendaWithOffer($idAzienda)
+    public function getAziendaWithOffer($aziende)
     {
-        //$azndOffer = Offer::join('companies', 'offers.ID_Azienda', '=', 'companies.id')
-                           //     ->select()->get();
-        //return $azndOffer;
+        $azndOffer = Company::with('offerte')
+                        ->whereIn('id', $aziende->pluck('id'))
+                        ->get();
 
-        $azndOffer = Company::join('offers', 'offers.ID_Azienda', '=', 'companies.id')
-                      ->whereIn('offers.ID_Azienda', $idAzienda)
-                      ->select('offers.*')
-                      ->get();
-    
-    return $azndOffer;
+        return $azndOffer;
     }
 }

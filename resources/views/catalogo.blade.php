@@ -21,8 +21,8 @@
         <div id="name_a">
             <h1>NOME AZIENDA: {{ $azienda->Ragione_Sociale}}</h1>
         </div>
-        @isset($offerteAznd)
-            @foreach ($offerteAznd as $offer)
+        @isset($azienda->offerte)
+            @foreach ($azienda->offerte as $offer)
             <div id="promo">
                 <div id="left_c">
                     <h2>{{ $offer->Descrizione }}</h2>

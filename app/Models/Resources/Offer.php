@@ -16,7 +16,7 @@ class Offer extends Model
     }
 
     // Relazione One-To-One con Company
-    public function prodCat() {
-        return $this->hasOne(Company::class, 'ID_Azienda', 'id');
+    public function azienda() {
+        return $this->belongsTo(Company::class, 'ID_Azienda', 'id');
     }
 }
