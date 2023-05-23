@@ -12,7 +12,7 @@
                                     <div class="vr"></div>
                                 </td>
                                 <td class="p-0">
-                                    <a href="ps5" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Cancella utenti</a>
+                                    <a href="{{ route('deleteuser') }}" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Cancella utenti</a>
                                 </td>
                                                             <td>
                                     <div class="vr"></div>

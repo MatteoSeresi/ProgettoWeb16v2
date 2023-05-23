@@ -48,4 +48,9 @@ class Register extends Authenticatable
         return in_array($this->Tipo, $role);
     }
 
+    public function getUtente()
+    {
+        return Register::select()->get();
+    }
+
 }

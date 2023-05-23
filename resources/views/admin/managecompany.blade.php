@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center ">
-                <button title="Modifica i dati" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"><i class="fa fa-pencil"></i></button>
+                <button title="Modifica i dati" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded"><i class="fa fa-pencil"></i></button>
                 <button title="Elimina azienda" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"><i class="fa fa-trash"></i></button>
             </div>
         </section>

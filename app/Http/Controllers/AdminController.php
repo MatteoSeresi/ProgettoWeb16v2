@@ -3,6 +3,7 @@
 namespace App\Http\Controllers; 
 
 use App\Models\Admin;
+use App\Models\Register;
 use App\Models\Resources\Company;
 use App\Http\Requests\NewProductRequest;
 
@@ -10,10 +11,12 @@ class AdminController extends Controller {
 
     protected $_adminModel;
     protected $_companyModel;
+    protected $_userModel;
 
     public function __construct() {
         $this->_adminModel = new Admin;
         $this->_companyModel = new Company;
+        $this->_userModel = new Register;
         //$this->middleware('can:isAdmin');
     }
 
@@ -28,7 +31,13 @@ class AdminController extends Controller {
     public function gestioneAzienda() {
         $aznd = $this->_companyModel->getAzienda();  
         return view('admin.managecompany')
-                    ->with('aziende', $aznd);;
+                    ->with('aziende', $aznd);
+    }
+
+    public function cancellaUtente() {
+        $usr = $this->_userModel->getUtente();  
+        return view('admin.deleteuser')
+                    ->with('utenti', $usr);;
     }
 
 
