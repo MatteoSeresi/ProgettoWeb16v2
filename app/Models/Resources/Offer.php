@@ -14,4 +14,9 @@ class Offer extends Model
     {
         return Offer::select()->get();
     }
+
+    // Relazione One-To-One con Company
+    public function prodCat() {
+        return $this->hasOne(Company::class, 'ID_Azienda', 'id');
+    }
 }

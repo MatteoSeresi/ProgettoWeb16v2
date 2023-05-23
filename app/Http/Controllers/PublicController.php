@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Resources\Company;
 use App\Models\Resources\Offer;
+use App\Models\Catalogo;
 use Illuminate\Support\Facades\Log;
 
 
@@ -15,7 +16,8 @@ class PublicController extends Controller
 
     public function __construct() {
         $this->_companyModel = new Company;
-        $this->_catalogModel = new Offer;
+        $this->_offerModel = new Offer;
+        $this->_catalogModel = new Catalogo;
     }
 
     public function showHome() {
@@ -29,11 +31,12 @@ class PublicController extends Controller
     }
 
     public function showCatalogo() {
-        $cat = $this->_catalogModel->getCatalogo();   
+        //$cat = $this->_offerModel->getCatalogo(); 
+        $aznd = $this->_companyModel->getAzienda();
+        $azndOff = $this->_catalogModel->getAziendaWithOffer($this->_companyModel->getAziendaID());
         return view('catalogo')
-                    ->with('catalogo', $cat);
+                    ->with('aziende', $aznd)
+                    ->with('offerteAznd', $azndOff);
+                    //->with('catalogo', $cat)
     }
-
-
-
 }

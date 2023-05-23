@@ -14,4 +14,9 @@ class Company extends Model
     {
         return Company::select()->get();
     }
+
+    public function getAziendaID()
+    {
+        return Company::select('id')->get();
+    }
 }
