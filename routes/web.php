@@ -22,28 +22,17 @@ Route::view('/faq', 'faq')
 Route::view('/contattaci', 'contattaci')
         ->name('contattaci');
 
-// Route::view('/accedi', 'login')
-//         ->name('accedi');
-
-// Route::view('/registrtazione', 'registrazione')
-//         ->name('registrazione');
-
-
-Route::get('login', 'Auth\LoginController@showLoginForm')
-        ->name('login');
-
-Route::post('login', 'Auth\LoginController@login');
-
 //Livello1
 
 Route::get('/user', [UserController::class, 'userarea'])
         ->name('user');
 
-Route::get('/user/usermodify', [UserController::class, 'modificaUtente'])
-        ->name('usermodify');
+ Route::get('/user/usermodify', [UserController::class, 'modificaUtente'])
+      ->name('usermodify');
+
 
 //Livello2
 Route::get('/staff', [StaffController::class, 'staffarea'])
-        ->name('staff')->middleware('can:isStaff');
+        ->name('staff');
 
 require __DIR__.'/auth.php';
