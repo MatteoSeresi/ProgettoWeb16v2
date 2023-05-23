@@ -21,7 +21,7 @@
                 <p>Data di nascita: 01/07/2000</p>
                 <p>Telefono: 3395855004</p>
                 <p>Email: mattia.sisi30@gmail.com</p>
-                <i class="fa fa-pencil" aria-hidden="true" onclick="window.open('{{ route('usermodify') }}')"></i>
+                <i class="fa fa-pencil" aria-hidden="true" onclick="window.open('{{ route('adminmodify') }}')"></i>
             </div>
         </div>
 

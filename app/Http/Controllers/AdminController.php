@@ -18,4 +18,8 @@ class AdminController extends Controller {
     public function adminarea() {
         return view('admin');
     }
+
+    public function modificaAdmin() {
+        return view('admin.adminmodify');
+    }
 }

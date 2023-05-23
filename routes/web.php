@@ -46,4 +46,7 @@ Route::get('/staff/offermodify', [StaffController::class, 'modificaOfferta'])
 Route::get('/admin', [AdminController::class, 'adminarea'])
         ->name('admin');
 
+Route::get('/admin/adminmodify', [AdminController::class, 'modificaAdmin'])
+        ->name('adminmodify');
+
 require __DIR__.'/auth.php';
