@@ -21,14 +21,14 @@
             @if(count($azienda->offerte) > 0)
                 <div id="catalogo">
                     <div id="name_a">
-                        <h1>NOME AZIENDA: {{ $azienda->Ragione_Sociale}}</h1>
+                        <h1>{{ $azienda->Ragione_Sociale}}</h1>
                     </div>
                     @foreach ($azienda->offerte as $offer)
                         <div id="promo">
                             <div id="left_c">
-                                <h2>{{ $offer->Descrizione }}</h2>
+                                <h2>{{ $offer->Nome }}</h2>
                                 <p>Data di scadenza: {{ $offer->Scadenza }}</p>
-                                <p>Descrizione: Sono un coupon carino e coccoloso</p>
+                                <p>Descrizione: {{ $offer->Descrizione }}</p>
                                 <a href="#">Genera Coupon</a>
                             </div>
                             <div id="right_c">

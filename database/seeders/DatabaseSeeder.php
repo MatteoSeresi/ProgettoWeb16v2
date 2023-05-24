@@ -9,11 +9,11 @@ class DatabaseSeeder extends Seeder {
      *
      * @return void
      */
-    const DESCPROD = '<p>Sed lacus. Donec lectus.</p>';
+    const DESCPROD = 'Sed lacus. Donec lectus.';
 
     public function run() {
 
-       DB::table('companies')->insert([
+        DB::table('companies')->insert([
             ['id' => 1, 'P_Iva' => '12345678910', 'Ragione_Sociale' => 'Coal', 'Localizzazione' => 'Daje Roma Dajeeee 10', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg'],
             ['id' => 2, 'P_Iva' => '11121314151', 'Ragione_Sociale' => 'Crai', 'Localizzazione' => 'Evviva Gesu 33', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg'],
             ['id' => 3, 'P_Iva' => '61718192021', 'Ragione_Sociale' => 'Oasi', 'Localizzazione' => 'Piazza Roma 5', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg'],
@@ -29,12 +29,12 @@ class DatabaseSeeder extends Seeder {
         ]);
 
        DB::table('offers')->insert([
-            ['ID_Offerta' => 1, 'Descrizione' => self::DESCPROD, 'Scadenza' => '1945/10/05', 'Immagine' => 'lebron.jpg', 'ID_Azienda' => 2],
-            ['ID_Offerta' => 2, 'Descrizione' => self::DESCPROD, 'Scadenza' => '2024/10/05', 'Immagine' => 'lebron.jpg', 'ID_Azienda' => 1],
-            ['ID_Offerta' => 3, 'Descrizione' => self::DESCPROD, 'Scadenza' => '2047/10/05', 'Immagine' => 'lebron.jpg', 'ID_Azienda' => 4],
-            ['ID_Offerta' => 4, 'Descrizione' => self::DESCPROD, 'Scadenza' => '2000/10/05', 'Immagine' => 'coup.jpg', 'ID_Azienda' => 1],
-            ['ID_Offerta' => 5, 'Descrizione' => self::DESCPROD, 'Scadenza' => '1492/10/12', 'Immagine' => 'lebron.jpg', 'ID_Azienda' => 5],
-            ['ID_Offerta' => 6, 'Descrizione' => self::DESCPROD, 'Scadenza' => '1789/07/14', 'Immagine' => 'lebron.jpg', 'ID_Azienda' => 6],
+            ['ID_Offerta' => 1, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '1945/10/05', 'Immagine' => 'lebron.jpg', 'ID_Azienda' => 2],
+            ['ID_Offerta' => 2, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '2024/10/05', 'Immagine' => 'lebron.jpg', 'ID_Azienda' => 1],
+            ['ID_Offerta' => 3, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '2047/10/05', 'Immagine' => 'lebron.jpg', 'ID_Azienda' => 4],
+            ['ID_Offerta' => 4, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '2000/10/05', 'Immagine' => 'coup.jpg', 'ID_Azienda' => 1],
+            ['ID_Offerta' => 5, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '1492/10/12', 'Immagine' => 'lebron.jpg', 'ID_Azienda' => 5],
+            ['ID_Offerta' => 6, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '1789/07/14', 'Immagine' => 'lebron.jpg', 'ID_Azienda' => 6],
         ]);
 
         DB::table('faqs')->insert([
