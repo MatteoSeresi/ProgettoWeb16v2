@@ -6,7 +6,8 @@
 <section id="azienda">
    
     <div id="filter">
-        <input id="desc" type="text" placeholder="Descrizione">
+        <input id="" type="text" placeholder="Nome">
+        <input id="" type="text" placeholder="Cognome">
         <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn" id="bot">Utenti<i class="fa fa-angle-down" aria-hidden="true"></i></button>
             <div id="myDropdown" class="dropdown-content">

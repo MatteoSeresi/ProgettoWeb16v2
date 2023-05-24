@@ -195,14 +195,14 @@ footer a:hover{
 
 /*CATALOGO*/
 
-#filter{
+#filter {
     border: 2px solid black;
     text-align: center;
     width: 100%;
     height: auto;
-    margin: 40px 0px;
     padding: 10px 2%;
     border-radius: 10px;
+    margin-bottom: 40px; 
 }
 
 #filter #desc{

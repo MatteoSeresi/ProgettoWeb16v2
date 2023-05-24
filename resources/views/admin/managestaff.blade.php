@@ -7,7 +7,8 @@
     
    
     <div id="filter">
-        <input id="desc" type="text" placeholder="Descrizione">
+    <input id="" type="text" placeholder="Nome">
+        <input id="" type="text" placeholder="Cognome">
         <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn" id="bot">Staff<i class="fa fa-angle-down" aria-hidden="true"></i></button>
             <div id="myDropdown" class="dropdown-content">
@@ -17,9 +18,7 @@
         </div>
         <input id="invio" type="submit" value="Filtra">
     </div>
-    <div>
-        <button class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"> <i class="fa-solid fa-user-plus"></i></button>
-    </div>
+    <button title="Crea un nuovo utente staff" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"> <i class="fas fa-user-plus"></i></button>
     @isset($staffs)
         @foreach ($staffs as $staff)
         <section id="azienda">
@@ -30,7 +29,7 @@
                 <p>Email: {{ $staff->Email }}</p>
             </div>
             <div class="d-flex justify-content-center align-items-center ">
-                <button title="Modifica i dati" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded"><i class="fa fa-pencil"></i></button>
+                <button title="Modifica dati utente" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"><i class="fas fa-pencil-alt"></i></button>
                 <button title="Elimina utente staff" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"><i class="fa fa-trash"></i></button>
             </div>
         </section>
