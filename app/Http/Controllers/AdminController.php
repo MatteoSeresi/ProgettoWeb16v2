@@ -58,4 +58,8 @@ class AdminController extends Controller {
                     ->with('faqs', $fq);
     }
 
+    public function visualizzaStatistiche() {
+        return view('admin.stats');
+    }
+
 }

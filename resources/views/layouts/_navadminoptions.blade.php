@@ -24,7 +24,7 @@
                                     <div class="vr"></div>
                                 </td>
                                 <td class="p-0">
-                                    <a href="xbox-series-x" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Visualizza statistiche</a>
+                                    <a href="{{ route('stats') }}" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Visualizza statistiche</a>
                                 </td>
                                                             <td>
                                     <div class="vr"></div>
