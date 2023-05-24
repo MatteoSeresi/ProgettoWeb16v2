@@ -50,7 +50,7 @@ class Register extends Authenticatable
 
     public function getUtente()
     {
-        return Register::select()->get();
+        return Register::where('Tipo', 'user')->get();
     }
 
 }
