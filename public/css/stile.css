@@ -414,38 +414,30 @@ footer a:hover{
     cursor: pointer;
 }
 
-/*HOME*/
-#slider{
-    width:70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+#slider {
+	overflow: hidden;
+    width:50%;
+    margin: 0 auto;
 }
-#img_slider{
-    width:100%;
+
+@keyframes slider {
+	0% { left: 0; }
+	30% { left: 0; }
+	33% { left: -100%; }
+	63% { left: -100%; }
+	66% { left: -200%; }
+	95% { left: -200%; }
+	100% { left: 0; }
 }
-#img_slider img{
-    width:100%;
-    display: none;
+#slider figure {
+	width:300%;
+	position: relative;
+	animation: 18s slider infinite;
 }
-#img_slider img:nth-child(1){
-    display:block;
-}
-#slider button{
-    width:50px;
-    height:50px;
-    border:solid white 2px;
-    color:white;
-    outline:none;
-    cursor: pointer;
-    background:none;
-    border-radius: 25px;
-    font-size:40px;
-    transition: all 0.1s ease-in-out;
-}
-#slider button:hover{
-    transform:scale(1.05);
-}
-#slider button:active{
-    transform:scale(0.95);
+
+#slider figure img{
+	width: 33.333333333%;
+	height : 100%;
+	float: left;
 }
