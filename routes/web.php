@@ -55,8 +55,10 @@ Route::get('/admin/managecompany', [AdminController::class, 'gestioneAzienda'])
 Route::get('/admin/deleteuser', [AdminController::class, 'cancellaUtente'])
         ->name('deleteuser');
 
-
 Route::get('/admin/managestaff', [AdminController::class, 'gestioneStaff'])
         ->name('managestaff');
+
+Route::get('/admin/managefaq', [AdminController::class, 'gestioneFaq'])
+        ->name('managefaq');
 
 require __DIR__.'/auth.php';

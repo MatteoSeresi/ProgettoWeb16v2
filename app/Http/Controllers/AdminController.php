@@ -6,6 +6,7 @@ use App\Models\Admin;
 use App\Models\Register;
 use App\Models\Staff;
 use App\Models\Resources\Company;
+use App\Models\Resources\Faq;
 
 class AdminController extends Controller {
 
@@ -13,6 +14,7 @@ class AdminController extends Controller {
     protected $_companyModel;
     protected $_userModel;
     protected $_staffModel;
+    protected $_faqModel;
 
 
     public function __construct() {
@@ -20,6 +22,7 @@ class AdminController extends Controller {
         $this->_companyModel = new Company;
         $this->_userModel = new Register;
         $this->_staffModel = new Staff;
+        $this->_faqModel = new Faq;
         //$this->middleware('can:isAdmin');
     }
 
@@ -49,6 +52,10 @@ class AdminController extends Controller {
                     ->with('staffs', $stf);
     }
 
-
+    public function gestioneFaq() {
+        $fq=$this->_faqModel->getFaq();
+        return view('admin.managefaq')
+                    ->with('faqs', $fq);
+    }
 
 }

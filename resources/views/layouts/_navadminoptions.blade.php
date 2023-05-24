@@ -30,7 +30,7 @@
                                     <div class="vr"></div>
                                 </td>
                                 <td class="p-0">
-                                    <a href="pc" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Modifica FAQ</a>
+                                    <a href="{{ route('managefaq') }}" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Modifica FAQ</a>
                                
                             </tr>
                         </tbody>
