@@ -23,7 +23,7 @@ class AdminController extends Controller {
         $this->_userModel = new Register;
         $this->_staffModel = new Staff;
         $this->_faqModel = new Faq;
-        //$this->middleware('can:isAdmin');
+        $this->middleware('can:isAdmin');
     }
 
     public function adminarea() {
