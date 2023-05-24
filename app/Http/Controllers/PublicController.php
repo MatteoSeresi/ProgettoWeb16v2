@@ -24,8 +24,11 @@ class PublicController extends Controller
     }
 
     public function showHome() {
-        return view('home');        
+        $aznd = $this->_companyModel->getAzienda();   
+        return view('home')
+                    ->with('aziende', $aznd);      
     }
+
 
     public function showAziende() {
         $aznd = $this->_companyModel->getAzienda();   
