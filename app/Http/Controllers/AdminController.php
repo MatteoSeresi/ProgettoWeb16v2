@@ -4,19 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Register;
+use App\Models\Staff;
 use App\Models\Resources\Company;
-use App\Http\Requests\NewProductRequest;
 
 class AdminController extends Controller {
 
     protected $_adminModel;
     protected $_companyModel;
     protected $_userModel;
+    protected $_staffModel;
+
 
     public function __construct() {
         $this->_adminModel = new Admin;
         $this->_companyModel = new Company;
         $this->_userModel = new Register;
+        $this->_staffModel = new Staff;
         //$this->middleware('can:isAdmin');
     }
 
@@ -37,7 +40,13 @@ class AdminController extends Controller {
     public function cancellaUtente() {
         $usr = $this->_userModel->getUtente();  
         return view('admin.deleteuser')
-                    ->with('utenti', $usr);;
+                    ->with('utenti', $usr);
+    }
+
+    public function gestioneStaff() {
+        $stf = $this->_staffModel->getStaff();  
+        return view('admin.managestaff')
+                    ->with('staffs', $stf);
     }
 
 

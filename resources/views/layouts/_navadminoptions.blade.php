@@ -18,7 +18,7 @@
                                     <div class="vr"></div>
                                 </td>
                                 <td class="p-0">
-                                    <a href="nintendo-switch" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Gestione staff</a>
+                                    <a href="{{ route('managestaff') }}" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Gestione staff</a>
                                 </td>
                                                             <td>
                                     <div class="vr"></div>

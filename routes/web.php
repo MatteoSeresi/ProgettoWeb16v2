@@ -55,4 +55,8 @@ Route::get('/admin/managecompany', [AdminController::class, 'gestioneAzienda'])
 Route::get('/admin/deleteuser', [AdminController::class, 'cancellaUtente'])
         ->name('deleteuser');
 
+
+Route::get('/admin/managestaff', [AdminController::class, 'gestioneStaff'])
+        ->name('managestaff');
+
 require __DIR__.'/auth.php';

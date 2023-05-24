@@ -1,6 +1,6 @@
 @extends('layouts.adminlayout')
 
-@section('title', 'Modifica Admin')
+@section('title', 'Gestione aziende')
 
 @section('content')
 <section id="azienda">
