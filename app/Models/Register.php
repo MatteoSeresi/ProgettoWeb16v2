@@ -33,7 +33,7 @@ class Register extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'Username',
+        'Utente',
         'Password',
     ];
 
