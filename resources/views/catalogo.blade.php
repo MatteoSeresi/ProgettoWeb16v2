@@ -17,37 +17,28 @@
 
 @isset($aziende)
     @foreach ($aziende as $azienda)
-    <div id="catalogo">
-        <div id="name_a">
-            <h1>NOME AZIENDA: {{ $azienda->Ragione_Sociale}}</h1>
-        </div>
         @isset($azienda->offerte)
-            @foreach ($azienda->offerte as $offer)
-            <div id="promo">
-                <div id="left_c">
-                    <h2>{{ $offer->Descrizione }}</h2>
-                    <p>Data di scadenza: {{ $offer->Scadenza }}</p>
-                    <p>Descrizione: Sono un coupon carino e coccoloso</p>
-                    <a href="#">Genera Coupon</a>
+            @if(count($azienda->offerte) > 0)
+                <div id="catalogo">
+                    <div id="name_a">
+                        <h1>NOME AZIENDA: {{ $azienda->Ragione_Sociale}}</h1>
+                    </div>
+                    @foreach ($azienda->offerte as $offer)
+                        <div id="promo">
+                            <div id="left_c">
+                                <h2>{{ $offer->Descrizione }}</h2>
+                                <p>Data di scadenza: {{ $offer->Scadenza }}</p>
+                                <p>Descrizione: Sono un coupon carino e coccoloso</p>
+                                <a href="#">Genera Coupon</a>
+                            </div>
+                            <div id="right_c">
+                                <img src="../../public/images/coup.jpg" alt="Coupon">
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div id="right_c">
-                    <img src="../../public/images/coup.jpg" alt="Coupon">
-                </div>
-            </div>
-            <!--<div id="promo">
-                <div id="left_c">
-                    <h2>Nome Coupon</h2>
-                    <p>Data di scadenza: 28/10/2023</p>
-                    <p>Descrizione: Sono un coupon carino e coccoloso</p>
-                    <a href="#">Genera Coupon</a>
-                </div>
-                <div id="right_c">
-                    <img src="../../public/images/coup.jpg" alt="Coupon">
-                </div>
-            </div>--> 
-            @endforeach
+            @endif
         @endisset
-        </div>
     @endforeach
 @endisset
 @endsection

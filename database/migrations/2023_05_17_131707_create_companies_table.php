@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('P_Iva');
             $table->string('Ragione_Sociale');
             $table->string('Localizzazione');
-            $table->string('Descrizione');
+            $table->string('Descrizione', 2500);
             $table->text('Logo')->nullable();
         });
     }
