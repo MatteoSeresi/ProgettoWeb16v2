@@ -26,7 +26,7 @@ Route::view('/contattaci', 'contattaci')
 //Livello1
 
 Route::get('/user', [UserController::class, 'userarea'])
-        ->name('user');
+        ->name('user')->middleware('can:isUser');
 
  Route::get('/user/usermodify', [UserController::class, 'modificaUtente'])
       ->name('usermodify');
@@ -34,7 +34,7 @@ Route::get('/user', [UserController::class, 'userarea'])
 
 //Livello2
 Route::get('/staff', [StaffController::class, 'staffarea'])
-        ->name('staff');
+        ->name('staff')->middleware('can:isStaff');
 
 Route::get('/staff/staffmodify', [StaffController::class, 'modificaStaff'])
         ->name('staffmodify');
