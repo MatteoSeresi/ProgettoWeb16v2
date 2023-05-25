@@ -3,7 +3,6 @@
 @section('title', 'Statistiche sito')
 
 @section('content')
-<h1>Statistiche</h1>
 <section id="azienda">
     <section id="azienda">
         <h1 class="text-center">Statistiche</h1>

@@ -22,9 +22,9 @@ class PublicController extends Controller
     }
 
     public function showHome() {
-        $aznd = $this->_companyModel->getAzienda();   
-        return view('home')
-                    ->with('aziende', $aznd);      
+        //$aznd = $this->_companyModel->getAzienda();   
+        return view('home');
+    
     }
 
 

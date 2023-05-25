@@ -4,6 +4,7 @@
 
 @section('content')
             <section>
+                <h1>home</h1>
                 <!--<div id="slider">
                         <button onclick="prec()"><</button>
                         <div id="img_slider">
