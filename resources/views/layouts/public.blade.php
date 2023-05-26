@@ -28,6 +28,10 @@
                 @yield('content')
             </div>
         </div>
-
+        <footer>
+            <p> Author:<br> Matteo Fabbri | Diego Settimi | Matteo Seresi | Mattia Sisi</p>
+            <a class="trans-color-text" href="#"> FAQ </a> | <span itemprop="telephone"><a href="contattaci_no_log.html"> CONTATTACI </a></span>|
+            <a target="_blank" href="#"> PRIVACY </a> | <a target="_blank" href="#"> GUIDE </a>
+        </footer>
     </body>
 </html>

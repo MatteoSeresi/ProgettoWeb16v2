@@ -22,10 +22,10 @@ class DatabaseSeeder extends Seeder {
             ['id' => 6, 'P_Iva' => '33343536373', 'Ragione_Sociale' => 'Eurospin', 'Localizzazione' => 'Via Franco 12', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg'],
         ]);
 
-        DB::table('registers')->insert([
-            ['ID_Registrato' => 1, 'Utente' => 'useruser', 'Password' => Hash::make('Yg4Xzxjb'), 'Nome' => 'Franco', 'Cognome' => 'Rossi', 'Genere' => 'Uomo', 'Tipo' => 'user', 'Email' => 'franco@rossi.it', 'Telefono' => '3333102759', 'Data_Nascita' => '1945/10/05'],
-            ['ID_Registrato' => 2, 'Utente' => 'staffstaff', 'Password' => Hash::make('Yg4Xzxjb'), 'Nome' => 'Adele', 'Cognome' => 'Bianchi', 'Genere' => 'Donna', 'Tipo' => 'staff', 'Email' => 'adele@bianchi.it', 'Telefono' => '3663102759', 'Data_Nascita' => '1994/08/10'],
-            ['ID_Registrato' => 3, 'Utente' => 'adminadmin', 'Password' => Hash::make('Yg4Xzxjb'), 'Nome' => 'LeBron', 'Cognome' => 'James', 'Genere' => 'Uomo', 'Tipo' => 'admin', 'Email' => 'lebron@james.it', 'Telefono' => '3493102759', 'Data_Nascita' => '2001/11/22'],
+        DB::table('users')->insert([
+            ['id' => 1, 'username' => 'useruser', 'password' => Hash::make('ciao'), 'name' => 'Franco', 'surname' => 'Rossi', 'genere' => 'Uomo', 'role' => 'user', 'email' => 'franco@rossi.it', 'telefono' => '3333102759', 'data_nascita' => '1945/10/05'],
+            ['id' => 2, 'username' => 'staffstaff', 'password' => Hash::make('ciao'), 'name' => 'Adele', 'surname' => 'Bianchi', 'genere' => 'Donna', 'role' => 'staff', 'email' => 'adele@bianchi.it', 'telefono' => '3663102759', 'data_nascita' => '1994/08/10'],
+            ['id' => 3, 'username' => 'adminadmin', 'password' => Hash::make('ciao'), 'name' => 'LeBron', 'surname' => 'James', 'genere' => 'Uomo', 'role' => 'admin', 'email' => 'lebron@james.it', 'telefono' => '3493102759', 'data_nascita' => '2001/11/22'],
         ]);
 
        DB::table('offers')->insert([

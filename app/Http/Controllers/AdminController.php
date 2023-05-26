@@ -3,7 +3,7 @@
 namespace App\Http\Controllers; 
 
 use App\Models\Admin;
-use App\Models\Register;
+use App\Models\User;
 use App\Models\Staff;
 use App\Models\Resources\Company;
 use App\Models\Resources\Faq;
@@ -20,7 +20,7 @@ class AdminController extends Controller {
     public function __construct() {
         $this->_adminModel = new Admin;
         $this->_companyModel = new Company;
-        $this->_userModel = new Register;
+        $this->_userModel = new User;
         $this->_staffModel = new Staff;
         $this->_faqModel = new Faq;
         $this->middleware('can:isAdmin');

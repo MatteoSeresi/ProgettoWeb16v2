@@ -39,24 +39,7 @@
                 <div class="form-floating mb-3">
                     <input id="tel" type="tel" class="form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 rounded-0 bg-transparent no-outline" placeholder="Telefono" required="true" pattern="[0-9]{10}" oninvalid="this.setCustomValidity('Richiede 10 numeri')" oninput="this.setCustomValidity('')">
                     <label>Telefono</label>
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" >Sesso</label>
-                    <select required class="form-select border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 rounded-0 bg-transparent no-outline" >
-                        <option value="">...</option>
-                        <option value="1">Maschio</option>
-                        <option value="2">Femmina</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" >Tipo utente</label>
-                    <select required class="form-select border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 rounded-0 bg-transparent no-outline" >
-                        <option value="">...</option>
-                        <option value="1">Cliente</option>
-                        <option value="2">Staff</option>
-                    </select>
-                </div>
-                
+                </div>                
                 <button type="submit" class="my-3 loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-100 mb-3 lh-1 rounded">salva modifiche</button>
                 <a href="{{ route('user') }}" class="spa text-center text-black d-block">Indietro</a>
             </form>

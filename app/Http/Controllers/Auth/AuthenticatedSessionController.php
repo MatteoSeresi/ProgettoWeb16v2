@@ -35,14 +35,16 @@ class AuthenticatedSessionController extends Controller {
          */
 //        return redirect()->intended(RouteServiceProvider::HOME);
 
-        $role = auth()->user()->Tipo;
-             switch ($role) {
-             case 'staff': return redirect()->route('staff');
-                 break;
-             case 'user': return redirect()->route('user');
-                 break;
-             default: return redirect('/');
-         }
+        $role = auth()->user()->role;
+        switch ($role) {
+            case 'admin': return redirect()->route('admin');
+                break;
+            case 'user': return redirect()->route('user');
+                break;
+            case 'staff': return redirect()->route('staff');
+                break;
+            default: return redirect('/home');
+        }
     }
 
     /**
@@ -58,7 +60,7 @@ class AuthenticatedSessionController extends Controller {
 
         $request->session()->regenerateToken();
 
-        return redirect('/home');
+        return redirect('/');
     }
 
 }

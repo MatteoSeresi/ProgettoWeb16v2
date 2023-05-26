@@ -9,7 +9,7 @@ class UserController extends Controller {
 
     public function __construct() {
         $this->_utenteModel = new User;
-        //$this->middleware('can:isUser');
+        $this->middleware('can:isUser');
     }
 
     public function userarea() {
