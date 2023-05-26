@@ -49,20 +49,38 @@
                         </a>
                     </td>
                     @endguest
+                    @can('isUser')
                     <td class="px-0">
                         <div class="vr"></div>
                     </td>
-                        <!-- <td class="p-0">
-                            <a href="{{ route('registrazione') }}" class="p-3 lh-1 d-block spa text-black text-decoration-none ">
-                                REGISTRATI
-                            </a>
-                        </td> -->
+                    <td class="p-0">
+                        <a href="{{ route('user') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
+                            AREA UTENTE
+                        </a>
+                    </td>
+                    @endcan
+                    @can('isStaff')
+                    <td class="px-0">
+                        <div class="vr"></div>
+                    </td>
+                    <td class="p-0">
+                        <a href="{{ route('staff') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
+                            AREA STAFF
+                        </a>
+                    </td>
+                    @endcan
                     @auth
-                        <li><a href="" title="Esci dal sito" class="highlight" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
+                    <td class="px-0">
+                        <div class="vr"></div>
+                    </td>
+                    </td>
+                        <td class="p-0">
+                        <a href="" class="p-3 lh-1 d-block spa text-black text-decoration-none" title="Esci dal sito" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">LOGOUT</a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
                         </form>
-                    @endauth                                                           
+                    </td> 
+                    @endauth                                                          
                 </tr>
             </tbody>
         </table>         

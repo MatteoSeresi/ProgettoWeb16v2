@@ -47,14 +47,18 @@
                             AREA UTENTE
                         </a>
                     </td>
+                    @auth
                     <td class="px-0">
                         <div class="vr"></div>
                     </td>
+                    </td>
                         <td class="p-0">
-                            <a href="{{ route('home') }}" class="p-3 lh-1 d-block spa text-black text-decoration-none ">
-                                LOGOUT
-                            </a>
-                        </td>                                                             
+                        <a href="" class="p-3 lh-1 d-block spa text-black text-decoration-none" title="Esci dal sito" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">LOGOUT</a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                        </form>
+                    </td>
+                    @endauth                                                             
                 </tr>
             </tbody>
         </table>         

@@ -43,7 +43,7 @@ class AuthenticatedSessionController extends Controller {
                 break;
             case 'staff': return redirect()->route('staff');
                 break;
-            default: return redirect('/home');
+            default: return redirect('/');
         }
     }
 
