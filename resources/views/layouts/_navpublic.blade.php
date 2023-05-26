@@ -69,6 +69,16 @@
                         </a>
                     </td>
                     @endcan
+                    @can('isAdmin')
+                    <td class="px-0">
+                        <div class="vr"></div>
+                    </td>
+                    <td class="p-0">
+                        <a href="{{ route('admin') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
+                            AREA ADMIN
+                        </a>
+                    </td>
+                    @endcan
                     @auth
                     <td class="px-0">
                         <div class="vr"></div>

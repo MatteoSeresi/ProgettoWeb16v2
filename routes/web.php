@@ -44,7 +44,7 @@ Route::get('/staff/offermodify', [StaffController::class, 'modificaOfferta'])
 
 //Livello3
 Route::get('/admin', [AdminController::class, 'adminarea'])
-        ->name('admin');
+        ->name('admin')->middleware('can:isAdmin');
 
 Route::get('/admin/adminmodify', [AdminController::class, 'modificaAdmin'])
         ->name('adminmodify');
