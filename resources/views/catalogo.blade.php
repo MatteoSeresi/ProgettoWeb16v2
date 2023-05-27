@@ -2,6 +2,8 @@
 
 @section('title', 'Catalogo offerte')
 
+<head><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script></head>
+
 @section('content')
 <div id="filter">
     <input id="desc" type="text" placeholder="Descrizione">
@@ -32,7 +34,7 @@
                                 <a href="#">Genera Coupon</a>
                             </div>
                             <div id="right_c">
-                                <img src="../../public/images/coup.jpg" alt="Coupon">
+                                <img src="../../public/images/{{ $offer->Immagine }}" alt="Coupon">
                             </div>
                         </div>
                     @endforeach
@@ -50,19 +52,34 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-function filterFunction() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("myDropdown");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
-    }
+$(document).ready(function() {
+  // Funzione di filtro
+  function filterOffers() {
+    var searchDesc = $('#desc').val().toUpperCase();
+    var searchCompany = $('#myInput').val().toUpperCase();
+
+    $('.promo').each(function() {
+      var offerDesc = $(this).find('p:nth-child(3)').text().toUpperCase();
+      var companyName = $(this).closest('.catalogo').find('.name_a h1').text().toUpperCase();
+
+      if ((searchDesc === '' || offerDesc.includes(searchDesc)) &&
+          (searchCompany === '' || companyName.includes(searchCompany))) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
   }
-}
+
+  // Evento di ricerca per descrizione
+  $('#desc').keyup(function() {
+    filterOffers();
+  });
+
+  // Evento di ricerca per azienda
+  $('#myInput').keyup(function() {
+    filterOffers();
+  });
+});
+
 </script>
