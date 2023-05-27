@@ -29,7 +29,7 @@
                 </div>
 
                 <div id="slot" style="padding: 10px">
-                    <p>Localizzazione: {{$azienda->Localizzazione}},{{$azienda->civico}},{{$azienda->citta}},{{$azienda->cap}}</p>
+                    <p>Localizzazione: {{$azienda->Localizzazione}}, {{$azienda->civico}}, {{$azienda->citta}}, {{$azienda->cap}}</p>
                     <p>Telefono: {{$azienda->tel}}</p>
                     <p>Email: <a href="mailto:{{$azienda->email}}" style="text-decoration: none">{{$azienda->email}}</a></p>
                 </div>
