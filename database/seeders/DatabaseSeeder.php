@@ -14,12 +14,12 @@ class DatabaseSeeder extends Seeder {
     public function run() {
 
         DB::table('companies')->insert([
-            ['id' => 1, 'P_Iva' => '12345678910', 'Ragione_Sociale' => 'Coal', 'Localizzazione' => 'Daje Roma Dajeeee 10', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg'],
-            ['id' => 2, 'P_Iva' => '11121314151', 'Ragione_Sociale' => 'Crai', 'Localizzazione' => 'Evviva Gesu 33', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg'],
-            ['id' => 3, 'P_Iva' => '61718192021', 'Ragione_Sociale' => 'Oasi', 'Localizzazione' => 'Piazza Roma 5', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg'],
-            ['id' => 4, 'P_Iva' => '22232425262', 'Ragione_Sociale' => 'Simply', 'Localizzazione' => 'Via Gianfranco 3', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg'],
-            ['id' => 5, 'P_Iva' => '72829303132', 'Ragione_Sociale' => 'Lidl', 'Localizzazione' => 'Via Gigio 14', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg'],
-            ['id' => 6, 'P_Iva' => '33343536373', 'Ragione_Sociale' => 'Eurospin', 'Localizzazione' => 'Via Franco 12', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg'],
+            ['id' => 1, 'P_Iva' => '12345678910', 'Ragione_Sociale' => 'Coal', 'Localizzazione' => 'Via Ugo Foscolo', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg', 'civico' => '10', 'citta'=>'Porto San Giorgio','cap'=>'63822'],
+            ['id' => 2, 'P_Iva' => '11121314151', 'Ragione_Sociale' => 'Crai', 'Localizzazione' => 'Viale della Carriera', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg','civico' => '90', 'citta'=>'Fermo','cap'=>'63900'],
+            ['id' => 3, 'P_Iva' => '61718192021', 'Ragione_Sociale' => 'Oasi', 'Localizzazione' => 'Via Solferino', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg','civico' => '2', 'citta'=>'Porto San Giorgio','cap'=>'63822'],
+            ['id' => 4, 'P_Iva' => '22232425262', 'Ragione_Sociale' => 'Simply', 'Localizzazione' => 'Borgo Trieste', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg','civico' => '69', 'citta'=>'Petritoli','cap'=>'63848'],
+            ['id' => 5, 'P_Iva' => '72829303132', 'Ragione_Sociale' => 'Lidl', 'Localizzazione' => 'Via Trentino', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg','civico' => '2', 'citta'=>'Porto Sant Elpidio','cap'=>'63821'],
+            ['id' => 6, 'P_Iva' => '33343536373', 'Ragione_Sociale' => 'Eurospin', 'Localizzazione' => 'Via Pompeiana', 'Descrizione' => 'Lorem Ipsum', 'Logo' => 'lebron.jpg','civico' => '41', 'citta'=>'Porto San Giorgio','cap'=>'63822'],
         ]);
 
         DB::table('users')->insert([
