@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('Localizzazione');
             $table->string('Descrizione', 2500);
             $table->text('Logo')->nullable();
+            $table->string('civico');
+            $table->string('citta');
+            $table->string('cap');
         });
     }
 
