@@ -100,7 +100,7 @@
                 </div>
                 <div class="input-group mb-3">
                     {{ Form::label('genere', 'Genere', ['class' => '']) }}
-                    {{ Form::select('genere',  ['option_value_1' => 'Maschio', 'option_value_2' => 'Femmina'], ['class' => 'input form-select border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3
+                    {{ Form::select('genere',  ['Uomo' => 'Maschio', 'Donna' => 'Femmina'], ['class' => 'input form-select border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3
                     rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'genere']) }}      
                     @if ($errors->first('genere'))
                     <ul class="errors">

@@ -20,11 +20,11 @@
     @isset($utenti)
         @foreach ($utenti as $utente)
         <section id="azienda">
-            <h1 class="text-center">{{ $utente->Nome }} {{ $utente->Cognome }}</h1>
+            <h1 class="text-center">{{ $utente->name }} {{ $utente->surname }}</h1>
             <div id="dati">
-                <p>Data di nascita: {{ $utente->Data_Nascita }}</p>
-                <p>Telefono: {{ $utente->Telefono }}</p>
-                <p>Email: {{ $utente->Email }}</p>
+                <p>Data di nascita: {{ $utente->data_nascita }}</p>
+                <p>Telefono: {{ $utente->telefono }}</p>
+                <p>Email: {{ $utente->email }}</p>
             </div>
             <div class="d-flex justify-content-center align-items-center ">
                 <button title="Elimina utente" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"><i class="fa fa-trash"></i></button>

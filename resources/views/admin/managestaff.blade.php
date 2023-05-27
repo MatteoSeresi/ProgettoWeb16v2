@@ -22,11 +22,11 @@
     @isset($staffs)
         @foreach ($staffs as $staff)
         <section id="azienda">
-            <h1 class="text-center">{{ $staff->Nome }} {{ $staff->Cognome }}</h1>
+            <h1 class="text-center">{{ $staff->name }} {{ $staff->surname }}</h1>
             <div id="dati">
-                <p>Data di nascita: {{ $staff->Data_Nascita }}</p>
-                <p>Telefono: {{ $staff->Telefono }}</p>
-                <p>Email: {{ $staff->Email }}</p>
+                <p>Data di nascita: {{ $staff->data_nascita }}</p>
+                <p>Telefono: {{ $staff->telefono }}</p>
+                <p>Email: {{ $staff->email }}</p>
             </div>
             <div class="d-flex justify-content-center align-items-center ">
                 <button title="Modifica dati utente" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"><i class="fas fa-pencil-alt"></i></button>
