@@ -9,7 +9,7 @@
             <div id="high_c">
                 <div id="immagine azienda">
                     <!--@include('helpers/aziendeImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->Logo])-->
-                    <img src="../../public/images/{{ $azienda->Logo }}">
+                    <img src="../../public/images/aziende/{{ $azienda->Logo }}">
                 </div>
                 <h1>{{ $azienda->Ragione_Sociale }}</h1>
             </div>
@@ -28,8 +28,10 @@
                     <p>{{ $azienda->Descrizione }}</p>
                 </div>
 
-                <div id="slot">
-                    <p>Qui ci sono i contatti dell'azienda</p>
+                <div id="slot" style="padding: 10px">
+                    <p>Localizzazione: {{$azienda->Localizzazione}},{{$azienda->civico}},{{$azienda->citta}},{{$azienda->cap}}</p>
+                    <p>Telefono: {{$azienda->tel}}</p>
+                    <p>Email: <a href="mailto:{{$azienda->email}}" style="text-decoration: none">{{$azienda->email}}</a></p>
                 </div>
             </div>
             <div id="end_c">

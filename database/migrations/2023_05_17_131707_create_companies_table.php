@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('civico');
             $table->string('citta');
             $table->string('cap');
+            $table->string('tel');
+            $table->string('email');
         });
     }
 
