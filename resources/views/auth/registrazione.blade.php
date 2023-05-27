@@ -10,9 +10,9 @@
             {{ Form::open(array('route' => 'registrazione', 'class' => 'contact-form')) }}           
                 @csrf
                 <div class="form-floating mb-3">
-                    {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
                     {{ Form::text('name', '', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                     rounded-0 bg-transparent no-outline', 'required' => true,  'id' => 'name',  ]) }}   
+                    {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
                     @if ($errors->first('name'))
                     <ul class="errors">
                         @foreach ($errors->get('name') as $message)
@@ -22,9 +22,9 @@
                     @endif             
                 </div>
                 <div class="form-floating mb-3">
-                    {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
                     {{ Form::text('surname', '', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                     rounded-0 bg-transparent no-outline','id' => 'surname']) }}
+                    {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
                     @if ($errors->first('surname'))
                     <ul class="errors">
                         @foreach ($errors->get('surname') as $message)
@@ -34,9 +34,9 @@
                     @endif               
                 </div>
                 <div class="form-floating mb-3">
-                    {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
                     {{ Form::text('username', '', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                     rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'username']) }}  
+                    {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
                     @if ($errors->first('username'))
                     <ul class="errors">
                         @foreach ($errors->get('username') as $message)
@@ -46,9 +46,9 @@
                     @endif                    
                 </div>
                 <div class="form-floating mb-3">
-                    {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
                     {{ Form::email('email', '', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                     rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'email']) }}    
+                    {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
                     @if ($errors->first('email'))
                     <ul class="errors">
                         @foreach ($errors->get('email') as $message)
@@ -58,9 +58,9 @@
                     @endif                   
                 </div>
                 <div class="form-floating mb-3">      
-                    {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
                     {{ Form::password('password', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                         rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'password']) }}
+                    {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
                     @if ($errors->first('password'))
                     <ul class="errors">
                         @foreach ($errors->get('password') as $message)
@@ -70,14 +70,14 @@
                     @endif   
                 </div>
                 <div class="form-floating mb-3">      
-                    {{ Form::label('password-confirm', 'Conferma Password', ['class' => 'label-input']) }}
                     {{ Form::password('password_confirmation', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                         rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'password-confirm']) }}
+                    {{ Form::label('password-confirm', 'Conferma Password', ['class' => 'label-input']) }}
                 </div>
                 <div class="form-floating mb-3">
-                    {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-input']) }}
                     {{ Form::date('data_nascita', '', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                     rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'data_nascita']) }}
+                    {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-input']) }}
                     @if ($errors->first('data_nascita'))
                     <ul class="errors">
                         @foreach ($errors->get('data_nascita') as $message)
@@ -87,9 +87,9 @@
                     @endif                      
                 </div>
                 <div class="form-floating mb-3">
-                    {{ Form::label('telefono', 'Telefono', ['class' => 'label-input']) }}
                     {{ Form::tel('telefono', '', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                     rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'telefono']) }}
+                    {{ Form::label('telefono', 'Telefono', ['class' => 'label-input']) }}
                     @if ($errors->first('telefono'))
                     <ul class="errors">
                         @foreach ($errors->get('telefono') as $message)
@@ -99,7 +99,7 @@
                     @endif                        
                 </div>
                 <div class="input-group mb-3">
-                    {{ Form::label('genere', 'Genere', ['class' => '']) }}
+                    {{ Form::label('genere', 'Genere', ['class' => 'input-group-text']) }}
                     {{ Form::select('genere',  ['Uomo' => 'Maschio', 'Donna' => 'Femmina'], ['class' => 'input form-select border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3
                     rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'genere']) }}      
                     @if ($errors->first('genere'))
