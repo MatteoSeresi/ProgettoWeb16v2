@@ -29,8 +29,9 @@ Route::get('/user', [UserController::class, 'userarea'])
         ->name('user')->middleware('can:isUser');
 
  Route::get('/user/usermodify', [UserController::class, 'modificaUtente'])
-      ->name('usermodify');
+        ->name('usermodify');
 
+Route::post('/user/usermodify', [UserController::class, 'updateUtente']);
 
 //Livello2
 Route::get('/staff', [StaffController::class, 'staffarea'])

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller {
 
@@ -9,8 +13,8 @@ class UserController extends Controller {
 
     public function __construct() {
         $this->_utenteModel = new User;
-        $this->middleware('can:isUser');
     }
+    
 
     public function userarea() {
         return view('user');
@@ -18,6 +22,35 @@ class UserController extends Controller {
 
     public function modificaUtente() {
         return view('user.usermodify');
+                    
+    }
+
+    public function updateUtente(Request $request){
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'. Auth::id()],
+            'username' => ['required', 'string', 'min:8', 'unique:users,username,'. Auth::id()],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'data_nascita' => ['required', 'date'],
+            'telefono' => ['required', 'string', 'digits:10'],
+            'genere' => ['required', 'string'],
+        ]);
+        
+        $user = User::find(Auth::id());
+
+
+        $user->name = $request->input('name');
+        $user->surname = $request->input('surname');
+        $user->email = $request->input('email');
+        $user->username = $request->input('username');
+        $user->password = $request->input('password');
+        $user->data_nascita = $request->input('data_nascita');
+        $user->telefono = $request->input('telefono');
+
+        $user->save();
+
+        return redirect()->route('user')->with('success', 'Dati utente aggiornati con successo!');
     }
 
 }

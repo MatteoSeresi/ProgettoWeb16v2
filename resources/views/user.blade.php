@@ -10,7 +10,7 @@
         <div id="col_2">
             <div id="dati">
                 <p>Benvenuto</p>
-                <p>Nome: Mattia</p>
+                <p>Nome: mattia</p>
                 <p>Cognome: Sisi</p>
                 <p>Data di nascita: 01/07/2000</p>
                 <p>Telefono: 3395855004</p>
