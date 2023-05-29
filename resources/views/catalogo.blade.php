@@ -6,15 +6,6 @@
 
 @section('content')
 <div id="filter">
-    <!--<input id="desc" type="text" placeholder="Descrizione">
-    <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn" id="bot">Aziende<i class="fa fa-angle-down" aria-hidden="true"></i></button>
-        <div id="myDropdown" class="dropdown-content">
-            <input type="text" placeholder="Aziende" id="myInput" onkeyup="filterFunction()">
-            <a href="#about">About</a>
-        </div>
-    </div>
-    <input id="invio" type="submit" value="Filtra">-->
     <input type="text" id="filter-azienda" placeholder="Filtro per azienda">
     <input type="text" id="filter-descrizione" placeholder="Filtro per descrizione">
 </div>
@@ -34,7 +25,12 @@
                                   <h2>{{ $offer->Nome }}</h2>
                                   <p>Data di scadenza: {{ $offer->Scadenza }}</p>
                                   <p>Descrizione: {{ $offer->Descrizione }}</p>
-                                  <a href="#">Genera Coupon</a>
+                                  @guest
+                                    <a href="#" class='disabilita-bottone'>Genera Coupon</a>
+                                  @endguest
+                                  @can('isUser')
+                                    <a href="#">Genera Coupon</a>
+                                  @endcan
                               </div>
                               <div class="right_c">
                                   <img src="../../public/images/{{ $offer->Immagine }}" alt="Coupon">
@@ -52,9 +48,6 @@
 
 
 <script>
-// function myFunction() {
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
 
 $(document).ready(function() {
     // Evento di ascolto per il pulsante di filtro

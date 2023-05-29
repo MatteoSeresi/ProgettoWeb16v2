@@ -366,6 +366,14 @@ footer a:hover{
     background-color: white;
 }
 
+.catalogo .promo .left_c .disabilita-bottone{
+    color: white;
+    background-color: grey;
+    pointer-events: none;
+    opacity: 5;
+    text-decoration: line-through;
+}
+
 .catalogo .promo .right_c img{
     max-width: 100%;
     max-height: 100%;
