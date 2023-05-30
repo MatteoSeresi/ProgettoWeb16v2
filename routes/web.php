@@ -29,7 +29,7 @@ Route::view('/contattaci', 'contattaci')
 Route::get('/user', [UserController::class, 'userarea'])
         ->name('user')->middleware('can:isUser');
 
- Route::get('/user/usermodify', [UserController::class, 'modificaUtente'])
+Route::get('/user/usermodify', [UserController::class, 'modificaUtente'])
         ->name('usermodify');
 
 Route::post('/user/usermodify', [UserController::class, 'updateUtente']);
