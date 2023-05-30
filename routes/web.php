@@ -46,8 +46,11 @@ Route::get('/staff', [StaffController::class, 'staffarea'])
 Route::get('/staff/staffmodify', [StaffController::class, 'modificaStaff'])
         ->name('staffmodify');
 
+Route::post('/staff/staffmodify', [StaffController::class, 'updateStaff']);
+
 Route::get('/staff/offermodify', [StaffController::class, 'modificaOfferta'])
         ->name('offermodify');
+
 
 //Livello3
 Route::get('/admin', [AdminController::class, 'adminarea'])
