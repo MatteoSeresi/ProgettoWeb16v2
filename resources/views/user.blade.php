@@ -10,11 +10,11 @@
         <div id="col_2">
             <div id="dati">
                 <p>Benvenuto</p>
-                <p>Nome: mattia</p>
-                <p>Cognome: Sisi</p>
-                <p>Data di nascita: 01/07/2000</p>
-                <p>Telefono: 3395855004</p>
-                <p>Email: mattia.sisi30@gmail.com</p>
+                <p>Nome: {{$user->name}}</p>
+                <p>Cognome: {{$user->surname}}</p>
+                <p>Data di nascita: {{$user->data_nascita}}</p>
+                <p>Telefono: {{$user->telefono}}</p>
+                <p>Email: {{$user->email}}</p>
                 <i class="fa fa-pencil" aria-hidden="true" onclick="window.open('{{ route('usermodify') }}')"></i>
             </div>
         </div>
