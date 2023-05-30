@@ -18,7 +18,7 @@
                 <p>Data di nascita: {{$user->data_nascita}}</p>
                 <p>Telefono: {{$user->telefono}}</p>
                 <p>Email: {{$user->email}}</p>
-                <i class="fa fa-pencil" aria-hidden="true" onclick="window.open('{{ route('staffmodify') }}')"></i><br>
+                <i class="fa fa-pencil" aria-hidden="true" onclick="window.location.href = '{{ route('staffmodify') }}'"></i><br>
                 <a href="{{ route('offermodify') }}">Modifica le offerte</a>
             </div>
         </div>
