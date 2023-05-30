@@ -59,7 +59,7 @@ class StaffController extends Controller {
 
         $user->save();
 
-        return redirect()->route('staff')->with('success', 'Dati utente aggiornati con successo!');
+        return redirect()->route('staff');
     }
 
 }

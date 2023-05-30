@@ -15,9 +15,9 @@ class UserController extends Controller {
         $this->_utenteModel = new User;
     }
     
-
     public function userarea() {
-        return view('user');
+        return view('user')
+            ->with('user', Auth::user());
     }
 
     public function modificaUtente() {
@@ -49,7 +49,7 @@ class UserController extends Controller {
         $user->save();
 
         //return redirect()->route('user')->withErrors($validator)->withInput();
-        return redirect()->route('user')->with('success', 'Dati utente aggiornati con successo!');
+        return redirect()->route('user');
     }
 
 }
