@@ -12,11 +12,12 @@
         <div id="col_2">
         <h1 class="text-center">Account Staff</h1>
             <div id="dati">
-                <p>Nome: Mattia</p>
-                <p>Cognome: Sisi</p>
-                <p>Data di nascita: 01/07/2000</p>
-                <p>Telefono: 3395855004</p>
-                <p>Email: mattia.sisi30@gmail.com</p>
+                <p>Benvenuto</p>
+                <p>Nome: {{$user->name}}</p>
+                <p>Cognome: {{$user->surname}}</p>
+                <p>Data di nascita: {{$user->data_nascita}}</p>
+                <p>Telefono: {{$user->telefono}}</p>
+                <p>Email: {{$user->email}}</p>
                 <i class="fa fa-pencil" aria-hidden="true" onclick="window.open('{{ route('staffmodify') }}')"></i><br>
                 <a href="{{ route('offermodify') }}">Modifica le offerte</a>
             </div>

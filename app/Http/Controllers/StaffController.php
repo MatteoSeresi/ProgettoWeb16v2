@@ -21,7 +21,8 @@ class StaffController extends Controller {
         $this->_catalogModel = new Catalogo;
     }
     public function staffarea() {
-        return view('staff');
+        return view('staff')
+            ->with('user', Auth::user());
     }
 
     public function modificaStaff() {
