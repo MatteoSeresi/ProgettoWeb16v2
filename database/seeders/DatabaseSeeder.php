@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder {
             ['id' => 1, 'username' => 'useruser', 'password' => Hash::make('ciao'), 'name' => 'Franco', 'surname' => 'Rossi', 'genere' => 'Uomo', 'role' => 'user', 'email' => 'franco@rossi.it', 'telefono' => '3333102759', 'data_nascita' => '1945/10/05'],
             ['id' => 2, 'username' => 'staffstaff', 'password' => Hash::make('ciao'), 'name' => 'Adele', 'surname' => 'Bianchi', 'genere' => 'Donna', 'role' => 'staff', 'email' => 'adele@bianchi.it', 'telefono' => '3663102759', 'data_nascita' => '1994/08/10'],
             ['id' => 3, 'username' => 'adminadmin', 'password' => Hash::make('ciao'), 'name' => 'LeBron', 'surname' => 'James', 'genere' => 'Uomo', 'role' => 'admin', 'email' => 'lebron@james.it', 'telefono' => '3493102759', 'data_nascita' => '2001/11/22'],
+            ['id' => 4, 'username' => 'mattia', 'password' => Hash::make('ciao'), 'name' => 'Franco', 'surname' => 'Rossi', 'genere' => 'Uomo', 'role' => 'user', 'email' => 'franco@rossi.it', 'telefono' => '3333102759', 'data_nascita' => '1945/10/05'],
         ]);
 
        DB::table('offers')->insert([

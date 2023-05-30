@@ -30,7 +30,7 @@
                                   @endguest
                                   @can('isUser')
 
-                                    <button method="POST" onclick="window.open('{{route('coupon')}}')" type="submit">Genera Coupon</button>
+                                    <button onclick="window.open('{{route('coupon')}}')" type="submit">Genera Coupon</button>
 
                                   @endcan
                               </div>
