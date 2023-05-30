@@ -4,19 +4,11 @@
 
 @section('content')
 <section id="azienda">
-   
-    <div id="filter">
-        <input id="" type="text" placeholder="Nome">
-        <input id="" type="text" placeholder="Cognome">
-        <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn" id="bot">Utenti<i class="fa fa-angle-down" aria-hidden="true"></i></button>
-            <div id="myDropdown" class="dropdown-content">
-                <input type="text" placeholder="Aziende" id="myInput" onkeyup="filterFunction()">
-                <a href="#about">About</a>
-            </div>
-        </div>
-        <input id="invio" type="submit" value="Filtra">
-    </div>
+<div id="filter">
+    <input type="text" id="filter-azienda" placeholder="Filtro per nome">
+    <input type="text" id="filter-azienda" placeholder="Filtro per cognome">
+    <input type="text" id="filter-descrizione" placeholder="Filtro per descrizione">
+</div>
     @isset($utenti)
         @foreach ($utenti as $utente)
         <section id="azienda">
@@ -34,3 +26,50 @@
     @endisset
 </section>
 @endsection
+<script>
+
+$(document).ready(function() {
+    // Evento di ascolto per il pulsante di filtro
+    $('#filter-button').on('click', function() {
+        filterResults();
+    });
+
+    // Evento di ascolto per gli input di filtro
+    $('#filter-azienda, #filter-descrizione').on('input', function() {
+        filterResults();
+    });
+
+    function filterResults() {
+      var aziendaFilter = $('#filter-azienda').val().toLowerCase();
+      var descrizioneFilter = $('#filter-descrizione').val().toLowerCase();
+
+      $('.azienda').each(function() {
+          var aziendaName = $(this).find('.name_a h1').text().toLowerCase();
+          var offerte = $(this).find('.promo');
+          var showAzienda = false;
+
+          // Nascondi l'azienda inizialmente
+          $(this).hide();
+
+          offerte.each(function() {
+              var nomeOfferta = $(this).find('.left_c h2').text().toLowerCase();
+              var descrizioneOfferta = $(this).find('.left_c p:eq(1)').text().toLowerCase();
+
+              // Mostra l'offerta solo se corrisponde ai filtri
+              if (aziendaName.includes(aziendaFilter) && (nomeOfferta.includes(descrizioneFilter) || descrizioneOfferta.includes(descrizioneFilter))) {
+                  showAzienda = true;
+                  return false; // Esci dal ciclo each per le offerte
+              }
+          });
+
+          // Mostra o nascondi l'azienda in base alla corrispondenza dei filtri
+          if (showAzienda) {
+              $(this).show();
+          } else {
+              $(this).hide();
+          }
+      });
+    }
+});
+
+</script>
