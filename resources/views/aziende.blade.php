@@ -8,7 +8,6 @@
         <section id="azienda">
             <div id="high_c">
                 <div id="immagine azienda">
-                    <!--@include('helpers/aziendeImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->Logo])-->
                     <img src="../../public/images/aziende/{{ $azienda->Logo }}">
                 </div>
                 <h1>{{ $azienda->Ragione_Sociale }}</h1>

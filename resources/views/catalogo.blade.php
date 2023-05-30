@@ -29,7 +29,9 @@
                                     <a href="#" class='disabilita-bottone'>Genera Coupon</a>
                                   @endguest
                                   @can('isUser')
-                                    <a href="#">Genera Coupon</a>
+
+                                    <button method="POST" onclick="window.open('{{route('coupon')}}')" type="submit">Genera Coupon</button>
+
                                   @endcan
                               </div>
                               <div class="right_c">

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\CouponController;
 
 
 // Livello 0
@@ -32,6 +33,11 @@ Route::get('/user', [UserController::class, 'userarea'])
         ->name('usermodify');
 
 Route::post('/user/usermodify', [UserController::class, 'updateUtente']);
+
+Route::get('/user/coupon', [CouponController::class, 'showCoupon'])
+      ->name('coupon');
+
+Route::post('/user/coupon', [CouponController::class, 'generaCoupon']);
 
 //Livello2
 Route::get('/staff', [StaffController::class, 'staffarea'])
