@@ -21,6 +21,8 @@ class UserController extends Controller {
     }
 
     public function modificaUtente() {
+
+        //$user = User::getCurrentUser();
         return view('user.usermodify');
                     
     }

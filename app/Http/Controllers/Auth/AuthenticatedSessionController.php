@@ -30,6 +30,7 @@ class AuthenticatedSessionController extends Controller {
 
         $request->session()->regenerate();
 
+
         /**
          * Redirezione su diverse Home Page in base alla classe d'utenza.
          */
