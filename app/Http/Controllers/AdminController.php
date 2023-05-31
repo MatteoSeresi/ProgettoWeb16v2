@@ -40,7 +40,7 @@ class AdminController extends Controller {
                     ->with('aziende', $aznd);
     }
 
-    public function cancellaUtente() {
+    public function showcancellaUtente() {
         $usr = $this->_userModel->getUtente();  
         return view('admin.deleteuser')
                     ->with('utenti', $usr);
@@ -60,6 +60,12 @@ class AdminController extends Controller {
 
     public function visualizzaStatistiche() {
         return view('admin.stats');
+    }
+
+    public function eliminaUtente($user_id) {
+        $user = User::find($user_id);
+        $user->delete();
+        return redirect('/admin/deleteuser');
     }
 
 }

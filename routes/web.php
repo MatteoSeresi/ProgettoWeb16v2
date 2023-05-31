@@ -62,8 +62,11 @@ Route::get('/admin/adminmodify', [AdminController::class, 'modificaAdmin'])
 Route::get('/admin/managecompany', [AdminController::class, 'gestioneAzienda'])
         ->name('managecompany');
 
-Route::get('/admin/deleteuser', [AdminController::class, 'cancellaUtente'])
+Route::get('/admin/deleteuser', [AdminController::class, 'showcancellaUtente'])
         ->name('deleteuser');
+
+Route::delete('/admin/deleteuser/{user_id}', [AdminController::class, 'eliminaUtente'])
+        ->name('elimina');
 
 Route::get('/admin/managestaff', [AdminController::class, 'gestioneStaff'])
         ->name('managestaff');
