@@ -21,12 +21,6 @@ lh-1 rounded" onclick="window.location('{{ route('staffmodify') }}')"> <i class=
                                   <h2>{{ $offer->Nome }}</h2>
                                   <p>Data di scadenza: {{ $offer->Scadenza }}</p>
                                   <p>Descrizione: {{ $offer->Descrizione }}</p>
-                                  @guest
-                                    <a href="#" class='disabilita-bottone'>Genera Coupon</a>
-                                  @endguest
-                                  @can('isUser')
-                                    <a href="#">Genera Coupon</a>
-                                  @endcan
                               </div>
                               <div class="right_c">
                                   <img src="../../../public/images/{{ $offer->Immagine }}" alt="Coupon">

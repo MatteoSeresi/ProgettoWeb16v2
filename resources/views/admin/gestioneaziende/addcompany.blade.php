@@ -133,7 +133,12 @@
                         @endforeach
                     </ul>
                     @endif                   
-                </div>      
+                </div>   
+                <div class="form-floating mb-3">
+                    {{ Form::file('Logo', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
+                    rounded-0 bg-transparent no-outline', 'required' => false, 'id' => 'Logo']) }}
+                    {{ Form::label('Logo', 'Logo', ['class' => 'label-input']) }}                        
+                </div>   
                 {{ Form::submit('Inserisci', ['class' => 'loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-100 mb-3 lh-1 rounded']) }}    
             {{ Form::close() }}
         </div>   

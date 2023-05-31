@@ -70,7 +70,7 @@ class AdminController extends Controller {
     }
 
     public function addAzienda() {
-        $cmp = Company::pluck('Ragione_Sociale', 'id');;
+        $cmp = Company::pluck('Ragione_Sociale', 'id');
         return view('admin.gestioneaziende.addcompany')
                         ->with('azienda', $cmp);
     }
