@@ -16,14 +16,15 @@ class Coupon extends Model
         return Coupon::where('id', $id)->first();
     }
 
+    //Relazione One-To-One con Offerta
     public function couponOfferta()
     {
         return $this->belongsTo(Offer::class, 'ID_offerta', 'id_coupon');
     }
 
+    //Relazione One-To-One con Utente
     public function couponUser()
     {
         return $this->belongsTo(User::class, 'id', 'id_user');
     }
-    // Altre proprietà e metodi del modello...
 } 

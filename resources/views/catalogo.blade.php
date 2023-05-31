@@ -30,7 +30,7 @@
                                   @endguest
                                   @can('isUser')
 
-                                    <button onclick="window.open('{{route('coupon')}}')" type="submit">Genera Coupon</button>
+                                    <a href="{{ route('coupon.generate', ['offertaId' => $offer->ID_Offerta]) }}" class="generate-coupon">Genera Coupon</a>  
 
                                   @endcan
                               </div>

@@ -15,6 +15,11 @@ class Offer extends Model
         return Offer::select()->get();
     }
 
+    public function getOfferByID($idOfferta)
+    {
+        return Offer::where('ID_Offerta', $idOfferta)->first();
+    }
+
     // Relazione One-To-One con Company
     public function azienda() {
         return $this->belongsTo(Company::class, 'ID_Azienda', 'id');

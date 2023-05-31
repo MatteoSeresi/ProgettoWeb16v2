@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Coupon;
 use App\Models\Resources\Offer;
+use App\Models\Resources\Company;
 use Illuminate\Support\Facades\Auth;
 
 class CouponController extends Controller
@@ -16,6 +17,7 @@ class CouponController extends Controller
         $this->_couponModel = new Coupon;
         $this->numeroCasuale = 0;
         $this->_offerModel = new Offer;
+        $this->_companyModel = new Company;
     }
 
     public function getCurrentUser(){
@@ -23,20 +25,31 @@ class CouponController extends Controller
         return $user;
     }
 
-    public function showCoupon(){
-        $this->numeroCasuale = rand(100000000000, 999999999999);
-        $coupon = $this->numeroCasuale;
-        $this->generaCoupon($coupon);
-        return view('user.coupon')->with('coupon', $coupon);
+    public function generateCoupon($offertaId)
+    {
+            // Crea un nuovo coupon
+            $coupon = new Coupon();
+            $coupon->codice = $this->generaNumerCoupon(); // Funzione che genera il numero del coupon
+            $coupon->id_user = auth()->user()->id;
+            $coupon->id_coupon = $offertaId;
+            $coupon->save();
+
+            $coupon = Coupon::where('id_coupon', $offertaId)
+                    ->where('id_user', auth()->user()->id)
+                    ->first();
+            $offerta = $this->_offerModel->getOfferByID($offertaId);
+            $company = $this->_companyModel->getAziendaByID($offerta->ID_Azienda);
+
+            return view('user.coupon', ['coupon' => $coupon])
+                    ->with('user', auth()->user())
+                    ->with('offer', $offerta)
+                    ->with('company', $company);
     }
-    public function generaCoupon($coupon){
-        $user = $this->getCurrentUser();
-        $offer = $this->_offerModel->nonsochemetterci();
-        $this->_couponModel->codice = $coupon;
-        $this->_couponModel->id_user = $user->id;
-        $this->_couponModel->id_offerta = $offer->ID_Offerta;
-        $this->_couponModel->save();
-        return redirect()->route('catalogo');
-            
+
+    // Funzione di esempio per generare il numero del coupon
+    public function generaNumerCoupon() {
+        $numeroCasuale = rand(100000000000, 999999999999);
+        return $numeroCasuale;
     }
+
 }
