@@ -19,12 +19,17 @@ class Coupon extends Model
     //Relazione One-To-One con Offerta
     public function couponOfferta()
     {
-        return $this->belongsTo(Offer::class, 'ID_offerta', 'id_coupon');
+        return $this->belongsTo(Offer::class, 'ID_offerta', 'id_offerta');
     }
 
     //Relazione One-To-One con Utente
     public function couponUser()
     {
         return $this->belongsTo(User::class, 'id', 'id_user');
+    }
+
+    public function couponAzienda()
+    {
+        return $this->belongsTo(Company::class, 'id', 'id_azienda');
     }
 } 

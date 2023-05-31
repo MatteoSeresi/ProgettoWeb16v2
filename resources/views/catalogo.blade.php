@@ -25,14 +25,12 @@
                                   <h2>{{ $offer->Nome }}</h2>
                                   <p>Data di scadenza: {{ $offer->Scadenza }}</p>
                                   <p>Descrizione: {{ $offer->Descrizione }}</p>
-                                  @guest
-                                    <a href="#" class='disabilita-bottone'>Genera Coupon</a>
-                                  @endguest
-                                  @can('isUser')
-
-                                    <a href="{{ route('coupon.generate', ['offertaId' => $offer->ID_Offerta]) }}" class="generate-coupon">Genera Coupon</a>  
-
-                                  @endcan
+                                @can('isUser')
+                                    <button onclick="window.open('{{ route('coupon', ['offertaId' => $offer->ID_Offerta, 'aziendaId' => $azienda->id]) }}')" class="generate-coupon">Genera Coupon</button>
+                                @else
+                                    <button class='disabilita-bottone'>Genera Coupon</button>
+                                @endcan
+                                  
                               </div>
                               <div class="right_c">
                                   <img src="../../public/images/{{ $offer->Immagine }}" alt="Coupon">

@@ -5,9 +5,8 @@
 </head>
 <body>
     <h1>Numero Generato:</h1>
-    <p>{{ $coupon }}</p>
-    <p>{{ $user }}</p>
-    <p>{{ $offer }}</p>
-    <p>{{ $company }}</p>
+    <p>{{ $codice }}</p>
+    <p>Relativo all'offerta con id {{ $offerta->ID_Offerta }}</p>
+    <p>Dell'azienda {{ $azienda->Ragione_Sociale }}</p>
 </body>
 </html>

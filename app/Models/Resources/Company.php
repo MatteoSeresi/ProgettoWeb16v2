@@ -22,7 +22,7 @@ class Company extends Model
 
     public function getAziendaByID($idAzienda)
     {
-        return Company::where('id', $idAzienda)->get();
+        return Company::where('id', $idAzienda)->first();
     }
 
     public function offerte()

@@ -34,8 +34,8 @@ Route::get('/user/usermodify', [UserController::class, 'modificaUtente'])
 
 Route::post('/user/usermodify', [UserController::class, 'updateUtente']);
 
-Route::get('/user/coupon/{offertaId}', [CouponController::class, 'generateCoupon'])
-    ->name('coupon.generate');
+Route::get('/user/coupon/{offertaId}/{aziendaId}', [CouponController::class, 'showCoupon'])
+    ->name('coupon');
 
 //Livello2
 Route::get('/staff', [StaffController::class, 'staffarea'])

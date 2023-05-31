@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coupon;
+use Illuminate\Http\Request;
 use App\Models\Resources\Offer;
 use App\Models\Resources\Company;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +13,7 @@ class CouponController extends Controller
     protected $_couponModel;
     protected $numeroCasuale;
     protected $_offerModel;
+    protected $_companyModel;
 
     public function __construct() {
         $this->_couponModel = new Coupon;
@@ -25,31 +27,24 @@ class CouponController extends Controller
         return $user;
     }
 
-    public function generateCoupon($offertaId)
-    {
-            // Crea un nuovo coupon
-            $coupon = new Coupon();
-            $coupon->codice = $this->generaNumerCoupon(); // Funzione che genera il numero del coupon
-            $coupon->id_user = auth()->user()->id;
-            $coupon->id_coupon = $offertaId;
-            $coupon->save();
+    public function showCoupon($offertaId, $aziendaId){
+        $this->numeroCasuale = rand(100000000000, 999999999999);
+        $codice = $this->numeroCasuale;
+        $aznd = $this->_companyModel->getAziendaByID($aziendaId);
+        $offer = $this->_offerModel->getOfferByID($offertaId);
+        $this->generaCoupon($codice, $aznd, $offer);
+        return view('user.coupon')->with('codice', $codice)->with('offerta', $offer)->with('azienda', $aznd);
 
-            $coupon = Coupon::where('id_coupon', $offertaId)
-                    ->where('id_user', auth()->user()->id)
-                    ->first();
-            $offerta = $this->_offerModel->getOfferByID($offertaId);
-            $company = $this->_companyModel->getAziendaByID($offerta->ID_Azienda);
-
-            return view('user.coupon', ['coupon' => $coupon])
-                    ->with('user', auth()->user())
-                    ->with('offer', $offerta)
-                    ->with('company', $company);
     }
+    public function generaCoupon($codice, $aznd,$offer){
 
-    // Funzione di esempio per generare il numero del coupon
-    public function generaNumerCoupon() {
-        $numeroCasuale = rand(100000000000, 999999999999);
-        return $numeroCasuale;
+        $user = $this->getCurrentUser();
+        $this->_couponModel->codice = $codice;
+        $this->_couponModel->id_user = $user->id;
+        $this->_couponModel->id_offerta = $offer->ID_Offerta;
+        $this->_couponModel->id_azienda = $aznd->id;
+        $this->_couponModel->save();
+        return redirect()->route('catalogo');
+
     }
-
 }
