@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Staff;
 use App\Models\Resources\Company;
 use App\Models\Resources\Faq;
+use App\Http\Requests\NewCompanyRequest;
 
 class AdminController extends Controller {
 
@@ -66,6 +67,35 @@ class AdminController extends Controller {
         $user = User::find($user_id);
         $user->delete();
         return redirect('/admin/deleteuser');
+    }
+
+    public function addAzienda() {
+        $cmp = Company::pluck('Ragione_Sociale', 'id');;
+        return view('admin.gestioneaziende.addcompany')
+                        ->with('azienda', $cmp);
+    }
+
+    public function storeAzienda(NewCompanyRequest $request) {
+
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $logoName = $logo->getClientOriginalName();
+        } else {
+            $logoName = NULL;
+        }
+
+        $aznd = new Company;
+        $aznd->fill($request->validated());
+        $aznd->logo = $logoName;
+        $aznd->save();
+
+        if (!is_null($logoName)) {
+            $destinationPath = public_path() . '/images/aziende';
+            $logo->move($destinationPath, $logoName);
+        };
+
+        return redirect()->action([AdminController::class, 'adminarea']);
+        
     }
 
 }

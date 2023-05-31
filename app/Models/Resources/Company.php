@@ -9,6 +9,11 @@ class Company extends Model
     protected $table = 'companies';
 
     protected $primaryKey = 'id';
+    
+    // id non modificabile da un HTTP Request (Mass Assignment)
+    protected $guarded = ['id'];
+
+    public $timestamps = false;
 
     public function getAzienda()
     {

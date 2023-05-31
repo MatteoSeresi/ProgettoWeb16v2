@@ -60,6 +60,12 @@ Route::get('/admin/adminmodify', [AdminController::class, 'modificaAdmin'])
 Route::get('/admin/managecompany', [AdminController::class, 'gestioneAzienda'])
         ->name('managecompany');
 
+Route::get('/admin/addcompany', [AdminController::class, 'addAzienda'])
+        ->name('addcompany');
+
+Route::post('/admin/addcompany', [AdminController::class, 'storeAzienda'])
+        ->name('addcompany.store');
+
 Route::get('/admin/deleteuser', [AdminController::class, 'showcancellaUtente'])
         ->name('deleteuser');
 
