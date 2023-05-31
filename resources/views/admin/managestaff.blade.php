@@ -1,20 +1,20 @@
 @extends('layouts.adminlayout')
 
 @section('title', 'Gestione staff')
-
+<head><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script></head>
 @section('content')
 <section id="azienda">
-    
 <div id="filter">
-<input type="text" id="filter-azienda" placeholder="Filtro per nome">
-    <input type="text" id="filter-azienda" placeholder="Filtro per cognome">
-    <input type="text" id="filter-descrizione" placeholder="Filtro per descrizione">
+<input type="text" class="filter" id="filter-nome" placeholder="Filtro per nome">
+<input type="text" class="filter" id="filter-cognome" placeholder="Filtro per cognome">
+    
 </div>
     <button title="Crea un nuovo utente staff" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"> <i class="fas fa-user-plus"></i></button>
     @isset($staffs)
         @foreach ($staffs as $staff)
-        <section id="azienda">
-            <h1 class="text-center">{{ $staff->name }} {{ $staff->surname }}</h1>
+        <section id="azienda" class="azienda filterable">
+            <h1 class="text-center">{{ $staff->name }} </h1>
+            <h1 class="text-center"> {{ $staff->surname }}</h1>
             <div id="dati">
                 <p>Data di nascita: {{ $staff->data_nascita }}</p>
                 <p>Telefono: {{ $staff->telefono }}</p>
@@ -33,47 +33,37 @@
 <script>
 
 $(document).ready(function() {
-    // Evento di ascolto per il pulsante di filtro
-    $('#filter-button').on('click', function() {
-        filterResults();
-    });
 
-    // Evento di ascolto per gli input di filtro
-    $('#filter-azienda, #filter-descrizione').on('input', function() {
-        filterResults();
-    });
-
-    function filterResults() {
-      var aziendaFilter = $('#filter-azienda').val().toLowerCase();
-      var descrizioneFilter = $('#filter-descrizione').val().toLowerCase();
-
-      $('.azienda').each(function() {
-          var aziendaName = $(this).find('.name_a h1').text().toLowerCase();
-          var offerte = $(this).find('.promo');
-          var showAzienda = false;
-
-          // Nascondi l'azienda inizialmente
-          $(this).hide();
-
-          offerte.each(function() {
-              var nomeOfferta = $(this).find('.left_c h2').text().toLowerCase();
-              var descrizioneOfferta = $(this).find('.left_c p:eq(1)').text().toLowerCase();
-
-              // Mostra l'offerta solo se corrisponde ai filtri
-              if (aziendaName.includes(aziendaFilter) && (nomeOfferta.includes(descrizioneFilter) || descrizioneOfferta.includes(descrizioneFilter))) {
-                  showAzienda = true;
-                  return false; // Esci dal ciclo each per le offerte
-              }
-          });
-
-          // Mostra o nascondi l'azienda in base alla corrispondenza dei filtri
-          if (showAzienda) {
-              $(this).show();
-          } else {
-              $(this).hide();
-          }
-      });
-    }
+// Evento di ascolto per gli input di filtro
+$('.filter').on('input', function() {
+    filterResults();
 });
 
+function filterResults() {
+  var nomeFilter = $('#filter-nome').val().toLowerCase();
+  var cognomeFilter = $('#filter-cognome').val().toLowerCase();
+
+
+  $('.filterable').each(function() {
+      var nomeUser = $(this).find('h1:eq(0)').text().toLowerCase();
+      var cognomeUser = $(this).find('h1:eq(1)').text().toLowerCase();
+      var showUser = true;
+
+      if (nomeFilter !== '' && !nomeUser.includes(nomeFilter)) {
+            showUser = false;
+        }
+
+        if (cognomeFilter !== '' && !cognomeUser.includes(cognomeFilter)) {
+            showUser = false;
+        }
+
+      // Mostra o nascondi l'azienda in base alla corrispondenza dei filtri
+      if (showUser) {
+          $(this).show();
+      } else {
+          $(this).hide();
+        }
+  });
+}
+});
 </script>

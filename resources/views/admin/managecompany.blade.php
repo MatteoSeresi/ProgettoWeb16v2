@@ -2,16 +2,16 @@
 
 @section('title', 'Gestione aziende')
 <head><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script></head>
-
 @section('content')
+<section id="azienda">
 <div id="filter">
-    <input type="text" id="filter-azienda" placeholder="Filtro per azienda">
-    <input type="text" id="filter-descrizione" placeholder="Filtro per descrizione">
+    <input type="text" class="filter" id="filter-azienda" placeholder="Filtro per azienda">
+    <input type="text" class="filter" id="filter-descrizione" placeholder="Filtro per descrizione">
 </div>
     <button title="Crea una nuova azienda" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"> <i class="fas fa-user-plus"></i></button>
     @isset($aziende)
         @foreach ($aziende as $azienda)
-        <section id="azienda">
+        <section id="azienda" class="azienda filterable">
             <div id="high_c">
                 <div id="immagine azienda">
                     @include('helpers/aziendeImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->Logo])
@@ -28,7 +28,7 @@
                     </iframe>
                 </div>
 
-                <div id="slot">
+                <div id="slot-descrizione">
                     <h3>Descrizione:</h3>
                     <p>{{ $azienda->Descrizione }}</p>
                 </div>
@@ -44,17 +44,15 @@
         </section>
         @endforeach
     @endisset
+    </section>
 @endsection
 <script>
 
 $(document).ready(function() {
-    // Evento di ascolto per il pulsante di filtro
-    $('#filter-button').on('click', function() {
-        filterResults();
-    });
-
+   
+   
     // Evento di ascolto per gli input di filtro
-    $('#filter-azienda, #filter-descrizione').on('input', function() {
+    $('.filter').on('input', function() {
         filterResults();
     });
 
@@ -62,24 +60,22 @@ $(document).ready(function() {
       var aziendaFilter = $('#filter-azienda').val().toLowerCase();
       var descrizioneFilter = $('#filter-descrizione').val().toLowerCase();
 
-      $('.azienda').each(function() {
+      $('.filterable').each(function() {
           var aziendaName = $(this).find('.name_a h1').text().toLowerCase();
-          var azienda = $(this).find('.azienda');
-          var showAzienda = false;
+          var descrizioneAzienda = $(this).find('#slot-descrizione p').text().toLowerCase();
+          var showAzienda = true;
 
+          
+          if (aziendaFilter !== '' && !aziendaName.includes(aziendaFilter)) {
+                showAzienda = false;
+            }
+
+            if (descrizioneFilter !== '' && !descrizioneAzienda.includes(descrizioneFilter)) {
+                showAzienda = false;
+            }
           // Nascondi l'azienda inizialmente
-          $(this).hide();
-
-          offerte.each(function() {
-              var nomeAzienda = $(this).find('.name_a h1').text().toLowerCase();
-              var descrizioneAzienda = $(this).find('.slot p').text().toLowerCase();
-
-              // Mostra l'offerta solo se corrisponde ai filtri
-              if (aziendaName.includes(aziendaFilter) && (nomeAzienda.includes(descrizioneFilter) || descrizioneAzienda.includes(descrizioneFilter))) {
-                  showAzienda = true;
-                  return false; // Esci dal ciclo each per le offerte
-              }
-          });
+          
+  
 
           // Mostra o nascondi l'azienda in base alla corrispondenza dei filtri
           if (showAzienda) {
