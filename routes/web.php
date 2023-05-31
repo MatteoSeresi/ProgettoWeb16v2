@@ -46,8 +46,16 @@ Route::get('/staff/staffmodify', [StaffController::class, 'modificaStaff'])
 
 Route::post('/staff/staffmodify', [StaffController::class, 'updateStaff']);
 
-Route::get('/staff/offermodify', [StaffController::class, 'modificaOfferta'])
+Route::get('/staff/offermodify', [StaffController::class, 'visualizzaOfferte'])
         ->name('offermodify');
+
+Route::get('/staff/offermodify/{offer_id}/modify', [StaffController::class, 'modificaOfferta'])
+        ->name('modify');
+
+Route::post('/user/usermodify/{offer_id}/modify', [StaffController::class, 'updateOfferta']);
+
+Route::delete('/staff/offermodify/{offer_id}', [StaffController::class, 'eliminaOfferta'])
+        ->name('eliminaoffer');
 
 
 //Livello3

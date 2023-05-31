@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Staff;
 use App\Models\Resources\Company;
+use App\Models\Resources\Offer;
 use App\Models\Catalogo;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,10 +16,12 @@ class StaffController extends Controller {
     protected $_utenteModel;
     protected $_companyModel;
     protected $_catalogModel;
+    protected $_offerModel;
 
     public function __construct() {
         $this->_companyModel = new Company;
         $this->_catalogModel = new Catalogo;
+        $this->_offerModel = new Offer;
     }
     public function staffarea() {
         return view('staff')
@@ -31,12 +34,28 @@ class StaffController extends Controller {
                 ->with('user', $staff);
     }
 
-    public function modificaOfferta() {
+    public function visualizzaOfferte() {
         $aziende = $this->_companyModel->getAzienda();
         $azndOff = $this->_catalogModel->getAziendaWithOffer($aziende);
 
         return view('staff.offermodify')
                 ->with('aziende', $azndOff);
+    }
+
+    public function modificaOfferta($offer_id){
+        $offer = $this->_offerModel->getOfferByID($offer_id);
+        return view('staff.gestioneofferte.modify')
+                ->with('offerta', $offer);
+    }
+
+    public function updateOfferta($offer_id){
+        return view('/');
+    }
+
+    public function eliminaOfferta($offer_id) {
+        $offer = Offer::find($offer_id);
+        $offer->delete();
+        return redirect('offermodify');
     }
 
     public function updateStaff(Request $request){
