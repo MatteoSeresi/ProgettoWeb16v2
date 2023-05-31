@@ -26,7 +26,9 @@ class StaffController extends Controller {
     }
 
     public function modificaStaff() {
-        return view('staff.staffmodify');
+        $staff = Auth::user();
+        return view('staff.staffmodify')
+                ->with('user', $staff);
     }
 
     public function modificaOfferta() {

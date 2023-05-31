@@ -33,7 +33,15 @@
                 <div class="form-floating mb-3">      
                     {{ Form::password('password', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                         rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'password']) }}
-                    {{ Form::label('password', 'Password', ['class' => 'label-input']) }}  
+                    {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
+                    
+                    @if ($errors->first('password'))
+                    <ul class="errors">
+                        @foreach ($errors->get('password') as $message)
+                        <li>{{ $message }}</li>
+                        @endforeach
+                    </ul>
+                    @endif
                 </div>
                 <div class="form-floating mb-3">      
                     {{ Form::password('password_confirmation', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 

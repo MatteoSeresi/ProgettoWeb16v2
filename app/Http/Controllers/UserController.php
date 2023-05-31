@@ -21,10 +21,9 @@ class UserController extends Controller {
     }
 
     public function modificaUtente() {
-
-        //$user = User::getCurrentUser();
-        return view('user.usermodify');
-                    
+        $user = Auth::user();
+        return view('user.usermodify')
+                ->with('user', $user);
     }
 
     public function updateUtente(Request $request){
