@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Resources;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,12 +8,19 @@ class Coupon extends Model
 {
     protected $table = 'coupon'; // Nome della tabella nel database
     protected $fillable = ['codice']; // Elenco delle colonne che possono essere assegnate in modo massivo
-
     public $timestamps = false;
 
-    public function getCoupon($id)
+    public function getCheck($id_utente, $id_offerta, $id_aznd)
     {
-        return Coupon::where('id', $id)->first();
+        $check = Coupon::where('id_user', $id_utente)
+                        ->where('id_offerta', $id_offerta)
+                        ->where('id_azienda', $id_aznd)
+                        ->exists();
+        if($check){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     //Relazione One-To-One con Offerta

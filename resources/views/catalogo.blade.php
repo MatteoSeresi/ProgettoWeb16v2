@@ -11,6 +11,15 @@
 </div>
 
 <div id="aziende-container">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        </div>
+    @endif
   @isset($aziende)
       @foreach ($aziende as $azienda)
           @isset($azienda->offerte)
@@ -26,11 +35,11 @@
                                   <p>Data di scadenza: {{ $offer->Scadenza }}</p>
                                   <p>Descrizione: {{ $offer->Descrizione }}</p>
                                 @can('isUser')
-                                    <button onclick="window.open('{{ route('coupon', ['offertaId' => $offer->ID_Offerta, 'aziendaId' => $azienda->id]) }}')" class="generate-coupon">Genera Coupon</button>
+                                    <button onclick="window.open('{{ route('coupon', ['offertaId' => $offer->ID_Offerta, 'aziendaId' => $azienda->id]) }}')" name= "genera-coupon" class="generate-coupon">Genera Coupon</button>
                                 @else
                                     <button class='disabilita-bottone'>Genera Coupon</button>
                                 @endcan
-                                  
+                                
                               </div>
                               <div class="right_c">
                                   <img src="../../public/images/{{ $offer->Immagine }}" alt="Coupon">

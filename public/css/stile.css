@@ -520,4 +520,22 @@ footer a:hover{
   @media only screen and (max-width: 300px) {
     .prev, .next,.text {font-size: 11px}
   }
- 
+
+  /*COUPON*/
+.contenuto{
+    position: relative;
+    text-align: center;
+    border: 1px solid black;
+    width: 26%;
+    height: auto;
+    margin: 50px 30%;
+    padding: 2% 7%;
+}
+
+.contenuto h1{
+    font-size: 60px;
+}
+
+.contenuto h2{
+    font-size: 50px;
+}
