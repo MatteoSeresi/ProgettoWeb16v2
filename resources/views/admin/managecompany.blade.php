@@ -1,20 +1,13 @@
 @extends('layouts.adminlayout')
 
 @section('title', 'Gestione aziende')
+<head><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script></head>
 
 @section('content')
-<section id="azienda">
-    <div id="filter">
-        <input id="desc" type="text" placeholder="Descrizione">
-        <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn" id="bot">Aziende<i class="fa fa-angle-down" aria-hidden="true"></i></button>
-            <div id="myDropdown" class="dropdown-content">
-                <input type="text" placeholder="Aziende" id="myInput" onkeyup="filterFunction()">
-                <a href="#about">About</a>
-            </div>
-        </div>
-        <input id="invio" type="submit" value="Filtra">
-    </div>
+<div id="filter">
+    <input type="text" id="filter-azienda" placeholder="Filtro per azienda">
+    <input type="text" id="filter-descrizione" placeholder="Filtro per descrizione">
+</div>
     <button title="Crea una nuova azienda" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"> <i class="fas fa-user-plus"></i></button>
     @isset($aziende)
         @foreach ($aziende as $azienda)
@@ -23,7 +16,9 @@
                 <div id="immagine azienda">
                     @include('helpers/aziendeImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->Logo])
                 </div>
-                <h1>Nome azienda: {{ $azienda->Ragione_Sociale }}</h1>
+               <div class="name_a">
+                    <h1>{{ $azienda->Ragione_Sociale}}</h1>
+                </div>
             </div>
             <div id="low_c">
                 <div id="slot">
@@ -49,5 +44,51 @@
         </section>
         @endforeach
     @endisset
-</section>
 @endsection
+<script>
+
+$(document).ready(function() {
+    // Evento di ascolto per il pulsante di filtro
+    $('#filter-button').on('click', function() {
+        filterResults();
+    });
+
+    // Evento di ascolto per gli input di filtro
+    $('#filter-azienda, #filter-descrizione').on('input', function() {
+        filterResults();
+    });
+
+    function filterResults() {
+      var aziendaFilter = $('#filter-azienda').val().toLowerCase();
+      var descrizioneFilter = $('#filter-descrizione').val().toLowerCase();
+
+      $('.azienda').each(function() {
+          var aziendaName = $(this).find('.name_a h1').text().toLowerCase();
+          var azienda = $(this).find('.azienda');
+          var showAzienda = false;
+
+          // Nascondi l'azienda inizialmente
+          $(this).hide();
+
+          offerte.each(function() {
+              var nomeAzienda = $(this).find('.name_a h1').text().toLowerCase();
+              var descrizioneAzienda = $(this).find('.slot p').text().toLowerCase();
+
+              // Mostra l'offerta solo se corrisponde ai filtri
+              if (aziendaName.includes(aziendaFilter) && (nomeAzienda.includes(descrizioneFilter) || descrizioneAzienda.includes(descrizioneFilter))) {
+                  showAzienda = true;
+                  return false; // Esci dal ciclo each per le offerte
+              }
+          });
+
+          // Mostra o nascondi l'azienda in base alla corrispondenza dei filtri
+          if (showAzienda) {
+              $(this).show();
+          } else {
+              $(this).hide();
+          }
+      });
+    }
+});
+
+</script>
