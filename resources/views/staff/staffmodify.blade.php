@@ -5,9 +5,9 @@
 @section('content')
 <section>
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-5">
-            <h2 class="fw-semibold mb-4 text-center">Modifica i tuoi dati staff</h2>
-            {{ Form::open(array('route' => 'staffmodify', 'class' => 'contact-form')) }}
+        <div class="col-12 col-lg-5 text-center">
+            <h2 class="fw-semibold mb-4">Modifica i tuoi dati</h2> 
+            {{ Form::open(array('route' => 'usermodify', 'class' => 'contact-form')) }}
             @csrf
                 <div class="form-floating mb-3">
                     {{ Form::text('name', $user->name ?? old('name'), ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
@@ -30,16 +30,9 @@
                     {{ Form::label('email', 'Email', ['class' => 'label-input']) }}                  
                 </div>
                 <div class="form-floating mb-3">      
-                    {{ Form::password('password', $user->password ?? old('password'), ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black border-bottom-3 
+                    {{ Form::password('password', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                         rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'password']) }}
-                    {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
-                    @if ($errors->first('password'))
-                    <ul class="errors">
-                        @foreach ($errors->get('password') as $message)
-                        <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                    @endif   
+                    {{ Form::label('password', 'Password', ['class' => 'label-input']) }}  
                 </div>
                 <div class="form-floating mb-3">      
                     {{ Form::password('password_confirmation', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
@@ -58,8 +51,7 @@
                 </div>
                 {{ Form::submit('Modifica', ['class' => 'loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-100 mb-3 lh-1 rounded']) }}      
             {{ Form::close() }}
-  
-        </div>
-    </div>  
+        </div>   
+    </div>
 </section>
 @endsection
