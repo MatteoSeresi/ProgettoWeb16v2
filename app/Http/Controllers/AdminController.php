@@ -95,8 +95,24 @@ class AdminController extends Controller {
             $logo->move($destinationPath, $logoName);
         };
 
-        return redirect()->action([AdminController::class, 'adminarea']);
+        return redirect()->action([AdminController::class, 'gestioneAzienda']);
         
+    }
+
+    public function modificaAzienda($company_id){
+        $cmp = $this->_companyModel->getAziendaByID($company_id);
+        return view('admin.gestioneaziende.companymodify')
+                ->with('azienda', $cmp);
+    }
+
+    public function updateAzienda($company_id){
+        return view('/');
+    }
+
+    public function eliminaAzienda($company_id) {
+        $cmp = Company::find($company_id);
+        $cmp->delete();
+        return redirect('/admin/managecompany');
     }
 
     public function aggiungiFaq() {

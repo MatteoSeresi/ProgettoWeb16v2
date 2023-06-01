@@ -17,7 +17,7 @@
                     @include('helpers/aziendeImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->Logo])
                 </div>
                <div class="name_a">
-                    <h1>{{ $azienda->Ragione_Sociale}}</h1>
+                    <h1>{{ $azienda->Ragione_Sociale}}, {{ $azienda->id }}</h1>
                 </div>
             </div>
             <div id="low_c">
@@ -38,8 +38,14 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center ">
-                <button title="Modifica i dati dell'azienda" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded"><i class="fas fa-pencil-alt"></i></button>
-                <button title="Elimina azienda" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"><i class="fa fa-trash"></i></button>
+                <a href="{{ route('companymodify', ['company_id' => $azienda->id])}}" title="Modifica i dati dell'offerta" 
+                   class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded"><i class="fas fa-pencil-alt"></i></a>
+                <a href="{{ route('deletecompany', ['company_id' => $azienda->id]) }}" title="Elimina azienda" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" 
+                   onclick="event.preventDefault(); if (confirm('Sei sicuro di voler eliminare questa azienda?')) { document.getElementById('delete-form-{{ $azienda->id }}').submit(); }"> <i class="fa fa-trash"></i></a>
+                <form id="delete-form-{{ $azienda->id }}" action="{{ route('deletecompany', ['company_id' => $azienda->id]) }}" method="POST" style="display: none;">
+                    @csrf
+                    @method('DELETE')
+                </form>
             </div>
         </section>
         @endforeach

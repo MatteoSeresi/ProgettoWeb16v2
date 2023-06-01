@@ -74,6 +74,14 @@ Route::get('/admin/addcompany', [AdminController::class, 'addAzienda'])
 Route::post('/admin/addcompany', [AdminController::class, 'storeAzienda'])
         ->name('addcompany.store');
 
+Route::get('/admin/managecompany/companymodify/{company_id}', [AdminController::class, 'modificaAzienda'])
+        ->name('companymodify');
+
+Route::post('/admin/managecompany/companymodify/{company_id}', [AdminController::class, 'updateAzienda']);
+
+Route::delete('/admin/managecompany/{company_id}', [AdminController::class, 'eliminaAzienda'])
+        ->name('deletecompany');
+
 Route::get('/admin/deleteuser', [AdminController::class, 'showcancellaUtente'])
         ->name('deleteuser');
 
