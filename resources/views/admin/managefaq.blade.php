@@ -4,7 +4,8 @@
 
 @section('content')
 <section id="azienda">
-    <button title="Crea una nuova faq" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"> <i class="fas fa-user-plus"></i></button>
+    <button title="Crea una nuova faq" class="btn-sm loader border-0 bg-black text-white p-3 text-center 
+    fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.location.href = '{{ route('addFaq') }}'"><i class="fas fa-user-plus"></i></button>
     @isset($faqs)
         @foreach ($faqs as $faq)
         <section id="azienda">
@@ -16,7 +17,6 @@
                     <button title="Elimina faq" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="window.open('https://www.youtube.com/')"><i class="fa fa-trash"></i></button>
                 </div>
             </div>
-            
         </section>
         @endforeach
     @endisset

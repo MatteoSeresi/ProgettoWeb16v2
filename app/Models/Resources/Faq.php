@@ -9,6 +9,8 @@ class Faq extends Model
     protected $table = 'faqs';
 
     protected $primaryKey = 'id';
+    protected $fillable = ['Domanda'];
+    public $timestamps = false;
 
     public function getFaq()
     {

@@ -8,6 +8,7 @@ use App\Models\Staff;
 use App\Models\Resources\Company;
 use App\Models\Resources\Faq;
 use App\Http\Requests\NewCompanyRequest;
+use App\Http\Requests\NewFaqRequest;
 
 class AdminController extends Controller {
 
@@ -96,6 +97,21 @@ class AdminController extends Controller {
 
         return redirect()->action([AdminController::class, 'adminarea']);
         
+    }
+
+    public function aggiungiFaq() {
+        return view('admin.gestionefaq.addFaq');
+    }
+
+    public function storeAddFaq(NewFaqRequest $request) {
+        $domanda = $request->input('Domanda');
+        $risposta = $request->input('Risposta');
+        $faq = $this->_faqModel;
+        $faq->Domanda = $domanda;
+        $faq->Risposta = $risposta;
+        $faq->save();
+
+        return redirect()->route('managefaq');
     }
 
 }

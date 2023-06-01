@@ -539,3 +539,22 @@ footer a:hover{
 .contenuto h2{
     font-size: 50px;
 }
+
+/*AGGIUNGI FAQ*/
+#question .te_in{
+    width: 60%;
+    height: 100px;
+    resize: none;
+    margin: 0px 20%;
+    border: 0.5px solid grey;
+    border-radius: 10px;
+}
+
+.question{
+    text-align: center;
+}
+
+#question .lab_in{
+    font-size: 30px;
+    font-weight: bold;
+}

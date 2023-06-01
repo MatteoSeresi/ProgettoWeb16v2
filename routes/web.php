@@ -85,6 +85,11 @@ Route::get('/admin/managestaff', [AdminController::class, 'gestioneStaff'])
 
 Route::get('/admin/managefaq', [AdminController::class, 'gestioneFaq'])
         ->name('managefaq');
+
+Route::get('/admin/managefaq/addFaq', [AdminController::class, 'aggiungiFaq'])
+        ->name('addFaq');
+        
+Route::post('/admin/managefaq/addFaq', [AdminController::class, 'storeAddFaq']);
         
 Route::get('/admin/stats', [AdminController::class, 'visualizzaStatistiche'])
         ->name('stats');
