@@ -68,10 +68,10 @@ Route::get('/admin/adminmodify', [AdminController::class, 'modificaAdmin'])
 Route::get('/admin/managecompany', [AdminController::class, 'gestioneAzienda'])
         ->name('managecompany');
 
-Route::get('/admin/addcompany', [AdminController::class, 'addAzienda'])
+Route::get('/admin/managecompany/addcompany', [AdminController::class, 'addAzienda'])
         ->name('addcompany');
 
-Route::post('/admin/addcompany', [AdminController::class, 'storeAzienda'])
+Route::post('/admin/managecompany/addcompany', [AdminController::class, 'storeAzienda'])
         ->name('addcompany.store');
 
 Route::get('/admin/managecompany/companymodify/{company_id}', [AdminController::class, 'modificaAzienda'])
@@ -90,6 +90,12 @@ Route::delete('/admin/deleteuser/{user_id}', [AdminController::class, 'eliminaUt
 
 Route::get('/admin/managestaff', [AdminController::class, 'gestioneStaff'])
         ->name('managestaff');
+
+Route::get('/admin/managestaff/addstaff', [AdminController::class, 'addStaff'])
+        ->name('addstaff');
+
+Route::post('/admin/managecompany/addcompany', [AdminController::class, 'storeStaff'])
+        ->name('addstaff.store');
 
 Route::get('/admin/managefaq', [AdminController::class, 'gestioneFaq'])
         ->name('managefaq');

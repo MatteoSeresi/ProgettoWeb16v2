@@ -8,6 +8,7 @@ use App\Models\Staff;
 use App\Models\Resources\Company;
 use App\Models\Resources\Faq;
 use App\Http\Requests\NewCompanyRequest;
+use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewFaqRequest;
 
 class AdminController extends Controller {
@@ -113,6 +114,23 @@ class AdminController extends Controller {
         $cmp = Company::find($company_id);
         $cmp->delete();
         return redirect('/admin/managecompany');
+    }
+
+    public function addStaff() {
+        $stf = User::pluck('name', 'id');
+        return view('admin.gestionestaff.addstaff')
+                        ->with('staff', $stf);
+    }
+
+    public function storeStaff(NewStaffRequest $request) {
+
+        $stf = new User;
+        $stf->fill($request->validated());
+        $stf->role = "staff";
+        $stf->save();
+
+        return redirect()->action([AdminController::class, 'gestioneStaff']);
+    
     }
 
     public function aggiungiFaq() {

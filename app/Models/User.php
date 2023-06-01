@@ -13,6 +13,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $table = 'users';
+    protected $guarded = ['id'];
 
     public $timestamps = false;
 
