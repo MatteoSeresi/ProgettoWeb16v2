@@ -55,7 +55,7 @@ class StaffController extends Controller {
     public function eliminaOfferta($offer_id) {
         $offer = Offer::find($offer_id);
         $offer->delete();
-        return redirect('offermodify');
+        return redirect('/staff/offermodify');
     }
 
     public function updateStaff(Request $request){
