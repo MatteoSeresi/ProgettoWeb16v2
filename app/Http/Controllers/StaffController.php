@@ -49,29 +49,36 @@ class StaffController extends Controller {
     }
 
     public function updateOfferta(Request $request, $offer_id){
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+        } else {
+            $imageName = NULL;
+        }
+
         $request->validate([
             'Nome' => ['required', 'string', 'max:255'],
             'Descrizione' => ['required', 'string'],
             'Scadenza' => ['required', 'date'],
             'Immagine' => ['nullable', 'image', 'max:2048'] 
         ]);
-        
-        $offerta = Offer::find($offer_id);
+
+        $offerta = $this->_offerModel->getOfferByID($offer_id);
 
         $offerta->Nome = $request->input('Nome');
         $offerta->Descrizione = $request->input('Descrizione');
         $offerta->Scadenza = $request->input('Scadenza');
-        
-        if ($request->hasFile('Immagine')) {
-            $image = $request->file('Immagine');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $offerta->Immagine = $imageName;
-        }
+        $offerta->Immagine = $imageName;
     
         $offerta->save();
 
-        return redirect()->route('staff/offermodify');
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() . '/images';
+            $image->move($destinationPath, $imageName);
+        };
+
+        return redirect('/staff/offermodify');
     }
 
     public function eliminaOfferta($offer_id) {

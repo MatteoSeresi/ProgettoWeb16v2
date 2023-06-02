@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
+
+
     protected $table = 'offers';
 
-    protected $primaryKey = 'Id_Offerta';
+    protected $primaryKey = 'ID_Offerta';
+
+    public $timestamps = false;
 
     public function getCatalogo()
     {
