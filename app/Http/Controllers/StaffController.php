@@ -48,8 +48,30 @@ class StaffController extends Controller {
                 ->with('offerta', $offer);
     }
 
-    public function updateOfferta($offer_id){
-        return view('/');
+    public function updateOfferta(Request $request, $offer_id){
+        $request->validate([
+            'Nome' => ['required', 'string', 'max:255'],
+            'Descrizione' => ['required', 'string'],
+            'Scadenza' => ['required', 'date'],
+            'Immagine' => ['nullable', 'image', 'max:2048'] 
+        ]);
+        
+        $offerta = Offer::find($offer_id);
+
+        $offerta->Nome = $request->input('Nome');
+        $offerta->Descrizione = $request->input('Descrizione');
+        $offerta->Scadenza = $request->input('Scadenza');
+        
+        if ($request->hasFile('Immagine')) {
+            $image = $request->file('Immagine');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $offerta->Immagine = $imageName;
+        }
+    
+        $offerta->save();
+
+        return redirect()->route('staff/offermodify');
     }
 
     public function eliminaOfferta($offer_id) {
