@@ -14,6 +14,19 @@ class Offer extends Model
 
     public $timestamps = false;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'Nome',
+        'Descrizione',
+        'Scadenza',
+        'Immagine',
+        'ID_Azienda',
+    ];
+
     public function getCatalogo()
     {
         return Offer::select()->get();

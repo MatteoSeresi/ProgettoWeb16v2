@@ -1,4 +1,4 @@
-extends('layouts.stafflayout')
+@extends('layouts.stafflayout')
 
 @section('title', 'Crea Offerta')
 
@@ -9,12 +9,10 @@ extends('layouts.stafflayout')
             <h2 class="fw-semibold mb-4">Crea Offerta</h2> 
             {{ Form::open(array('route' => 'addOffer.store', 'class' => 'contact-form', 'files' => true)) }}
             @csrf
-                <!-- <div class="form-floating mb-3">
-                    @foreach($aziende as $azienda)
-                        {{ Form::select('ID_Azienda', '' , ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'ID_Azienda']) }}
-                    @endforeach
-                    {{ Form::label('ID_Azienda', 'ID_Azienda', ['class' => 'label-input']) }}
-                </div> -->
+            <div class="form-floating mb-3">
+                {{ Form::select('ID_Azienda', $aziende, '', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 rounded-0 bg-transparent no-outline', 'id' => 'ID_Azienda']) }}
+                {{ Form::label('ID_Azienda', 'Azienda', ['class' => 'label-input']) }}
+            </div>
                  <div class="form-floating mb-3">
                     {{ Form::text('Nome', '' , ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                     rounded-0 bg-transparent no-outline', 'required' => true,  'id' => 'Nome']) }}   

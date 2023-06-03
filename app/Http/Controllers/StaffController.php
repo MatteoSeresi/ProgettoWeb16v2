@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\NewOfferRequest;
 
 
 class StaffController extends Controller {
@@ -44,7 +45,7 @@ class StaffController extends Controller {
 
     public function addOfferta() {
         $off = Offer::pluck('Nome', 'ID_Offerta');
-        $azd = $this->_companyModel->getAzienda();
+        $azd = $this->_companyModel->getAzienda()->pluck('Ragione_Sociale', 'id');
         return view('staff.gestioneofferte.create')
                         ->with('offerta', $off)
                         ->with('aziende', $azd);
@@ -52,8 +53,8 @@ class StaffController extends Controller {
 
     public function storeOfferta(NewOfferRequest $request) {
 
-        if ($request->hasFile('Immagine')) {
-            $logo = $request->file('Immagine');
+        if ($request->hasFile('image')) {
+            $logo = $request->file('image');
             $logoName = $logo->getClientOriginalName();
         } else {
             $logoName = NULL;
@@ -69,7 +70,7 @@ class StaffController extends Controller {
             $logo->move($destinationPath, $logoName);
         };
 
-        return redirect()->action([StaffController::class, 'offermodify']);
+        return redirect()->route('offermodify');
         
     }
 

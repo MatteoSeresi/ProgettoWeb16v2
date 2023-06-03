@@ -4,8 +4,7 @@
 
 @section('content')
 
-<a href="{{ route('addOffer') }}" title="Crea una nuova offerta" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 
-lh-1 rounded"> <i class="fa fa-user-plus"></i></a>
+<button title="Crea una nuova offerta" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.location.href = '{{ route('addOffer') }}'"> <i class="fa fa-user-plus"></i></button>
 <div id="aziende-container">
   @isset($aziende)
       @foreach ($aziende as $azienda)
