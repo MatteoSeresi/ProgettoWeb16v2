@@ -42,6 +42,35 @@ class StaffController extends Controller {
                 ->with('aziende', $azndOff);
     }
 
+    public function addOfferta() {
+        $off = Offer::pluck('Nome', 'ID_Offerta');
+        return view('staff.gestioneofferte.create')
+                        ->with('offerta', $off);
+    }
+
+    public function storeOfferta(NewOfferRequest $request) {
+
+        if ($request->hasFile('Immagine')) {
+            $logo = $request->file('Immagine');
+            $logoName = $logo->getClientOriginalName();
+        } else {
+            $logoName = NULL;
+        }
+
+        $offer = new Offer;
+        $offer->fill($request->validated());
+        $offer->Immagine = $logoName;
+        $offer->save();
+
+        if (!is_null($logoName)) {
+            $destinationPath = public_path() . '/images';
+            $logo->move($destinationPath, $logoName);
+        };
+
+        return redirect()->action([StaffController::class, 'offermodify']);
+        
+    }
+
     public function modificaOfferta($offer_id){
         $offer = $this->_offerModel->getOfferByID($offer_id);
         return view('staff.gestioneofferte.modify')

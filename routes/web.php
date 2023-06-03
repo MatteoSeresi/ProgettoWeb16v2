@@ -54,6 +54,12 @@ Route::get('/staff/offermodify/{offer_id}/modify', [StaffController::class, 'mod
 
 Route::post('/staff/offermodify/{offer_id}/modify', [StaffController::class, 'updateOfferta']);
 
+Route::get('/staff/offermodify/addOffer', [StaffController::class, 'addOfferta'])
+        ->name('addOffer');
+
+Route::post('/staff/offermodify/addOffer', [StaffController::class, 'storeOfferta'])
+        ->name('addOffer.store');
+
 Route::delete('/staff/offermodify/{offer_id}', [StaffController::class, 'eliminaOfferta'])
         ->name('eliminaoffer');
 
