@@ -44,8 +44,10 @@ class StaffController extends Controller {
 
     public function addOfferta() {
         $off = Offer::pluck('Nome', 'ID_Offerta');
+        $azd = $this->_companyModel->getAzienda();
         return view('staff.gestioneofferte.create')
-                        ->with('offerta', $off);
+                        ->with('offerta', $off)
+                        ->with('aziende', $azd);
     }
 
     public function storeOfferta(NewOfferRequest $request) {
