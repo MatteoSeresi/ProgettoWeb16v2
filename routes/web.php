@@ -106,6 +106,11 @@ Route::post('/admin/managestaff/addstaff', [AdminController::class, 'storeStaff'
 Route::delete('/admin/managestaff/{staff_id}', [AdminController::class, 'eliminaStaff'])
         ->name('eliminastaff');
 
+Route::get('/admin/managestaff/editstaff/{staff_id}', [AdminController::class, 'modificaStaff'])
+        ->name('editstaff');
+
+Route::post('/admin/managestaff/editstaff/{staff_id}', [AdminController::class, 'updateStaff']);
+
 Route::get('/admin/managefaq', [AdminController::class, 'gestioneFaq'])
         ->name('managefaq');
 

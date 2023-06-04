@@ -7,10 +7,12 @@ use App\Models\User;
 use App\Models\Staff;
 use App\Models\Resources\Company;
 use App\Models\Resources\Faq;
-use Illuminate\Http\Request;
 use App\Http\Requests\NewCompanyRequest;
 use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewFaqRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller {
 
@@ -167,6 +169,38 @@ class AdminController extends Controller {
         $stf = User::find($staff_id);
         $stf->delete();
         return redirect('/admin/managestaff');
+    }
+
+    public function modificaStaff($staff_id){
+        $staff = User::find($staff_id);
+        return view('admin.gestionestaff.editstaff')
+                ->with('staff', $staff);
+    }
+
+    public function updateStaff(Request $request){
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.Auth::id()],
+            'username' => ['required', 'string', 'min:8', 'unique:users,username,'.Auth::id()],
+            'password' => ['required', 'confirmed'],
+            'data_nascita' => ['required', 'date'],
+            'telefono' => ['required', 'string', 'digits:10'],
+        ]);
+        
+        $staff = User::find(Auth::id());
+
+        $staff->name = $request->input('name');
+        $staff->surname = $request->input('surname');
+        $staff->email = $request->input('email');
+        $staff->username = $request->input('username');
+        $staff->password = Hash::make($request->input('password'));
+        $staff->data_nascita = $request->input('data_nascita');
+        $staff->telefono = $request->input('telefono');
+
+        $staff->save();
+
+        return redirect()->route('/admin/managestaff');
     }
 
     public function aggiungiFaq() {

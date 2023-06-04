@@ -1,6 +1,6 @@
 @extends('layouts.stafflayout')
 
-@section('title', 'Modifica Utente')
+@section('title', 'Modifica Utente Staff')
 
 @section('content')
 <section>
