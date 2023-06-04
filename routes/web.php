@@ -100,8 +100,11 @@ Route::get('/admin/managestaff', [AdminController::class, 'gestioneStaff'])
 Route::get('/admin/managestaff/addstaff', [AdminController::class, 'addStaff'])
         ->name('addstaff');
 
-Route::post('/admin/managecompany/addcompany', [AdminController::class, 'storeStaff'])
+Route::post('/admin/managestaff/addstaff', [AdminController::class, 'storeStaff'])
         ->name('addstaff.store');
+
+Route::delete('/admin/managestaff/{staff_id}', [AdminController::class, 'eliminaStaff'])
+        ->name('eliminastaff');
 
 Route::get('/admin/managefaq', [AdminController::class, 'gestioneFaq'])
         ->name('managefaq');

@@ -133,6 +133,12 @@ class AdminController extends Controller {
     
     }
 
+    public function eliminaStaff($staff_id) {
+        $stf = User::find($staff_id);
+        $stf->delete();
+        return redirect('/admin/managestaff');
+    }
+
     public function aggiungiFaq() {
         return view('admin.gestionefaq.addFaq');
     }

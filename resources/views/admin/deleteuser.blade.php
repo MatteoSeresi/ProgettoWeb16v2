@@ -19,11 +19,11 @@
                 <p>Email: {{ $utente->email }}</p>
             </div>
             <div class="d-flex justify-content-center align-items-center ">
-            <a href="{{ route('elimina', ['user_id' => $utente->id]) }}" title="Elimina utente" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="event.preventDefault(); if (confirm('Sei sicuro di voler eliminare questo utente?')) { document.getElementById('delete-form-{{ $utente->id }}').submit(); }"> <i class="fa fa-trash"></i></a>
-            <form id="delete-form-{{ $utente->id }}" action="{{ route('elimina', ['user_id' => $utente->id]) }}" method="POST" style="display: none;">
-                @csrf
-                @method('DELETE')
-            </form>
+                <a href="{{ route('elimina', ['user_id' => $utente->id]) }}" title="Elimina utente" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="event.preventDefault(); if (confirm('Sei sicuro di voler eliminare questo utente?')) { document.getElementById('delete-form-{{ $utente->id }}').submit(); }"> <i class="fa fa-trash"></i></a>
+                <form id="delete-form-{{ $utente->id }}" action="{{ route('elimina', ['user_id' => $utente->id]) }}" method="POST" style="display: none;">
+                    @csrf
+                    @method('DELETE')
+                </form>
             </div>
         </section>
         @endforeach
