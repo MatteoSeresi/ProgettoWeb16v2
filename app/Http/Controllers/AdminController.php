@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Staff;
 use App\Models\Resources\Company;
 use App\Models\Resources\Faq;
+use Illuminate\Http\Request;
 use App\Http\Requests\NewCompanyRequest;
 use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewFaqRequest;
@@ -106,8 +107,37 @@ class AdminController extends Controller {
                 ->with('azienda', $cmp);
     }
 
-    public function updateAzienda($company_id){
-        return view('/');
+    public function updateAzienda(Request $request, $company_id){
+        
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+        } else {
+            $imageName = NULL;
+        }
+
+        $request->validate([
+            'Ragione_Sociale' => ['required', 'string', 'max:255'],
+            'Localizzazione' => ['required', 'string'],
+            'Descrizione' => ['required', 'string'],
+            'Logo' => ['nullable', 'image', 'max:2048']
+        ]);
+
+        $company = $this->_companyModel->getAziendaByID($company_id);
+
+        $company->Ragione_Sociale = $request->input('Ragione_Sociale');
+        $company->Localizzazione = $request->input('Localizzazione');
+        $company->Descrizione = $request->input('Descrizione');
+        $company->Logo = $imageName;
+        
+        $company->save();
+
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() . '/images/aziende';
+            $image->move($destinationPath, $imageName);
+        };
+
+        return redirect('/admin/managecompany');
     }
 
     public function eliminaAzienda($company_id) {
