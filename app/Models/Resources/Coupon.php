@@ -30,6 +30,13 @@ class Coupon extends Model
         return $numCoup;
     }
 
+    public function getNumCoupProm($id_offerta)
+    {
+        $numCoupProm = Coupon::where('id_offerta', $id_offerta)->count();
+
+        return $numCoupProm;
+    }
+
     //Relazione One-To-One con Offerta
     public function couponOfferta()
     {

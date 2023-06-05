@@ -8,7 +8,7 @@
         <h1 class="text-center">Statistiche</h1>
         <div id="dati">
             <p>Coupon totali emessi: {{$coupon}}</p>
-            <p>selezionando una promozione (sia attiva che scaduta), il numero di coupon emessi per essa; </p>
+            <a href="{{route('offers')}}">selezionando una promozione (sia attiva che scaduta), il numero di coupon emessi per essa; </a>
             <p>selezionando un cliente, il numero di coupon emessi a suo nome</p>
         </div>
         <div class="d-flex justify-content-center align-items-center ">

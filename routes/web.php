@@ -122,4 +122,7 @@ Route::post('/admin/managefaq/addFaq', [AdminController::class, 'storeAddFaq']);
 Route::get('/admin/stats', [AdminController::class, 'visualizzaStatistiche'])
         ->name('stats');
 
+Route::get('/admin/stats/coupoffer', [AdminController::class, 'visualizzaOfferte'])
+        ->name('offers');
+
 require __DIR__.'/auth.php';
