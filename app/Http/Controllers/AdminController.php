@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Staff;
 use App\Models\Resources\Company;
 use App\Models\Resources\Faq;
+use App\Models\Resources\Coupon;
 use App\Http\Requests\NewCompanyRequest;
 use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewFaqRequest;
@@ -21,6 +22,7 @@ class AdminController extends Controller {
     protected $_userModel;
     protected $_staffModel;
     protected $_faqModel;
+    protected $_couponModel;
 
 
     public function __construct() {
@@ -29,6 +31,7 @@ class AdminController extends Controller {
         $this->_userModel = new User;
         $this->_staffModel = new Staff;
         $this->_faqModel = new Faq;
+        $this->_couponModel = new Coupon;
         $this->middleware('can:isAdmin');
     }
 
@@ -65,7 +68,9 @@ class AdminController extends Controller {
     }
 
     public function visualizzaStatistiche() {
-        return view('admin.stats');
+        $coupon = $this->_couponModel->getNumCoup();
+        return view('admin.stats')
+                ->with('coupon', $coupon);
     }
 
     public function eliminaUtente($user_id) {

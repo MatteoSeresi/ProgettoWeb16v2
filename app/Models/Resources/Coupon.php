@@ -23,6 +23,13 @@ class Coupon extends Model
         }
     }
 
+    public function getNumCoup()
+    {
+        $numCoup = Coupon::count();
+
+        return $numCoup;
+    }
+
     //Relazione One-To-One con Offerta
     public function couponOfferta()
     {
