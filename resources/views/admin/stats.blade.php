@@ -9,7 +9,11 @@
         <div id="dati">
             <p>Coupon totali emessi: {{$coupon}}</p>
             <a href="{{route('offers')}}">selezionando una promozione (sia attiva che scaduta), il numero di coupon emessi per essa; </a>
-            <p>selezionando un cliente, il numero di coupon emessi a suo nome</p>
+            <select name="users">
+                @foreach($users as $user)
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="d-flex justify-content-center align-items-center ">
             <button title="Aggiorna statistiche" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="window.open('')"><i class="fas fa-sync-alt"></i></button>

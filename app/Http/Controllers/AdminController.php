@@ -69,10 +69,12 @@ class AdminController extends Controller {
                     ->with('faqs', $fq);
     }
 
-    public function visualizzaStatistiche() {
+  public function visualizzaStatistiche() {
         $coupon = $this->_couponModel->getNumCoup();
+        $users = $this-> _userModel->getUtente();
         return view('admin.stats')
-                ->with('coupon', $coupon);
+                ->with('coupon', $coupon)
+                ->with('users', $users);
     }
 
     public function visualizzaOfferte(){
