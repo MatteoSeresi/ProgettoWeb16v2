@@ -118,6 +118,14 @@ Route::get('/admin/managefaq/addFaq', [AdminController::class, 'aggiungiFaq'])
         ->name('addFaq');
         
 Route::post('/admin/managefaq/addFaq', [AdminController::class, 'storeAddFaq']);
+
+Route::get('/admin/managefaq/editFaq/{faq_id}', [AdminController::class, 'modificaFaq'])
+        ->name('editFaq');
+
+Route::post('/admin/managefaq/editFaq/{faq_id}', [AdminController::class, 'updateFaq']);
+
+Route::delete('/admin/managefaq/{faq_id}', [AdminController::class, 'eliminaFaq'])
+        ->name('eliminaFaq');
         
 Route::get('/admin/stats', [AdminController::class, 'visualizzaStatistiche'])
         ->name('stats');

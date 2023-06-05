@@ -246,4 +246,24 @@ class AdminController extends Controller {
         return redirect()->route('managefaq');
     }
 
+    public function modificaFaq($faq_id) {
+        $faq = Faq::find($faq_id);
+        return view('admin.gestionefaq.editFaq')
+            ->with('faq', $faq);
+    }
+
+    public function updateFaq(NewFaqRequest $request, $faq_id) {
+        $faq = Faq::find($faq_id);
+        $faq->Domanda = $request->input('Domanda');
+        $faq->Risposta = $request->input('Risposta');
+        $faq->save();
+        return redirect()->route('managefaq');
+    }
+
+    public function eliminaFaq($faq_id) {
+        $faq = Faq::find($faq_id);
+        $faq->delete();
+        return redirect('/admin/managefaq');
+    }
+
 }
