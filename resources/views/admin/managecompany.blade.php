@@ -22,9 +22,11 @@
             </div>
             <div id="low_c">
                 <div id="slot">
-                    <iframe src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;
-                        q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"  width="200" height="200"
-                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a>
+                    <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=
+                        {{$azienda->Localizzazione}}+{{$azienda->civico}}+{{$azienda->cap}}+{{$azienda->citta}}
+                        %2C%20Italy+(Titolo)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed"
+                        width="100%" height="100%"frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        <a href="">measure distance on map</a>
                     </iframe>
                 </div>
 
@@ -33,8 +35,10 @@
                     <p>{{ $azienda->Descrizione }}</p>
                 </div>
 
-                <div id="slot">
-                    <p>Qui ci sono i contatti dell'azienda</p>
+                <div id="slot" style="padding: 10px">
+                    <p>Localizzazione: {{$azienda->Localizzazione}}, {{$azienda->civico}}, {{$azienda->citta}}, {{$azienda->cap}}</p>
+                    <p>Telefono: {{$azienda->tel}}</p>
+                    <p>Email: <a href="mailto:{{$azienda->email}}" style="text-decoration: none">{{$azienda->email}}</a></p>
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center ">

@@ -119,18 +119,30 @@ class AdminController extends Controller {
         }
 
         $request->validate([
+            'P_Iva' => ['required', 'string'],
             'Ragione_Sociale' => ['required', 'string', 'max:255'],
             'Localizzazione' => ['required', 'string'],
             'Descrizione' => ['required', 'string'],
-            'Logo' => ['nullable', 'image', 'max:2048']
+            'Logo' => ['nullable', 'image', 'max:2048'],
+            'civico' => ['required', 'string'],
+            'citta' => ['required', 'string'],
+            'cap' => ['required', 'string'],
+            'tel' => ['required', 'string'],
+            'email' => ['required', 'string'],
         ]);
 
         $company = $this->_companyModel->getAziendaByID($company_id);
 
+        $company->P_Iva = $request->input('P_Iva');
         $company->Ragione_Sociale = $request->input('Ragione_Sociale');
         $company->Localizzazione = $request->input('Localizzazione');
         $company->Descrizione = $request->input('Descrizione');
         $company->Logo = $imageName;
+        $company->civico = $request->input('civico');
+        $company->citta = $request->input('citta');
+        $company->cap = $request->input('cap');
+        $company->tel = $request->input('tel');
+        $company->email = $request->input('email');
         
         $company->save();
 
