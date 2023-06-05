@@ -13,7 +13,6 @@ use App\Http\Requests\NewCompanyRequest;
 use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewFaqRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller {
@@ -205,19 +204,18 @@ class AdminController extends Controller {
                 ->with('staff', $staff);
     }
 
-    public function updateStaff(Request $request){
+    public function updateStaff(Request $request, $staff_id){
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.Auth::id()],
-            'username' => ['required', 'string', 'min:8', 'unique:users,username,'.Auth::id()],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'username' => ['required', 'string', 'min:8'],
             'password' => ['required', 'confirmed'],
             'data_nascita' => ['required', 'date'],
             'telefono' => ['required', 'string', 'digits:10'],
         ]);
         
-        $staff = User::find(Auth::id());
-
+        $staff = User::find($staff_id);
         $staff->name = $request->input('name');
         $staff->surname = $request->input('surname');
         $staff->email = $request->input('email');
@@ -228,8 +226,9 @@ class AdminController extends Controller {
 
         $staff->save();
 
-        return redirect()->route('/admin/managestaff');
+        return redirect()->route('managestaff');
     }
+
 
     public function aggiungiFaq() {
         return view('admin.gestionefaq.addFaq');
