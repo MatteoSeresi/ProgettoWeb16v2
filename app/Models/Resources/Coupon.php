@@ -37,6 +37,13 @@ class Coupon extends Model
         return $numCoupProm;
     }
 
+    public function getNumCoupUtente($id_utente)
+    {
+        $numCoupUtente = Coupon::where('id_user', $id_utente)->count();
+
+        return $numCoupUtente;
+    }
+
     //Relazione One-To-One con Offerta
     public function couponOfferta()
     {

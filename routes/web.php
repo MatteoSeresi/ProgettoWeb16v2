@@ -130,7 +130,10 @@ Route::delete('/admin/managefaq/{faq_id}', [AdminController::class, 'eliminaFaq'
 Route::get('/admin/stats', [AdminController::class, 'visualizzaStatistiche'])
         ->name('stats');
 
-Route::get('/admin/stats/coupoffer', [AdminController::class, 'visualizzaOfferte'])
-        ->name('offers');
+Route::get('/admin/stats/get-coupon-count-offerta', [AdminController::class, 'getCouponCountOfferta'])
+        ->name('get-coupon-count-offerta');
+
+Route::get('/admin/stats/get-coupon-count-utente', [AdminController::class, 'getCouponCountUtente'])
+        ->name('get-coupon-count-utente');
 
 require __DIR__.'/auth.php';

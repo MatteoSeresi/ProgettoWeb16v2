@@ -8,6 +8,7 @@ use App\Models\Staff;
 use App\Models\Resources\Company;
 use App\Models\Resources\Faq;
 use App\Models\Resources\Coupon;
+use App\Models\Resources\Offer;
 use App\Models\Catalogo;
 use App\Http\Requests\NewCompanyRequest;
 use App\Http\Requests\NewStaffRequest;
@@ -24,6 +25,7 @@ class AdminController extends Controller {
     protected $_faqModel;
     protected $_couponModel;
     protected $_catalogModel;
+    protected $_offerModel;
 
 
     public function __construct() {
@@ -34,6 +36,7 @@ class AdminController extends Controller {
         $this->_faqModel = new Faq;
         $this->_couponModel = new Coupon;
         $this->_catalogModel = new Catalogo;
+        $this->_offerModel = new Offer;
         $this->middleware('can:isAdmin');
     }
 
@@ -69,14 +72,32 @@ class AdminController extends Controller {
                     ->with('faqs', $fq);
     }
 
-  public function visualizzaStatistiche() {
+  
+    public function visualizzaStatistiche() {
         $num_coupon = $this->_couponModel->getNumCoup();
-        $users = $this-> _userModel->getUtente();
+        $offerte = $this->_offerModel->getCatalogo()->pluck('Nome', 'ID_Offerta');
+        $users = $this-> _userModel->getUtente()->pluck('name', 'id');
         $coupon = Coupon::select()->get();
+
         return view('admin.stats')
                 ->with('num_coupon', $num_coupon)
                 ->with('users', $users)
+                ->with('offerte', $offerte)
                 ->with('coupon', $coupon);
+    }
+
+    public function getCouponCountOfferta(Request $request) {
+        $offertaId = $request->input('offertaId');
+        $numeroCoupon = $this->_couponModel->getNumCoupProm($offertaId);
+        
+        return response()->json($numeroCoupon);
+    }
+
+    public function getCouponCountUtente(Request $request) {
+        $utenteId = $request->input('utenteId');
+        $numeroCoupon = $this->_couponModel->getNumCoupUtente($utenteId);
+
+        return response()->json($numeroCoupon);
     }
 
     public function visualizzaOfferte(){
@@ -93,7 +114,7 @@ class AdminController extends Controller {
         return redirect('/admin/deleteuser');
     }
 
-    public function addAzienda() {
+     public function addAzienda() {
         $cmp = Company::pluck('Ragione_Sociale', 'id');
         return view('admin.gestioneaziende.addcompany')
                         ->with('azienda', $cmp);

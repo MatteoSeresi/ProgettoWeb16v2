@@ -8,13 +8,22 @@
         <h1 class="text-center">Statistiche</h1>
         <div id="dati">
             <p>Coupon totali emessi: {{$num_coupon}}</p>
-            <a href="{{route('offers')}}">selezionando una promozione (sia attiva che scaduta), il numero di coupon emessi per essa; </a>
-            <select name="users" id="optionSelect">
-                @foreach($users as $user)
-                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                @endforeach
-            </select>
-            <span id="selectedOptionId"></span>
+            <p>Seleziona la promozione per vedere quanti coupon sono stati emessi:</p>
+            <div id="offerta" data-url="{{ route('get-coupon-count-offerta') }}"></div>
+            <br>
+                <div class="form-floating mb-3">
+                    {{ Form::select('couponId', $offerte, '', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 rounded-0 bg-transparent no-outline', 'id' => 'couponId', 'placeholder' => '']) }}
+                    {{ Form::label('couponId', 'Offerta', ['class' => 'label-input']) }}
+                </div>
+            </p>
+            <p>Seleziona l'utente per vedere i cazzi che succhia:</p>
+            <div id="utente" data-url="{{ route('get-coupon-count-utente') }}"></div>
+            <br>
+                <div class="form-floating mb-3">
+                    {{ Form::select('utenteId', $users, '', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 rounded-0 bg-transparent no-outline', 'id' => 'utenteId', 'placeholder' => '']) }}
+                    {{ Form::label('utenteId', 'Utente', ['class' => 'label-input']) }}
+                </div>
+            </p>
         </div>
         <div class="d-flex justify-content-center align-items-center ">
             <button title="Aggiorna statistiche" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="window.open('')"><i class="fas fa-sync-alt"></i></button>
@@ -22,20 +31,43 @@
     </section>
 </section>
 
-<script>
-var optionSelect = document.getElementById('optionSelect'); 
-var selectedOptionId = document.getElementById('selectedOptionId'); 
-var couponData = {!! json_encode($coupon) !!}; // Passa i dati dei coupon dal controller alla vista 
 
-optionSelect.addEventListener('change', function() { 
-    var selectedId = this.value;
-    var num = 0;
-    couponData.forEach(function(coupon) { // Itera sui dati dei coupon 
-        if (coupon.id_user == selectedId) { 
-            num++; 
-        } 
-    }); 
-    selectedOptionId.textContent = num; 
-}); 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#couponId').change(function() {
+    var offertaId = $(this).val();
+    var url = $('#offerta').data('url');
+    
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: { offertaId: offertaId },
+      success: function(response) {
+        $('#offerta').text('Numero di coupon emessi per l\'offerta: ' + response);
+      },
+      error: function(xhr, status, error) {
+        console.log(error);
+      }
+    });
+  });
+
+  $('#utenteId').change(function(){
+    var utenteId = $(this).val();
+    var url = $('#utente').data('url');
+
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: { utenteId: utenteId },
+      success: function(response) {
+        $('#utente').text('Numero di coupon emessi per l\'utente: ' + response);
+      },
+      error: function(xhr, status, error) {
+        console.log(error);
+      }
+    });
+  });
+});
 </script>
 @endsection
