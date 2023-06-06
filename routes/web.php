@@ -8,7 +8,8 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\CouponController;
 
 
-// Livello 0
+                                                        //LIVELLO 0
+
 Route::get('/', [PublicController::class, 'showHome'])
         ->name('home');
 
@@ -24,8 +25,9 @@ Route::get('/faq', [PublicController::class, 'showFaq'])
 Route::view('/contattaci', 'contattaci')
         ->name('contattaci');
 
-//Livello1
+                                                        //LIVELLO 1
 
+//AREA UTENTE
 Route::get('/user', [UserController::class, 'userarea'])
         ->name('user')->middleware('can:isUser');
 
@@ -37,7 +39,9 @@ Route::post('/user/usermodify', [UserController::class, 'updateUtente']);
 Route::get('/user/coupon/{offertaId}/{aziendaId}', [CouponController::class, 'showCoupon'])
     ->name('coupon');
 
-//Livello2
+                                                            //LIVELLO 2
+
+//AREA STAFF
 Route::get('/staff', [StaffController::class, 'staffarea'])
         ->name('staff')->middleware('can:isStaff');
 
@@ -46,6 +50,7 @@ Route::get('/staff/staffmodify', [StaffController::class, 'modificaStaff'])
 
 Route::post('/staff/staffmodify', [StaffController::class, 'updateStaff']);
 
+//GESTIONE OFFERTE
 Route::get('/staff/offermodify', [StaffController::class, 'visualizzaOfferte'])
         ->name('offermodify');
 
@@ -64,13 +69,16 @@ Route::delete('/staff/offermodify/{offer_id}', [StaffController::class, 'elimina
         ->name('eliminaoffer');
 
 
-//Livello3
+                                                                //LIVELLO 3
+
+//AREA ADMIN
 Route::get('/admin', [AdminController::class, 'adminarea'])
         ->name('admin')->middleware('can:isAdmin');
 
 Route::get('/admin/adminmodify', [AdminController::class, 'modificaAdmin'])
         ->name('adminmodify');
 
+//GESTIONE AZIENDE
 Route::get('/admin/managecompany', [AdminController::class, 'gestioneAzienda'])
         ->name('managecompany');
 
@@ -88,12 +96,14 @@ Route::post('/admin/managecompany/companymodify/{company_id}', [AdminController:
 Route::delete('/admin/managecompany/{company_id}', [AdminController::class, 'eliminaAzienda'])
         ->name('deletecompany');
 
+//CANCELLAZIONE UTENTI
 Route::get('/admin/deleteuser', [AdminController::class, 'showcancellaUtente'])
         ->name('deleteuser');
 
 Route::delete('/admin/deleteuser/{user_id}', [AdminController::class, 'eliminaUtente'])
         ->name('elimina');
 
+//GESTIONE STAFF        
 Route::get('/admin/managestaff', [AdminController::class, 'gestioneStaff'])
         ->name('managestaff');
 
@@ -111,6 +121,7 @@ Route::get('/admin/managestaff/editstaff/{staff_id}', [AdminController::class, '
 
 Route::post('/admin/managestaff/editstaff/{staff_id}', [AdminController::class, 'updateStaff']);
 
+//GESTIONE FAQ
 Route::get('/admin/managefaq', [AdminController::class, 'gestioneFaq'])
         ->name('managefaq');
 
@@ -127,6 +138,7 @@ Route::post('/admin/managefaq/editFaq/{faq_id}', [AdminController::class, 'updat
 Route::delete('/admin/managefaq/{faq_id}', [AdminController::class, 'eliminaFaq'])
         ->name('eliminaFaq');
         
+//VISUALIZZA STATISTICHE
 Route::get('/admin/stats', [AdminController::class, 'visualizzaStatistiche'])
         ->name('stats');
 

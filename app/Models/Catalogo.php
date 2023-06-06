@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Resources\Company;
-use App\Models\Resources\Offer;
 
 class Catalogo {
     public function getAziendaWithOffer($aziende)

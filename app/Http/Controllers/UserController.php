@@ -11,10 +11,11 @@ class UserController extends Controller {
 
     protected $_utenteModel;
 
+//COSTRUTTORE
     public function __construct() {
         $this->_utenteModel = new User;
     }
-    
+//AREA UTENTE
     public function userarea() {
         return view('user')
             ->with('user', Auth::user());
@@ -46,10 +47,8 @@ class UserController extends Controller {
         $user->password = Hash::make($request->input('password'));
         $user->data_nascita = $request->input('data_nascita');
         $user->telefono = $request->input('telefono');
-
         $user->save();
 
-        //return redirect()->route('user')->withErrors($validator)->withInput();
         return redirect()->route('user');
     }
 

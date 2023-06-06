@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Faq extends Model
 {
-    protected $table = 'faqs';
+    protected $table = 'faqs';// Nome della tabella nel database
 
-    protected $primaryKey = 'id';
-    protected $fillable = ['Domanda'];
+    protected $primaryKey = 'id';//CHIAVE PRIMARIA
+    protected $fillable = ['Domanda'];// Elenco delle colonne che possono essere assegnate in modo massivo
     public $timestamps = false;
-
+    
+//OTTIENI LA LISTA COMPLETA DELLE FAQ
     public function getFaq()
     {
         return Faq::select()->get();

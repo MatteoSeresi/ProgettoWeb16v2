@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers; 
 
-use App\Models\Admin;
 use App\Models\User;
-use App\Models\Staff;
 use App\Models\Resources\Company;
 use App\Models\Resources\Faq;
 use App\Models\Resources\Coupon;
@@ -18,28 +16,24 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller {
 
-    protected $_adminModel;
     protected $_companyModel;
     protected $_userModel;
-    protected $_staffModel;
     protected $_faqModel;
     protected $_couponModel;
     protected $_catalogModel;
     protected $_offerModel;
 
-
+//COSTRUTTORE
     public function __construct() {
-        $this->_adminModel = new Admin;
         $this->_companyModel = new Company;
         $this->_userModel = new User;
-        $this->_staffModel = new Staff;
         $this->_faqModel = new Faq;
         $this->_couponModel = new Coupon;
         $this->_catalogModel = new Catalogo;
         $this->_offerModel = new Offer;
         $this->middleware('can:isAdmin');
     }
-
+//AREA ADMIN
     public function adminarea() {
         return view('admin');
     }
@@ -47,74 +41,13 @@ class AdminController extends Controller {
     public function modificaAdmin() {
         return view('admin.adminmodify');
     }
-
+//GESTIONE AZIENDE
     public function gestioneAzienda() {
         $aznd = $this->_companyModel->getAzienda();  
         return view('admin.managecompany')
                     ->with('aziende', $aznd);
     }
-
-    public function showcancellaUtente() {
-        $usr = $this->_userModel->getUtente();  
-        return view('admin.deleteuser')
-                    ->with('utenti', $usr);
-    }
-
-    public function gestioneStaff() {
-        $stf = $this->_staffModel->getStaff();  
-        return view('admin.managestaff')
-                    ->with('staffs', $stf);
-    }
-
-    public function gestioneFaq() {
-        $fq=$this->_faqModel->getFaq();
-        return view('admin.managefaq')
-                    ->with('faqs', $fq);
-    }
-
-  
-    public function visualizzaStatistiche() {
-        $num_coupon = $this->_couponModel->getNumCoup();
-        $offerte = $this->_offerModel->getCatalogo()->pluck('Nome', 'ID_Offerta');
-        $users = $this-> _userModel->getUtente()->pluck('name', 'id');
-        $coupon = Coupon::select()->get();
-
-        return view('admin.stats')
-                ->with('num_coupon', $num_coupon)
-                ->with('users', $users)
-                ->with('offerte', $offerte)
-                ->with('coupon', $coupon);
-    }
-
-    public function getCouponCountOfferta(Request $request) {
-        $offertaId = $request->input('offertaId');
-        $numeroCoupon = $this->_couponModel->getNumCoupProm($offertaId);
-        
-        return response()->json($numeroCoupon);
-    }
-
-    public function getCouponCountUtente(Request $request) {
-        $utenteId = $request->input('utenteId');
-        $numeroCoupon = $this->_couponModel->getNumCoupUtente($utenteId);
-
-        return response()->json($numeroCoupon);
-    }
-
-    public function visualizzaOfferte(){
-        $aziende = $this->_companyModel->getAzienda();
-        $azndOff = $this->_catalogModel->getAziendaWithOffer($aziende);
-
-        return view('admin.statistiche.statcouponpromo')
-               -> with('aziende', $azndOff);
-    }
-
-    public function eliminaUtente($user_id) {
-        $user = User::find($user_id);
-        $user->delete();
-        return redirect('/admin/deleteuser');
-    }
-
-     public function addAzienda() {
+    public function addAzienda() {
         $cmp = Company::pluck('Ragione_Sociale', 'id');
         return view('admin.gestioneaziende.addcompany')
                         ->with('azienda', $cmp);
@@ -200,6 +133,25 @@ class AdminController extends Controller {
         return redirect('/admin/managecompany');
     }
 
+//CANCELLAZIONE UTENTI
+    public function showcancellaUtente() {
+        $usr = $this->_userModel->getUtente();  
+        return view('admin.deleteuser')
+                    ->with('utenti', $usr);
+    }
+
+    public function eliminaUtente($user_id) {
+        $user = User::find($user_id);
+        $user->delete();
+        return redirect('/admin/deleteuser');
+    }
+//GESTIONE DELLO STAFF
+    public function gestioneStaff() {
+        $stf = $this->_userModel->getStaff();  
+        return view('admin.managestaff')
+                    ->with('staffs', $stf);
+    }
+
     public function addStaff() {
         $stf = User::pluck('name', 'id');
         return view('admin.gestionestaff.addstaff')
@@ -254,6 +206,12 @@ class AdminController extends Controller {
         return redirect()->route('managestaff');
     }
 
+//GESTIONE DELLE FAQ
+    public function gestioneFaq() {
+        $fq=$this->_faqModel->getFaq();
+        return view('admin.managefaq')
+                    ->with('faqs', $fq);
+    }
 
     public function aggiungiFaq() {
         return view('admin.gestionefaq.addFaq');
@@ -289,5 +247,39 @@ class AdminController extends Controller {
         $faq->delete();
         return redirect('/admin/managefaq');
     }
+//VISUALIZZAZIONE DELLE STATISTICHE
+    public function visualizzaStatistiche() {
+        $num_coupon = $this->_couponModel->getNumCoup();
+        $offerte = $this->_offerModel->getCatalogo()->pluck('Nome', 'ID_Offerta');
+        $users = $this-> _userModel->getUtente()->pluck('name', 'id');
+        $coupon = Coupon::select()->get();
 
+        return view('admin.stats')
+                ->with('num_coupon', $num_coupon)
+                ->with('users', $users)
+                ->with('offerte', $offerte)
+                ->with('coupon', $coupon);
+    }
+
+    public function getCouponCountOfferta(Request $request) {
+        $offertaId = $request->input('offertaId');
+        $numeroCoupon = $this->_couponModel->getNumCoupProm($offertaId);
+        
+        return response()->json($numeroCoupon);
+    }
+
+    public function getCouponCountUtente(Request $request) {
+        $utenteId = $request->input('utenteId');
+        $numeroCoupon = $this->_couponModel->getNumCoupUtente($utenteId);
+
+        return response()->json($numeroCoupon);
+    }
+//FUNZIONI UTILITARIE
+    public function visualizzaOfferte(){
+        $aziende = $this->_companyModel->getAzienda();
+        $azndOff = $this->_catalogModel->getAziendaWithOffer($aziende);
+
+        return view('admin.statistiche.statcouponpromo')
+               -> with('aziende', $azndOff);
+    }
 }

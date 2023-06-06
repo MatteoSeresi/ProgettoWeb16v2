@@ -60,6 +60,11 @@ class User extends Authenticatable
         return User::where('role', 'user')->get();
     }
 
+    public function getStaff()
+    {
+        return User::where('role', 'staff')->get();
+    }
+
     public function getCurrentUser(){
         $user = Auth::user();
         return $user;

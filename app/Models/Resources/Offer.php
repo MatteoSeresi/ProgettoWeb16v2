@@ -8,9 +8,9 @@ class Offer extends Model
 {
 
 
-    protected $table = 'offers';
+    protected $table = 'offers';// Nome della tabella nel database
 
-    protected $primaryKey = 'ID_Offerta';
+    protected $primaryKey = 'ID_Offerta';//CHIAVE PRIMARIA
 
     public $timestamps = false;
 
@@ -27,17 +27,19 @@ class Offer extends Model
         'ID_Azienda',
     ];
 
+//OTTIENI LA LISTA COMPLETA DELLE OFFERTE
     public function getCatalogo()
     {
         return Offer::select()->get();
     }
 
+//SELEZIONA UN'OFFERTA IN BASE ALL'ID
     public function getOfferByID($idOfferta)
     {
         return Offer::where('ID_Offerta', $idOfferta)->first();
     }
 
-    // Relazione One-To-One con Company
+// Relazione One-To-One con Company
     public function azienda() {
         return $this->belongsTo(Company::class, 'ID_Azienda', 'id');
     }

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Staff;
 use App\Models\Resources\Company;
 use App\Models\Resources\Offer;
 use App\Models\Catalogo;
@@ -19,11 +18,13 @@ class StaffController extends Controller {
     protected $_catalogModel;
     protected $_offerModel;
 
+//COSTRUTTORE
     public function __construct() {
         $this->_companyModel = new Company;
         $this->_catalogModel = new Catalogo;
         $this->_offerModel = new Offer;
     }
+//AREA STAFF
     public function staffarea() {
         return view('staff')
             ->with('user', Auth::user());
@@ -35,6 +36,32 @@ class StaffController extends Controller {
                 ->with('user', $staff);
     }
 
+    public function updateStaff(Request $request){
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.Auth::id()],
+            'username' => ['required', 'string', 'min:8', 'unique:users,username,'.Auth::id()],
+            'password' => ['required', 'confirmed'],
+            'data_nascita' => ['required', 'date'],
+            'telefono' => ['required', 'string', 'digits:10'],
+        ]);
+        
+        $user = User::find(Auth::id());
+
+        $user->name = $request->input('name');
+        $user->surname = $request->input('surname');
+        $user->email = $request->input('email');
+        $user->username = $request->input('username');
+        $user->password = Hash::make($request->input('password'));
+        $user->data_nascita = $request->input('data_nascita');
+        $user->telefono = $request->input('telefono');
+
+        $user->save();
+
+        return redirect()->route('staff');
+    }
+//VISUALIZZA ELENCO OFFERTE
     public function visualizzaOfferte() {
         $aziende = $this->_companyModel->getAzienda();
         $azndOff = $this->_catalogModel->getAziendaWithOffer($aziende);
@@ -42,7 +69,7 @@ class StaffController extends Controller {
         return view('staff.offermodify')
                 ->with('aziende', $azndOff);
     }
-
+//GESTISCI OFFERTE
     public function addOfferta() {
         $off = Offer::pluck('Nome', 'ID_Offerta');
         $azd = $this->_companyModel->getAzienda()->pluck('Ragione_Sociale', 'id');
@@ -119,30 +146,6 @@ class StaffController extends Controller {
         return redirect('/staff/offermodify');
     }
 
-    public function updateStaff(Request $request){
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.Auth::id()],
-            'username' => ['required', 'string', 'min:8', 'unique:users,username,'.Auth::id()],
-            'password' => ['required', 'confirmed'],
-            'data_nascita' => ['required', 'date'],
-            'telefono' => ['required', 'string', 'digits:10'],
-        ]);
-        
-        $user = User::find(Auth::id());
-
-        $user->name = $request->input('name');
-        $user->surname = $request->input('surname');
-        $user->email = $request->input('email');
-        $user->username = $request->input('username');
-        $user->password = Hash::make($request->input('password'));
-        $user->data_nascita = $request->input('data_nascita');
-        $user->telefono = $request->input('telefono');
-
-        $user->save();
-
-        return redirect()->route('staff');
-    }
+    
 
 }

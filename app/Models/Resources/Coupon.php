@@ -10,8 +10,8 @@ class Coupon extends Model
     protected $fillable = ['codice']; // Elenco delle colonne che possono essere assegnate in modo massivo
     public $timestamps = false;
 
-    public function getCheck($id_utente, $id_offerta, $id_aznd)
-    {
+//CHECK PER VERIFICARE CHE IL COUPON ESISTA GIA'
+    public function getCheck($id_utente, $id_offerta, $id_aznd){
         $check = Coupon::where('id_user', $id_utente)
                         ->where('id_offerta', $id_offerta)
                         ->where('id_azienda', $id_aznd)
@@ -23,34 +23,29 @@ class Coupon extends Model
         }
     }
 
-    public function getNumCoup()
-    {
+//NUMERO DEI COUPON GENERATI IN TUTTO
+    public function getNumCoup(){
         $numCoup = Coupon::count();
-
         return $numCoup;
     }
-
-    public function getNumCoupProm($id_offerta)
-    {
+//NUMERO COUPON GENERATI IN BASE ALL'OFFERTA
+    public function getNumCoupProm($id_offerta){
         $numCoupProm = Coupon::where('id_offerta', $id_offerta)->count();
-
         return $numCoupProm;
     }
-
-    public function getNumCoupUtente($id_utente)
-    {
+//NUMERO COUPON GENERATI IN BASE ALL'UTENTE
+    public function getNumCoupUtente($id_utente){
         $numCoupUtente = Coupon::where('id_user', $id_utente)->count();
-
         return $numCoupUtente;
     }
 
-    //Relazione One-To-One con Offerta
+//Relazione One-To-One con Offerta
     public function couponOfferta()
     {
         return $this->belongsTo(Offer::class, 'ID_offerta', 'id_offerta');
     }
 
-    //Relazione One-To-One con Utente
+//Relazione One-To-One con Utente
     public function couponUser()
     {
         return $this->belongsTo(User::class, 'id', 'id_user');
