@@ -55,9 +55,4 @@ class Coupon extends Model
     {
         return $this->belongsTo(User::class, 'id', 'id_user');
     }
-
-    public function couponAzienda()
-    {
-        return $this->belongsTo(Company::class, 'id', 'id_azienda');
-    }
 } 

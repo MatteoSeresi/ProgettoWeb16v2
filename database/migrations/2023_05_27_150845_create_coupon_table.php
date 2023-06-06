@@ -18,10 +18,8 @@ return new class extends Migration
             $table->bigInteger('codice');
             $table->bigInteger('id_user')->unsigned()->index();
             $table->bigInteger('id_offerta')->unsigned()->index();
-            $table->bigInteger('id_azienda')->unsigned()->index();
             $table->foreign('id_offerta')->references('ID_Offerta')->on('offers')->onDelete('cascade');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('id_azienda')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }
