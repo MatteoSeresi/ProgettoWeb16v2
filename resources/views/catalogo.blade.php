@@ -43,7 +43,11 @@
                                     @if ($scaduta)
                                         <button class="disabilita-bottone">Coupon Scaduto</button>
                                     @else
-                                        <button onclick="window.open('{{ route('coupon', ['offertaId' => $offer->ID_Offerta, 'aziendaId' => $azienda->id]) }}')" name="genera-coupon" class="generate-coupon">Genera Coupon</button>
+                                        @if('checkCoupon($offer->ID_Offerta,$azienda->id)') 
+                                            <button class="disabilita-bottone">Coupon Già Generato</button>
+                                        @else
+                                            <button onclick="window.open('{{ route('coupon', ['offertaId' => $offer->ID_Offerta, 'aziendaId' => $azienda->id]) }}')" name="genera-coupon" class="generate-coupon">Genera Coupon</button>
+                                        @endif
                                     @endif
                                     @else
                                     <button class="disabilita-bottone">Genera Coupon</button>
