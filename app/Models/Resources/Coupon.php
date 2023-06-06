@@ -11,10 +11,9 @@ class Coupon extends Model
     public $timestamps = false;
 
 //CHECK PER VERIFICARE CHE IL COUPON ESISTA GIA'
-    public function getCheck($id_utente, $id_offerta, $id_aznd){
+    public function getCheck($id_utente, $id_offerta){
         $check = Coupon::where('id_user', $id_utente)
                         ->where('id_offerta', $id_offerta)
-                        ->where('id_azienda', $id_aznd)
                         ->exists();
         if($check){
             return true;
