@@ -8,7 +8,7 @@
         <h1 class="text-center">Statistiche</h1>
         <div id="dati">
             <p>Coupon totali emessi: {{$num_coupon}}</p>
-            <p>Seleziona la promozione per vedere quanti coupon sono stati emessi:</p>
+            <p>Seleziona la promozione per vedere il numero di coupon emessi per essa:</p>
             <div id="offerta" data-url="{{ route('get-coupon-count-offerta') }}"></div>
             <br>
                 <div class="form-floating mb-3">
@@ -16,7 +16,7 @@
                     {{ Form::label('couponId', 'Offerta', ['class' => 'label-input']) }}
                 </div>
             </p>
-            <p>Seleziona l'utente per vedere i cazzi che succhia:</p>
+            <p>Seleziona l'utente per vedere il numero di coupon generati a suo nome:</p>
             <div id="utente" data-url="{{ route('get-coupon-count-utente') }}"></div>
             <br>
                 <div class="form-floating mb-3">
