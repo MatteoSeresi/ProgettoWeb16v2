@@ -63,3 +63,26 @@
         </table>         
     </div>
 </nav>
+
+<script>
+    // Ottieni la rotta corrente
+    var currentRoute = "{{ Request::url() }}";
+
+    // Rimuovi l'attributo "active" da tutti gli elementi della navbar
+    var navbarItems = document.querySelectorAll('.container-lg table a');
+    navbarItems.forEach(function(item) {
+        item.classList.remove('active');
+    });
+
+    // Verifica la rotta corrente e imposta l'elemento "active" corrispondente
+    navbarItems.forEach(function(item) {
+        var href = item.getAttribute('href');
+        if (currentRoute === href) {
+            item.classList.add('active');
+        } else if (currentRoute.includes('/staff') && href === '{{ route('staff') }}') {
+            // Verifica se la rotta corrente inizia con "/staff" e la rotta corrente
+            // è la rotta "staff"
+            item.classList.add('active');
+        }
+    });
+</script>

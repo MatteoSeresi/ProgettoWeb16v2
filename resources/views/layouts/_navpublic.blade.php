@@ -4,7 +4,7 @@
             <tbody>
                 <tr class="align-middle">
                     <td class="p-0">
-                        <a href="{{ route('home') }}" class="p-3 lh-1 d-block spa text-black text-decoration-none active">
+                        <a id="home" href="{{ route('home') }}" class="p-3 lh-1 d-block spa text-black text-decoration-none">
                             HOME
                         </a>
                     </td>
@@ -12,7 +12,7 @@
                         <div class="vr"></div>
                     </td>
                     <td class="p-0">
-                        <a href="{{ route('aziende') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none">
+                        <a id="aziende" href="{{ route('aziende') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none">
                             AZIENDE
                         </a>
                     </td>
@@ -20,7 +20,7 @@
                         <div class="vr"></div>
                     </td>
                     <td class="p-0">
-                        <a href="{{ route('catalogo') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
+                        <a id="catalogo" href="{{ route('catalogo') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
                             CATALOGO
                         </a>
                     </td>
@@ -28,7 +28,7 @@
                         <div class="vr"></div>
                     </td>
                     <td class="p-0">
-                        <a href="{{ route('faq') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
+                        <a id="faq" href="{{ route('faq') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
                             FAQ
                         </a>
                     </td>
@@ -36,7 +36,7 @@
                         <div class="vr"></div>
                     </td>
                     <td class="p-0">
-                        <a href="{{ route('contattaci') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
+                        <a id="contatti" href="{{ route('contattaci') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
                             CONTATTACI
                     </td>
                     @guest
@@ -44,7 +44,7 @@
                         <div class="vr"></div>
                     </td>
                     <td class="p-0">
-                        <a href="{{ route('login') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
+                        <a id="accedi" href="{{ route('login') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
                             ACCEDI
                         </a>
                     </td>
@@ -54,7 +54,7 @@
                         <div class="vr"></div>
                     </td>
                     <td class="p-0">
-                        <a href="{{ route('user') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
+                        <a id="utente" href="{{ route('user') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
                             AREA UTENTE
                         </a>
                     </td>
@@ -64,7 +64,7 @@
                         <div class="vr"></div>
                     </td>
                     <td class="p-0">
-                        <a href="{{ route('staff') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
+                        <a id="staff" href="{{ route('staff') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
                             AREA STAFF
                         </a>
                     </td>
@@ -74,7 +74,7 @@
                         <div class="vr"></div>
                     </td>
                     <td class="p-0">
-                        <a href="{{ route('admin') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
+                        <a id="admin" href="{{ route('admin') }}" class="p-3 lh-1 d-block spa type text-black text-decoration-none ">
                             AREA ADMIN
                         </a>
                     </td>
@@ -96,3 +96,29 @@
         </table>         
     </div>
 </nav>
+
+
+<script>
+    // Ottieni la rotta corrente
+    var currentRoute = "{{ Request::url() }}";
+
+    // Rimuovi l'attributo "active" da tutti gli elementi della navbar
+    var navbarItems = document.querySelectorAll('.container-lg table a');
+    navbarItems.forEach(function(item) {
+        item.classList.remove('active');
+    });
+
+    // Verifica la rotta corrente e imposta l'elemento "active" corrispondente
+    navbarItems.forEach(function(item) {
+        var href = item.getAttribute('href');
+        if (currentRoute === href) {
+            item.classList.add('active');
+        }
+    });
+</script>
+
+
+
+
+
+
