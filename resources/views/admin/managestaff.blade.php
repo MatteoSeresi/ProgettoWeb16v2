@@ -7,7 +7,6 @@
 <div id="filter">
 <input type="text" class="filter" id="filter-nome" placeholder="Filtro per nome">
 <input type="text" class="filter" id="filter-cognome" placeholder="Filtro per cognome">
-    
 </div>
     <button title="Crea un nuovo utente staff" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.location.href = '{{ route('addstaff') }}'"> <i class="fas fa-user-plus"></i></button>
     @isset($staffs)

@@ -4,6 +4,8 @@
 
 @section('content')
 <section>
+    <button onclick="window.location.href='{{route('staff')}}'" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 mb-3 
+            lh-1 rounded"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
     <div class="row justify-content-center">
         <div class="col-12 col-lg-5 text-center">
             <h2 class="fw-semibold mb-4">Modifica i tuoi dati</h2> 
