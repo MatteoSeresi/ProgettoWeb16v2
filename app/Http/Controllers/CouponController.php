@@ -39,12 +39,18 @@ class CouponController extends Controller
     }
     public function checkCoupon($offertaId, $aziendaId){
         $user = $this->getCurrentUser();
-        $offer = $this->_offerModel->getOfferByID($offertaId);
-        $aznd = $this->_companyModel->getAziendaByID($aziendaId);
-        $check = $this->_couponModel->getCheck($user->id, $offer->ID_Offerta, $aznd->id);
-        if($check){
-            return true;
+
+        if($user == null){
+            return false;
+        }else{
+            $offer = $this->_offerModel->getOfferByID($offertaId);
+            $aznd = $this->_companyModel->getAziendaByID($aziendaId);
+            $check = $this->_couponModel->getCheck($user->id, $offer->ID_Offerta, $aznd->id);
+            if($check){
+                return true;
+            }
         }
+        
         return false;
     }
     public function generaCoupon($codice, $aznd,$offer){
