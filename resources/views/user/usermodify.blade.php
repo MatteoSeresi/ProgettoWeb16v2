@@ -5,7 +5,10 @@
 
 @section('content')
 <section>
+<button onclick="window.location.href='{{route('user')}}'" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 mb-3 
+            lh-1 rounded"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
     <div class="row justify-content-center">
+            
         <div class="col-12 col-lg-5 text-center">
             <h2 class="fw-semibold mb-4">Modifica i tuoi dati</h2> 
             {{ Form::open(array('route' => 'usermodify', 'class' => 'contact-form')) }}
@@ -58,7 +61,10 @@
                     rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'telefono']) }}
                     {{ Form::label('telefono', 'Telefono', ['class' => 'label-input']) }}                        
                 </div>
-                {{ Form::submit('Modifica', ['class' => 'loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-100 mb-3 lh-1 rounded']) }}      
+                <div class="d-flex justify-content-center align-items-center ">
+                    <button title="Conferma" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" type = "submit"><i class="fa fa-check"></i></button>
+                    <button title="Scarta modifiche" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" type = "reset"><i class="fa fa-undo" aria-hidden="true"></i></button>
+                </div>
             {{ Form::close() }}
         </div>   
     </div>

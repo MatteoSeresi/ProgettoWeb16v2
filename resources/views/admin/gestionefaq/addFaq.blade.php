@@ -3,6 +3,8 @@
 @section('title', 'Aggiungi FAQ')
 
 @section('content')
+<button onclick="window.location.href='{{route('managefaq')}}'" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 mb-3 
+            lh-1 rounded"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
 <section id="azienda">
     <div id="question" class = "question">
     {{ Form::open(array('route' => 'addFaq', 'class' => 'contact-form')) }}
