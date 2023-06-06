@@ -6,7 +6,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/stile.css') }}" >
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap5.css') }}" >
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <title>Nome sito | @yield('title', 'Home')</title>
+        <link rel="shortcut icon" href="{{ asset('images/LogoSito16x16.png')}}" sizes="16x16">
+        <title>CouponHub | @yield('title', 'Home')</title>
     </head>
     <body>
     <div class="container-fluid container-lg my-3 mb-0 pb-3 border-bottom border-2 border-black">

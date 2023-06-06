@@ -7,7 +7,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/stile.css') }}" >
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap5.css') }}" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Nome sito | @yield('title', 'Home')</title>
+        <link rel="shortcut icon" href="{{ asset('images/LogoSito16x16.png')}}" sizes="16x16">
+        <title>CouponHub | @yield('title', 'Home')</title>
     </head>
     <body>
     <div class="container-fluid container-lg my-3 mb-0 pb-3 border-bottom border-2 border-black">
