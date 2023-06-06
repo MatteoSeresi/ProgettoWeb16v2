@@ -33,6 +33,7 @@
                         $scadenza = \Carbon\Carbon::createFromFormat('Y-m-d', $offer->Scadenza);
                         $oggi = \Carbon\Carbon::today();
                         $scaduta = $scadenza->isPast();
+                        $result = app('App\Http\Controllers\CouponController')->checkCoupon($offer->ID_Offerta, $azienda->id);
                     @endphp
                           <div class="promo">
                               <div class="left_c">
@@ -43,10 +44,10 @@
                                     @if ($scaduta)
                                         <button class="disabilita-bottone">Coupon Scaduto</button>
                                     @else
-                                        @if('checkCoupon($offer->ID_Offerta,$azienda->id)') 
+                                        @if($result) 
                                             <button class="disabilita-bottone">Coupon Già Generato</button>
                                         @else
-                                            <button onclick="window.open('{{ route('coupon', ['offertaId' => $offer->ID_Offerta, 'aziendaId' => $azienda->id]) }}')" name="genera-coupon" class="generate-coupon">Genera Coupon</button>
+                                            <button onclick="openCouponPage('{{ route('coupon', ['offertaId' => $offer->ID_Offerta, 'aziendaId' => $azienda->id]) }}')" name="genera-coupon" class="generate-coupon">Genera Coupon</button>
                                         @endif
                                     @endif
                                     @else
@@ -114,5 +115,12 @@ $(document).ready(function() {
       });
     }
 });
+
+function openCouponPage(url) {
+        window.open(url);
+        window.onfocus = function () {
+            window.location.reload();
+        };
+}
 
 </script>

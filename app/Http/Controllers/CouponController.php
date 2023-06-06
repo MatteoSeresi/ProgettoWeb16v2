@@ -30,19 +30,12 @@ class CouponController extends Controller
     }
 
     public function showCoupon($offertaId, $aziendaId){
-        $user = $this->getCurrentUser();
         $offer = $this->_offerModel->getOfferByID($offertaId);
         $aznd = $this->_companyModel->getAziendaByID($aziendaId);
-        $check = $this->_couponModel->getCheck($user->id, $offer->ID_Offerta, $aznd->id);
-        if($check){
-            $errors = new MessageBag(['genera-coupon' => ['Coupon già generato']]);
-            return redirect()->route('catalogo')->withErrors($errors);
-        }else{
-            $this->numeroCasuale = rand(100000000000, 999999999999);
-            $codice = $this->numeroCasuale;
-            $this->generaCoupon($codice, $aznd, $offer);
-            return view('user.coupon')->with('codice', $codice)->with('offerta', $offer)->with('azienda', $aznd);
-        }
+        $this->numeroCasuale = rand(100000000000, 999999999999);
+        $codice = $this->numeroCasuale;
+        $this->generaCoupon($codice, $aznd, $offer);
+        return view('user.coupon')->with('codice', $codice)->with('offerta', $offer)->with('azienda', $aznd);
     }
     public function checkCoupon($offertaId, $aziendaId){
         $user = $this->getCurrentUser();
@@ -62,8 +55,6 @@ class CouponController extends Controller
         $this->_couponModel->id_offerta = $offer->ID_Offerta;
         $this->_couponModel->id_azienda = $aznd->id;
         $this->_couponModel->save();
-        return redirect()->route('catalogo');
-
     }
 
     /*public function generatePdf()
