@@ -13,9 +13,10 @@
     <div class="container-fluid container-lg my-3 mb-0 pb-3 border-bottom border-2 border-black">
         <div class="row align-items-center justify-content-center">
             <div class="col d-none d-lg-block">
+                <img src="{{ asset('images/LogoSito.png') }}" width="110" height="110">
             </div>
             <div class="col-12 col-lg-6 text-center">
-                <h1>TITOLO SITO E LOGO</h1>
+                <h1 style=" font-size: 80px; font-family: Titillium Web" >CouponHub</h1>
             </div>
             <div class="col d-none d-lg-block "> </div>
         </div>
