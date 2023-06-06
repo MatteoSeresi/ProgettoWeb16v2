@@ -75,9 +75,6 @@ Route::delete('/staff/offermodify/{offer_id}', [StaffController::class, 'elimina
 Route::get('/admin', [AdminController::class, 'adminarea'])
         ->name('admin')->middleware('can:isAdmin');
 
-Route::get('/admin/adminmodify', [AdminController::class, 'modificaAdmin'])
-        ->name('adminmodify');
-
 //GESTIONE AZIENDE
 Route::get('/admin/managecompany', [AdminController::class, 'gestioneAzienda'])
         ->name('managecompany');

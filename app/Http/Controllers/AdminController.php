@@ -12,6 +12,7 @@ use App\Http\Requests\NewCompanyRequest;
 use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewFaqRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller {
@@ -35,11 +36,8 @@ class AdminController extends Controller {
     }
 //AREA ADMIN
     public function adminarea() {
-        return view('admin');
-    }
-
-    public function modificaAdmin() {
-        return view('admin.adminmodify');
+        return view('admin')
+        ->with('admin', Auth::user());
     }
 //GESTIONE AZIENDE
     public function gestioneAzienda() {

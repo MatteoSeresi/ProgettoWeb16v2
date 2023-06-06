@@ -8,7 +8,9 @@
     <input type="text" class="filter" id="filter-azienda" placeholder="Filtro per azienda">
     <input type="text" class="filter" id="filter-descrizione" placeholder="Filtro per descrizione">
 </div>
-    <button title="Crea una nuova azienda" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.location.href = '{{ route('addcompany') }}'"> <i class="fas fa-user-plus"></i></button>
+    <button title="Crea una nuova azienda" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold 
+    text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.location.href = '{{ route('addcompany') }}'">
+    <i class="fas fa-user-plus"></i></button>
     @isset($aziende)
         @foreach ($aziende as $azienda)
         <section id="azienda" class="azienda filterable">

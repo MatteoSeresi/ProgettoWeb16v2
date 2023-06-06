@@ -8,7 +8,9 @@
 <input type="text" class="filter" id="filter-nome" placeholder="Filtro per nome">
 <input type="text" class="filter" id="filter-cognome" placeholder="Filtro per cognome">
 </div>
-    <button title="Crea un nuovo utente staff" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.location.href = '{{ route('addstaff') }}'"> <i class="fas fa-user-plus"></i></button>
+    <button title="Crea un nuovo utente staff" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold 
+    text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.location.href = '{{ route('addstaff') }}'">
+    <i class="fas fa-user-plus"></i></button>
     @isset($staffs)
         @foreach ($staffs as $staff)
         <section id="azienda" class="azienda filterable">
@@ -20,9 +22,15 @@
                 <p>Email: {{ $staff->email }}</p>
             </div>
             <div class="d-flex justify-content-center align-items-center ">
-                <a href="{{ route('editstaff', ['staff_id' => $staff->id])}}" title="Modifica i dati dell'utente staff" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded"><i class="fas fa-pencil-alt"></i></a>
-                <a href="{{ route('eliminastaff', ['staff_id' => $staff->id]) }}" title="Elimina utente staff" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" onclick="event.preventDefault(); if (confirm('Sei sicuro di voler eliminare questo utente staff?')) { document.getElementById('delete-form-{{ $staff->id }}').submit(); }"> <i class="fa fa-trash"></i></a>
-                <form id="delete-form-{{ $staff->id }}" action="{{ route('eliminastaff', ['staff_id' => $staff->id]) }}" method="POST" style="display: none;">
+                <a href="{{ route('editstaff', ['staff_id' => $staff->id])}}" title="Modifica i dati dell'utente staff" 
+                class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded">
+                <i class="fas fa-pencil-alt"></i></a>
+                <a href="{{ route('eliminastaff', ['staff_id' => $staff->id]) }}" title="Elimina utente staff" 
+                class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 
+                rounded" onclick="event.preventDefault(); if (confirm('Sei sicuro di voler eliminare questo utente staff?')) 
+                { document.getElementById('delete-form-{{ $staff->id }}').submit(); }"> <i class="fa fa-trash"></i></a>
+                <form id="delete-form-{{ $staff->id }}" action="{{ route('eliminastaff', ['staff_id' => $staff->id]) }}" 
+                method="POST" style="display: none;">
                     @csrf
                     @method('DELETE')
                 </form>
@@ -32,7 +40,7 @@
     @endisset
     
 </section>
-@endsection
+
 <script>
 
 $(document).ready(function() {
@@ -70,3 +78,4 @@ function filterResults() {
 }
 });
 </script>
+@endsection
