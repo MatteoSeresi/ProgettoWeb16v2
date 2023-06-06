@@ -14,13 +14,13 @@
     </div>
     <div id="autori"> 
         <i class="fa fa-envelope"></i><p>Fabbri Matteo:</p><a href="mailto:s1098015@studenti.univpm.it">
-        s1098015@studenti.univpm.it</a>  <br><br>
+        S1098015@studenti.univpm.it</a>  <br><br>
         <i class="fa fa-envelope"></i><p>Settimi Diego:</p><a href="mailto:s1098119@studenti.univpm.it">
-        s1098119@studenti.univpm.it</a>  <br><br>
+        S1098119@studenti.univpm.it</a>  <br><br>
         <i class="fa fa-envelope"></i><p>Sisi Mattia:</p><a href="mailto:s1093418@studenti.univpm.it">
-        s1093418@studenti.univpm.it</a>  <br><br>
+        S1093418@studenti.univpm.it</a>  <br><br>
         <i class="fa fa-envelope"></i><p>Seresi Matteo:</p><a href="mailto:s1100028@studenti.univpm.it">
-        s1100028@studenti.univpm.it</a>  <br><br>
+        S1100028@studenti.univpm.it</a>  <br><br>
     </div>
     
 </section>
