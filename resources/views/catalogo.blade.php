@@ -28,16 +28,25 @@
                       <div class="name_a">
                           <h1>{{ $azienda->Ragione_Sociale}}</h1>
                       </div>
-                      @foreach ($azienda->offerte as $offer)
+                     @foreach ($azienda->offerte as $offer)
+                    @php
+                        $scadenza = \Carbon\Carbon::createFromFormat('Y-m-d', $offer->Scadenza);
+                        $oggi = \Carbon\Carbon::today();
+                        $scaduta = $scadenza->isPast();
+                    @endphp
                           <div class="promo">
                               <div class="left_c">
                                   <h2>{{ $offer->Nome }}</h2>
                                   <p>Data di scadenza: {{ $offer->Scadenza }}</p>
                                   <p>Descrizione: {{ $offer->Descrizione }}</p>
                                 @can('isUser')
-                                    <button onclick="window.open('{{ route('coupon', ['offertaId' => $offer->ID_Offerta, 'aziendaId' => $azienda->id]) }}')" name= "genera-coupon" class="generate-coupon">Genera Coupon</button>
-                                @else
-                                    <button class='disabilita-bottone'>Genera Coupon</button>
+                                    @if ($scaduta)
+                                        <button class="disabilita-bottone">Coupon Scaduto</button>
+                                    @else
+                                        <button onclick="window.open('{{ route('coupon', ['offertaId' => $offer->ID_Offerta, 'aziendaId' => $azienda->id]) }}')" name="genera-coupon" class="generate-coupon">Genera Coupon</button>
+                                    @endif
+                                    @else
+                                    <button class="disabilita-bottone">Genera Coupon</button>
                                 @endcan
                                 
                               </div>
