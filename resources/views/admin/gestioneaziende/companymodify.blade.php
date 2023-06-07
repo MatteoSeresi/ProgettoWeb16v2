@@ -32,7 +32,7 @@
                     {{ Form::label('Descrizione', 'Descrizione', ['class' => 'label-input']) }}                     
                 </div>
                 <div class="form-floating mb-3">
-                    {{-- <img src="../../../../../public/images/aziende/{{ $azienda->Logo }}" alt="Coupon"> --}}
+                    {{-- <img src="../../../../../public/img/aziende/{{ $azienda->Logo }}" alt="Coupon"> --}}
                     {{ Form::file('image', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                     rounded-0 bg-transparent no-outline', 'required' => false, 'id' => 'Logo']) }}
                     {{ Form::label('Logo', 'Logo', ['class' => 'label-input']) }}                         

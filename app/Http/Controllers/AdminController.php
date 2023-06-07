@@ -66,7 +66,7 @@ class AdminController extends Controller {
         $aznd->save();
 
         if (!is_null($logoName)) {
-            $destinationPath = public_path() . '/images/aziende';
+            $destinationPath = public_path() . '/img/aziende';
             $logo->move($destinationPath, $logoName);
         };
 
@@ -118,7 +118,7 @@ class AdminController extends Controller {
         $company->save();
 
         if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images/aziende';
+            $destinationPath = public_path() . '/img/aziende';
             $image->move($destinationPath, $imageName);
         };
 
@@ -161,6 +161,7 @@ class AdminController extends Controller {
         $stf = new User;
         $stf->fill($request->validated());
         $stf->role = "staff";
+        $stf->password= Hash::make($stf->password);
         $stf->save();
 
         return redirect()->action([AdminController::class, 'gestioneStaff']);

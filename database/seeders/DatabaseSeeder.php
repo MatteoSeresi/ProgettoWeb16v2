@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder {
         ]);
 
         DB::table('users')->insert([
-            ['id' => 1, 'username' => 'useruser', 'password' => Hash::make('ciaociao'), 'name' => 'Franco', 'surname' => 'Rossi', 'genere' => 'Uomo', 'role' => 'user', 'email' => 'franco@rossi.it', 'telefono' => '3333102759', 'data_nascita' => '1945/10/05'],
+            ['id' => 1, 'username' => 'useruser', 'password' => Hash::make('Yg4Xzxjb'), 'name' => 'Franco', 'surname' => 'Rossi', 'genere' => 'Uomo', 'role' => 'user', 'email' => 'franco@rossi.it', 'telefono' => '3333102759', 'data_nascita' => '1945/10/05'],
             ['id' => 2, 'username' => 'staffstaff', 'password' => Hash::make('Yg4Xzxjb'), 'name' => 'Adele', 'surname' => 'Bianchi', 'genere' => 'Donna', 'role' => 'staff', 'email' => 'adele@bianchi.it', 'telefono' => '3663102759', 'data_nascita' => '1994/08/10'],
             ['id' => 3, 'username' => 'adminadmin', 'password' => Hash::make('Yg4Xzxjb'), 'name' => 'LeBron', 'surname' => 'James', 'genere' => 'Uomo', 'role' => 'admin', 'email' => 'lebron@james.it', 'telefono' => '3493102759', 'data_nascita' => '2001/11/22'],
         ]);
@@ -38,16 +38,12 @@ class DatabaseSeeder extends Seeder {
         ]);
 
         DB::table('faqs')->insert([
-            ['id' => 1, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
+            ['id' => 1, 'Domanda' => 'Domanda?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
             ['id' => 2, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
             ['id' => 3, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
             ['id' => 4, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
             ['id' => 5, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
             ['id' => 6, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
-        ]);
-
-        DB::table('coupon')->insert([
-            
         ]);
     }
 

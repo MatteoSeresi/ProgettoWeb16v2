@@ -6,7 +6,7 @@
 <section id="contact">
     <h1>CONTATTACI</h1><br>
     <div id="uni">
-        <img src="../../public/images/maps.jpeg" alt="posizione maps"><br>
+        <img src="../../public/img/maps.jpeg" alt="posizione maps"><br>
         <i class="fa fa-map-marker"></i><a href="https://www.google.com/maps/dir//Universit%C3%A0+Pol
         itecnica+delle+Marche+-+Facolt%C3%A0+di+Ingegneria,+Via+Brecce+Bianche,+12,+60131+Ancona+AN/@43.585524,13.497659
         5,13.83z/data=!4m9!4m8!1m0!1m5!1m1!1s0x132d80233dd931ef:0x161719e4f3f5daaf!2m2!1d13.516595!2d43.586779!3e0"

@@ -21,7 +21,7 @@
                                   <p>Descrizione: {{ $offer->Descrizione }}</p>
                               </div>
                               <div class="right_c">
-                                  <img src="../../../public/images/{{ $offer->Immagine }}" alt="Coupon">
+                                  <img src="../../../public/img/{{ $offer->Immagine }}" alt="Coupon">
                               </div>
                               <div class="d-flex justify-content-center align-items-center" style="clear: both">
                                     <a href="{{ route('modify', ['offer_id' => $offer->ID_Offerta])}}" title="Modifica i dati dell'offerta" class="btn-sm loader border-0 bg-black text-white p-3 text-center 

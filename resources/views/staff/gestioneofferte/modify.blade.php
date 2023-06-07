@@ -27,7 +27,7 @@
                     {{ Form::label('Scadenza', 'Scadenza', ['class' => 'label-input']) }}                     
                 </div>
                 <div class="form-floating mb-3">
-                    <img src="../../../../../public/images/{{ $offerta->Immagine }}" alt="Coupon">
+                    <img src="../../../../../public/img/{{ $offerta->Immagine }}" alt="Coupon">
                     {{ Form::file('image', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
                     rounded-0 bg-transparent no-outline', 'required' => false, 'id' => 'Immagine']) }}
                     {{ Form::label('Immagine', 'Immagine', ['class' => 'label-input']) }}                        

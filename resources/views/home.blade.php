@@ -8,7 +8,7 @@
     @isset($aziende)
       @foreach ($aziende as $azienda)
           <div class="mySlides fade">
-          <img src="../public/images/aziende/{{ $azienda->Logo }}">
+          <img src="../public/img/aziende/{{ $azienda->Logo }}">
           </div>
       @endforeach
     @endisset
