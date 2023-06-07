@@ -149,21 +149,23 @@ footer a:hover{
 /*CONTATTACI*/
 #contact{
 	padding-top: 20px;
+    height: auto;
+    width: 100%;
 }
 #contact h1{
 	text-align: center;
 }
 #contact #uni{
-    width:50%;
+    width: 50%;
     height: 445px;
-    display: inline-block;
-    padding-left: 16%;
+    border: 1px solid black;
 }
 
 #contact #uni img{
     width: 300px;
     height: 300px;
     position: relative;
+    
 }
 
 #contact #uni a{
@@ -174,10 +176,12 @@ footer a:hover{
 }
 
 #contact #autori{
-    width: 40%;
+    width: 50%;
     height: 445px;
-    display: inline;
-    float:right;
+    position: relative;
+    border: 1px solid black;
+    left: 50%;
+    bottom: 445px;
 }
 
 #contact #autori h2{
@@ -297,16 +301,18 @@ footer a:hover{
     text-align: left;
     width: 70%;
     height: auto;
-    border: 3px solid black;
     padding: 0 15%;
+    margin-bottom: 30px;
 }
+
 #question .domanda{
     border: 3px solid orange;
     width: 98%;
     height: auto;
     padding: 0 1%;
-    border-radius: 20px;
+    border-radius: 10px;
 }
+
 .domanda h1{
     margin: 0;
 }
@@ -321,27 +327,12 @@ footer a:hover{
 }
 
 #question .risposta{
-    border: 3px solid orange;
-    border-top: none;
+    border: 0.5px solid orange;
     width: 98%;
     height: auto;
     padding: 0 1%;
     display: none;
-}
-/*#faq #question h2{
-    text-align: left;
-    font-size: 30px;
-    font-weight: bold;
-    border-left: 5px solid rgb(69, 175, 241);
-    background-color: rgb(224, 224, 224);
-    margin-bottom: 0%;
-}
-#faq #question p{
-    font-size: 20px;
-    text-align:justify;
-    border-left: none none none;
-    background-color: rgb(243, 241, 241);
-    margin-bottom: 0.5%;
+    border-radius: 10px;
 }
 
 /*CATALOGO*/

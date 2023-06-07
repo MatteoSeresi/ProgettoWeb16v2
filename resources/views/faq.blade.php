@@ -8,10 +8,11 @@
     @isset($faqs)
         @foreach ($faqs as $faq)
             <div id="question">
-                <div class="domanda" id="quest">
-                    <h2>{{$faq->Domanda}}</h2><i class="fa fa-angle-down" onclick="toggleDiv()" id="down" aria-hidden="true"></i>
+                <div class="domanda" id="quest{{$faq->id}}">
+                    <h2>{{$faq->Domanda}}</h2>
+                    <i class="fa fa-angle-down" onclick="toggleDiv({{$faq->id}})" id="down{{$faq->id}}" aria-hidden="true"></i>
                 </div>
-                <div class="risposta" id="answ">
+                <div class="risposta" id="answ{{$faq->id}}">
                     <p>{{$faq->Risposta}}</p><br><br>
                 </div>
             </div>
@@ -19,16 +20,16 @@
     @endisset
 </section>
 <script>
-        function toggleDiv() {
-            var div = document.getElementById("answ");
-            var quest = document.getElementById("quest");
-            var down = document.getElementById("down");
-            if (div.style.display === "none") {
-                div.style.display = "block";
-                quest.style.border-bottom = "none"
-            } else {
-                div.style.display = "none";
-            }
+    function toggleDiv(faqID) {
+        var div = document.getElementById("answ" + faqID);
+        var down = document.getElementById("down" + faqID);
+        if (div.style.display == "none") {
+            div.style.display = "block";
+            down.className = "fa fa-angle-up";
+        } else {
+            div.style.display = "none";
+            down.className = "fa fa-angle-down";
         }
-    </script>
+    }
+</script>
 @endsection
