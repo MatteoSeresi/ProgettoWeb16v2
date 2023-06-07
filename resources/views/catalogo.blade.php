@@ -6,8 +6,8 @@
 
 @section('content')
 <div id="filter">
-    <input type="text" id="filter-azienda" placeholder="Filtro per azienda">
-    <input type="text" id="filter-descrizione" placeholder="Filtro per descrizione">
+    <input type="text" class="filtro" id="filter-azienda" placeholder="Azienda">
+    <input type="text" class="filtro" id="filter-descrizione" placeholder="Tipo di Promozione">
 </div>
 
 <div id="aziende-container">
@@ -24,7 +24,7 @@
       @foreach ($aziende as $azienda)
           @isset($azienda->offerte)
               @if(count($azienda->offerte) > 0)
-                  <div class="catalogo azienda">
+                  <div class="catalogo">
                       <div class="name_a">
                           <h1>{{ $azienda->Ragione_Sociale}}</h1>
                       </div>
@@ -36,10 +36,15 @@
                         $result = app('App\Http\Controllers\CouponController')->checkCoupon($offer->ID_Offerta, $azienda->id);
                     @endphp
                           <div class="promo">
-                              <div class="left_c">
-                                  <h2>{{ $offer->Nome }}</h2>
-                                  <p>Data di scadenza: {{ $offer->Scadenza }}</p>
-                                  <p>Descrizione: {{ $offer->Descrizione }}</p>
+                            <div class="info">
+                                <div class="coup">
+                                    <img src="../../public/images/{{ $offer->Immagine }}">
+                                </div>
+                                <h2>{{ $offer->Nome }}</h2>
+                                <p id="desc_off">{{ $offer->Descrizione }}</p>
+                                <p id="scade">Data di scadenza: {{ $offer->Scadenza }}</p>
+                            </div>
+                                  
                                 @can('isUser')
                                     @if ($scaduta)
                                         <button class="disabilita-bottone">Coupon Scaduto</button>
@@ -53,11 +58,6 @@
                                     @else
                                     <button class="disabilita-bottone">Genera Coupon</button>
                                 @endcan
-                                
-                              </div>
-                              <div class="right_c">
-                                  <img src="../../public/images/{{ $offer->Immagine }}" alt="Coupon">
-                              </div>
                           </div>
                       @endforeach
                   </div>

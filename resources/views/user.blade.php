@@ -4,22 +4,16 @@
 
 @section('content')
 <section id="us_ar">
-    <div id="central">
-        <div id="col_1"></div>
-        
-        <div id="col_2">
-            <div id="dati">
-                <p>Benvenuto</p>
-                <p>Nome: {{$user->name}}</p>
-                <p>Cognome: {{$user->surname}}</p>
-                <p>Data di nascita: {{$user->data_nascita}}</p>
-                <p>Telefono: {{$user->telefono}}</p>
-                <p>Email: {{$user->email}}</p>
-                <i class="fa fa-pencil" aria-hidden="true" onclick="window.location.href = '{{ route('usermodify') }}'"></i>
-            </div>
-        </div>
-        <div id="col_3"></div>
+    <div id="dati">
+    <i class="fa fa-pencil" id="edit" aria-hidden="true" onclick="window.location.href = '{{ route('usermodify') }}'"></i>
+        <h1>Benvenuto</h1>
+        <p>Nome: {{$user->name}}</p><br>
+        <p>Cognome: {{$user->surname}}</p><br>
+        <p>Data di nascita: {{$user->data_nascita}}</p><br>
+        <i class="fa fa-phone" id="tel" aria-hidden="true"></i><p>Telefono: {{$user->telefono}}</p><br>
+        <i class="fa fa-envelope-o" id="mail" aria-hidden="true"></i><p>Email: {{$user->email}}</p>
     </div>
+
 </section>
 @endsection
 
