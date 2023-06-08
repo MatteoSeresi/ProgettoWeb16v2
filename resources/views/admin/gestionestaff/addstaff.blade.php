@@ -15,25 +15,11 @@
                 @csrf
                 <div class="log-slot">
                     {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
-                    {{ Form::text('name', '', ['class' => 'input in-box', 'required' => true,  'id' => 'name',  ]) }}
-                    @if ($errors->first('name'))
-                    <ul class="errors">
-                        @foreach ($errors->get('name') as $message)
-                        <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                    @endif             
+                    {{ Form::text('name', '', ['class' => 'input in-box', 'required' => true,  'id' => 'name',  ]) }}             
                 </div>
                 <div class="log-slot">
                     {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
-                    {{ Form::text('surname', '', ['class' => 'input in-box','id' => 'surname']) }}
-                    @if ($errors->first('surname'))
-                    <ul class="errors">
-                        @foreach ($errors->get('surname') as $message)
-                        <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                    @endif               
+                    {{ Form::text('surname', '', ['class' => 'input in-box','id' => 'surname']) }}               
                 </div>
                 <div class="log-slot">
                     {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
@@ -48,14 +34,7 @@
                 </div>
                 <div class="log-slot">
                     {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
-                    {{ Form::email('email', '', ['class' => 'input in-box', 'required' => true, 'id' => 'email']) }}
-                    @if ($errors->first('email'))
-                    <ul class="errors">
-                        @foreach ($errors->get('email') as $message)
-                        <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                    @endif                   
+                    {{ Form::email('email', '', ['class' => 'input in-box', 'required' => true, 'id' => 'email']) }}                 
                 </div>
                 <div class="log-slot">
                     {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
@@ -74,36 +53,15 @@
                 </div>
                 <div class="log-slot">
                     {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-input']) }}
-                    {{ Form::date('data_nascita', '', ['class' => 'input in-box', 'required' => true, 'id' => 'data_nascita']) }}
-                    @if ($errors->first('data_nascita'))
-                    <ul class="errors">
-                        @foreach ($errors->get('data_nascita') as $message)
-                        <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                    @endif                      
+                    {{ Form::date('data_nascita', '', ['class' => 'input in-box', 'required' => true, 'id' => 'data_nascita']) }}                      
                 </div>
                 <div class="log-slot">
                     {{ Form::label('telefono', 'Telefono', ['class' => 'label-input']) }}
-                    {{ Form::tel('telefono', '', ['class' => 'input in-box', 'required' => true, 'id' => 'telefono']) }}
-                    @if ($errors->first('telefono'))
-                    <ul class="errors">
-                        @foreach ($errors->get('telefono') as $message)
-                        <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                    @endif                        
+                    {{ Form::tel('telefono', '', ['class' => 'input in-box', 'required' => true, 'id' => 'telefono']) }}                      
                 </div>
                 <div class="log-slot">
                     {{ Form::label('genere', 'Genere', ['class' => 'label-input']) }}
-                    {{ Form::select('genere',  ['Uomo' => 'Maschio', 'Donna' => 'Femmina'], ['class' => 'input in-sel', 'required' => true, 'id' => 'genere']) }}
-                    @if ($errors->first('genere'))
-                    <ul class="errors">
-                        @foreach ($errors->get('genere') as $message)
-                        <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                    @endif                 
+                    {{ Form::select('genere',  ['Uomo' => 'Maschio', 'Donna' => 'Femmina'], ['class' => 'input in-sel', 'required' => true, 'id' => 'genere']) }}              
                 </div>
             {{ Form::submit('Inserisci', ['class' => 'log-sub']) }}    
             {{ Form::close() }}

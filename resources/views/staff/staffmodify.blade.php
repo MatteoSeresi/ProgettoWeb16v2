@@ -24,6 +24,13 @@
                 <div class="log-slot">
                     {{ Form::label('username', 'Username', ['class' => 'label-input']) }}
                     {{ Form::text('username', $user->username ?? old('username'), ['class' => 'input in-box', 'required' => true, 'id' => 'username']) }}
+                    @if ($errors->first('username'))
+                    <ul class="errors">
+                        @foreach ($errors->get('username') as $message)
+                        <li>{{ $message }}</li>
+                        @endforeach
+                    </ul>
+                    @endif
                 </div>
                 <div class="log-slot">
                     {{ Form::label('email', 'Email', ['class' => 'label-input']) }}

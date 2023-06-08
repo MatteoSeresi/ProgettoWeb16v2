@@ -15,13 +15,22 @@
                 <div class="log-slot">
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
                     {{ Form::label('username', 'Username', ['class' => 'label-input']) }}
-                    {{ Form::text('username', '', ['class' => 'input in-box','id' => 'username', 'required' => true]) }}
+                    {{ Form::text('username', '', ['class' => 'input in-box','id' => 'username', 'required' => true]) }} 
                 </div>
                 <div class="log-slot">
                     <i class="fa fa-key" aria-hidden="true"></i>
                     {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
                     {{ Form::password('password', ['class' => 'input in-box', 'id' => 'password', 'required' => true]) }}
                 </div>
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 {{ Form::submit('Login', ['class' => 'log-sub']) }}
                 <a href="{{ route('registrazione') }}">Se non sei ancora registrato crea il tuo account</a>       
             {{ Form::close() }}
