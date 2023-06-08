@@ -10,6 +10,18 @@
 
 
 <script>
+window.addEventListener('scroll', function() {
+  var navb = document.querySelector('.navb');
+  var header = document.querySelector('.top');
+  var navbHeight = header.offsetHeight;
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop >= navbHeight) {
+    navb.classList.add('navb-fixed');
+  } else {
+    navb.classList.remove('navb-fixed');
+  }
+});
     // Ottieni la rotta corrente
     var currentRoute = "{{ Request::url() }}";
 

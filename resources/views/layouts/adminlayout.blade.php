@@ -10,7 +10,7 @@
         <title>CouponHub | @yield('title', 'Home')</title>
     </head>
     <body>
-    <header>
+    <header class="top">
     <div class="title">
         <div class="wb_logo">
             <img src="{{ asset('images/LogoSito.png') }}" width="110" height="110">

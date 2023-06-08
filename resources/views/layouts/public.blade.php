@@ -11,7 +11,7 @@
         <title>CouponHub | @yield('title', 'Home')</title>
     </head>
     <body>
-    <header>
+    <header class="top">
     <div class="title">
         <div class="wb_logo">
             <img src="{{ asset('images/LogoSito.png') }}" width="110" height="110">
@@ -20,7 +20,7 @@
             <h1 style=" font-size: 80px; font-family: Titillium Web" >CouponHub</h1>
         </div>
     </div>
-    <div class="navb">
+    <div class="navb" style="position: sticky-top">
         @include('layouts/_navpublic')
     </div>
     @can('isAdmin')

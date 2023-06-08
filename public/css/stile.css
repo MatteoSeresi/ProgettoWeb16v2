@@ -12,24 +12,18 @@
     font-size: 17px;
 }*/
 
-.bg-old,
 body {
     background: #fffff6;
     padding: 0;
 }
 
-.fw-black {
-    font-weight: 900 !important;
-}
-
 /*HEADER*/
 header{
+    position: relative;
     width: 100%;
     height: auto;
-    position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
 }
 
 /*TITOLO*/
@@ -59,13 +53,15 @@ header{
 /*NAVBAR*/
 
 .navb{
+    position: relative;
+    z-index: 9999;
     width: 100%;
     height: auto;
     background-color: white;
     border: 0.5px solid rgb(255, 235, 199);
 }
 nav{
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -75,7 +71,8 @@ nav ul{
     justify-content: space-around;
 }
 nav li{
-    font-size: 18px;
+    width: auto;
+    font-size: 14px;
     text-transform: uppercase;
     position: relative;
 }
@@ -104,21 +101,24 @@ nav li:hover::after{
 nav a:hover{
     color: #000000;
 }
+.navb-fixed {
+    position: fixed;
+    top: 0;
+  }
 
 .active a{
     color: orange;
-    background-color: #fffff6;
 }
 /*SECTION*/
 #container{
     width: 70%;
-    margin-top: 255px;
+    margin-top: 0;
     padding: 2% 15%;
 }
 
 .cont-admin{
     width: 70%;
-    margin-top: 310px;
+    margin-top: 0;
     padding: 2% 15%;
 }
 
@@ -602,7 +602,7 @@ footer a:hover{
     transition: background-color 0.6s ease;
   }
   
-  .active, .dot:hover {
+  .attivo, .dot:hover {
     background-color: #717171;
   }
   
@@ -705,9 +705,11 @@ footer a:hover{
     resize: none;
 }
 
-
-
 .in-box:focus{
+    outline: none;
+}
+
+.in-box:active{
     outline: none;
 }
 
