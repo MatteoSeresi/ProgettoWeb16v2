@@ -8,7 +8,7 @@
         <section id="azienda">
             <div id="high_c">
                 <div id="immagine-azienda">
-                    <img src="../../public/images/aziende/{{ $azienda->Logo }}">
+                    <img src="../../public/img/aziende/{{ $azienda->Logo }}">
                 </div>
                 <h1>{{ $azienda->Ragione_Sociale }}</h1>
             </div>

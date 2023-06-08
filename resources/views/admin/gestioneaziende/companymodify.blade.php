@@ -43,7 +43,7 @@
             </div>
             <div class="log-slot">
                 {{ Form::label('Logo', 'Logo', ['class' => 'label-input']) }}
-                <img src="../../../../../public/images/aziende/{{ $azienda->Logo }}" alt="Coupon">
+                <img src="../../../../../public/img/aziende/{{ $azienda->Logo }}" alt="Coupon">
                 {{ Form::file('image', ['class' => 'input in-box', 'required' => false, 'id' => 'Logo']) }}
             </div> 
             <div class="log-slot">

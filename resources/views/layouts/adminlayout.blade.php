@@ -6,14 +6,14 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/stile.css') }}" >
         <!--<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap5.css') }}" >-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="shortcut icon" href="{{ asset('images/LogoSito16x16.png')}}" sizes="16x16">
+        <link rel="shortcut icon" href="{{ asset('img/LogoSito16x16.png')}}" sizes="16x16">
         <title>CouponHub | @yield('title', 'Home')</title>
     </head>
     <body>
     <header class="top">
     <div class="title">
         <div class="wb_logo">
-            <img src="{{ asset('images/LogoSito.png') }}" width="110" height="110">
+            <img src="{{ asset('img/LogoSito.png') }}" width="110" height="110">
         </div>
         <div class="wb_title">
             <h1 style=" font-size: 80px; font-family: Titillium Web" >CouponHub</h1>

@@ -27,7 +27,7 @@
             </div>
             <div class="log-slot">
                 {{ Form::label('Immagine', 'Immagine', ['class' => 'label-input']) }}
-                <img src="../../../../../public/images/{{ $offerta->Immagine }}" alt="Coupon">
+                <img src="../../../../../public/img/{{ $offerta->Immagine }}" alt="Coupon">
                 {{ Form::file('image', ['class' => 'input in-box', 'required' => false, 'id' => 'Immagine']) }}
             </div>
                 @if ($errors->any())

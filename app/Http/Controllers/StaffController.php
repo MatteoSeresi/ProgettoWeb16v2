@@ -93,7 +93,7 @@ class StaffController extends Controller {
         $offer->save();
 
         if (!is_null($logoName)) {
-            $destinationPath = public_path() . '/images';
+            $destinationPath = public_path() . '/img';
             $logo->move($destinationPath, $logoName);
         };
 
@@ -133,7 +133,7 @@ class StaffController extends Controller {
         $offerta->save();
 
         if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images';
+            $destinationPath = public_path() . '/img';
             $image->move($destinationPath, $imageName);
         };
 

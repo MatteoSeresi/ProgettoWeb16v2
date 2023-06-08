@@ -34,7 +34,7 @@
                         <div class="promo">
                             <div class="info">
                                 <div class="coup">
-                                    <img src="../../../public/images/{{ $offer->Immagine }}">
+                                    <img src="../../../public/img/{{ $offer->Immagine }}">
                                 </div>
                                 <h2>{{ $offer->Nome }}</h2>
                                 <p id="desc_off">{{ $offer->Descrizione }}</p>
