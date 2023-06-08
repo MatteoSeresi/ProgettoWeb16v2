@@ -22,17 +22,14 @@
     </div>
     <br><br>
 
-    
     <div class="row">
-    <h2>Descrizione</h2>
-        <div class="col">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut dui dapibus, commodo nunc sed, molestie turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla facilisi. Nullam vel consectetur neque. Nulla facilisi. Sed viverra est a urna aliquam bibendum</p> 
-            
-        </div>
-        <div class="col">
-            <p> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc hendrerit, felis sed tincidunt volutpat, odio lorem viverra lectus, sed suscipit justo libero sit amet urna. Aliquam non elit eu justo rutrum euismod eu in lacus. Donec interdum diam in purus mollis, id convallis dui fringilla. In hac habitasse platea dictumst. Nullam nec nisi commodo, facilisis diam id, condimentum dolor. </p>
-          
-        </div>
+      <h2>Descrizione</h2>
+          <div class="col">
+              <p style="text-align: justify">CouponHub offre la pubblicizzazione di offerte promozionali per prodotti e servizi, con la possibilità di emettere coupon di vario genere nella sezione catalogo. 
+                Gli utenti registrati possono visualizzare le offerte di loro interesse e ottenere un coupon che consente loro di acquistare la promozione presso i negozi o centri delle aziende aderenti. 
+                Ogni utente può acquisire un solo coupon per ciascuna promozione, i quali saranno generati come pagine web contenenti la descrizione del prodotto offerto, l'identità dell'utente, le modalità di utilizzo e un codice univoco. 
+                È importante sottolineare che il sito non supporta attività di e-commerce effettivo; quindi, non è possibile acquistare i coupon tramite il sito stesso.</p>
+          </div>
     </div>
 
 </section>
