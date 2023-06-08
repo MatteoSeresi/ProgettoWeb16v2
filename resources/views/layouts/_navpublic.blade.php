@@ -28,7 +28,6 @@
 
 
 <script>
-
 window.addEventListener('scroll', function() {
   var navb = document.querySelector('.navb');
   var header = document.querySelector('.top');
@@ -41,16 +40,13 @@ window.addEventListener('scroll', function() {
     navb.classList.remove('navb-fixed');
   }
 });
-
     // Ottieni la rotta corrente
     var currentRoute = "{{ Request::url() }}";
-
     // Rimuovi l'attributo "active" da tutti gli elementi della navbar
     var navbarItems = document.querySelectorAll('.navbar');
     navbarItems.forEach(function(item) {
         item.classList.remove('active');
     });
-
     // Verifica la rotta corrente e imposta l'elemento "active" corrispondente
     navbarItems.forEach(function(item) {
         var href = item.querySelector('a').getAttribute('href');

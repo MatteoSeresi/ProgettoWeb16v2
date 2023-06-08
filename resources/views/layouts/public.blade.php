@@ -43,7 +43,7 @@
         <footer>
             <p> Author:<br> Matteo Fabbri | Diego Settimi | Matteo Seresi | Mattia Sisi</p>
             <a class="trans-color-text" href="{{route ('faq')}}"> FAQ </a> | <span itemprop="telephone"><a href="{{route ('contattaci')}}"> CONTATTACI </a></span>|
-            <a target="_blank" href="#"> PRIVACY </a> | <a target="_blank" href="{{ asset('PROGETTAZIONE.pdf') }}"> GUIDE </a>
+            <a target="_blank" href="#"> PRIVACY </a> | <a target="_blank" href="{{ asset('RelazioneProgettoTecWeb16.pdf') }}"> GUIDE </a>
         </footer>
     </body>
 </html>
