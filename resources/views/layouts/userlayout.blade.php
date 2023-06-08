@@ -24,7 +24,6 @@
         @include('layouts/_navpublic')
     </div>
     </header>
-
     <div id="container">
         @yield('content')
     </div>

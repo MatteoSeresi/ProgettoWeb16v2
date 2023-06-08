@@ -1,61 +1,29 @@
-<nav class="platforms">
-        <div class="container-fluid container-lg py-1 px-0 blur-backdrop ">
-            <div style="height: 25px;">
-                <div style="padding-bottom: 100px;">
-                    <table class="table table-sm table-borderless text-nowrap text-center m-0">
-                        <tbody>
-                            <tr class="align-middle">
-                                <td class="p-0">
-                                    <a href="{{ route('managecompany') }}" class="spa platform p-1 ps-3 px-lg-2 text-black text-decoration-none">Gestione aziende</a>
-                                </td>
-                                <td>
-                                    <div class="vr"></div>
-                                </td>
-                                <td class="p-0">
-                                    <a href="{{ route('deleteuser') }}" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Cancella utenti</a>
-                                </td>
-                                                            <td>
-                                    <div class="vr"></div>
-                                </td>
-                                <td class="p-0">
-                                    <a href="{{ route('managestaff') }}" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Gestione staff</a>
-                                </td>
-                                                            <td>
-                                    <div class="vr"></div>
-                                </td>
-                                <td class="p-0">
-                                    <a href="{{ route('stats') }}" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Visualizza statistiche</a>
-                                </td>
-                                                            <td>
-                                    <div class="vr"></div>
-                                </td>
-                                <td class="p-0">
-                                    <a href="{{ route('managefaq') }}" class="spa platform p-1 px-2 rounded-pill text-black text-decoration-none ">Modifica FAQ</a>
-                               
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </nav>
+<nav>
+    <ul>
+        <li class="navbar"><a href = "{{ route('managecompany') }}">GESTIONE AZIENDE</a></li>
+        <li class="navbar"><a href = "{{ route('deleteuser') }}">GESTIONE UTENTI</a></li>
+        <li class="navbar"><a href = "{{ route('managestaff') }}">GESTIONE STAFF</a></li>
+        <li class="navbar"><a href = "{{ route('managefaq') }}">GESTIONE FAQ</a></li>
+        <li class="navbar"><a href = "{{ route('stats') }}">VISUALIZZA STATISTICHE</a></li>
+    </ul>
+</nav>
 
 
-    <script>
-        // Ottieni la rotta corrente
-        var currentRoute = "{{ Request::url() }}";
-    
-        // Rimuovi l'attributo "active" da tutti gli elementi della navbar
-        var navbarItems = document.querySelectorAll('.container-lg table a');
-        navbarItems.forEach(function(item) {
-            item.classList.remove('active');
-        });
-    
-        // Verifica la rotta corrente e imposta l'elemento "active" corrispondente
-        navbarItems.forEach(function(item) {
-            var href = item.getAttribute('href');
-            if (currentRoute === href) {
-                item.classList.add('active');
-            }
-        });
-    </script>
+<script>
+    // Ottieni la rotta corrente
+    var currentRoute = "{{ Request::url() }}";
+
+    // Rimuovi l'attributo "active" da tutti gli elementi della navbar
+    var navbarItems = document.querySelectorAll('.navbar');
+    navbarItems.forEach(function(item) {
+        item.classList.remove('active');
+    });
+
+    // Verifica la rotta corrente e imposta l'elemento "active" corrispondente
+    navbarItems.forEach(function(item) {
+        var href = item.querySelector('a').getAttribute('href');
+        if (currentRoute === href) {
+            item.classList.add('active');
+    }
+    });
+</script

@@ -7,7 +7,7 @@
         @foreach ($aziende as $azienda)
         <section id="azienda">
             <div id="high_c">
-                <div id="immagine azienda">
+                <div id="immagine-azienda">
                     <img src="../../public/images/aziende/{{ $azienda->Logo }}">
                 </div>
                 <h1>{{ $azienda->Ragione_Sociale }}</h1>

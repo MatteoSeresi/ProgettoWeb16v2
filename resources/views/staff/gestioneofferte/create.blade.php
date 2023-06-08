@@ -3,48 +3,46 @@
 @section('title', 'Crea Offerta')
 
 @section('content')
-<section>
-<button onclick="window.location.href='{{route('offermodify')}}'" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 mb-3 
-            lh-1 rounded"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-5 text-center">
-            <h2 class="fw-semibold mb-4">Crea Offerta</h2> 
+<section id="autorizzazione">
+    <button onclick="window.location.href='{{route('offermodify')}}'" class="back" title="Indietro"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    <div class="log">
+        <div class="log-head">
+            <h1>BENVENUTO</h1>
+        </div>
+        <div class="log-form">
+            <h2>Crea Offerta</h2> 
             {{ Form::open(array('route' => 'addOffer.store', 'class' => 'contact-form', 'files' => true)) }}
             @csrf
-            <div class="form-floating mb-3">
-                {{ Form::select('ID_Azienda', $aziende, '', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 rounded-0 bg-transparent no-outline', 'id' => 'ID_Azienda']) }}
+            <div class="log-slot">
                 {{ Form::label('ID_Azienda', 'Azienda', ['class' => 'label-input']) }}
+                {{ Form::select('ID_Azienda', $aziende, '', ['class' => 'input log-sel', 'id' => 'ID_Azienda']) }}
             </div>
-                 <div class="form-floating mb-3">
-                    {{ Form::text('Nome', '' , ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
-                    rounded-0 bg-transparent no-outline', 'required' => true,  'id' => 'Nome']) }}   
-                    {{ Form::label('Nome', 'Nome', ['class' => 'label-input']) }}           
+            <div class="log-slot">
+                {{ Form::label('Nome', 'Nome', ['class' => 'label-input']) }}
+                {{ Form::text('Nome', '' , ['class' => 'input in-box', 'required' => true,  'id' => 'Nome']) }}              
+            </div>
+            <div class="log-slot">
+                {{ Form::label('Descrizione', 'Descrizione', ['class' => 'label-input']) }}
+                {{ Form::textarea('Descrizione', '' , ['class' => 'input in-box', 'required' => true, 'id' => 'Descrizione']) }}
+            </div>
+            <div class="log-slot">
+                {{ Form::label('Scadenza', 'Scadenza', ['class' => 'label-input']) }} 
+                {{ Form::date('Scadenza', '' ,['class' => 'input in-box', 'required' => true, 'id' => 'Scadenza']) }}
+            </div>
+            <div class="log-slot">
+                {{ Form::label('Immagine', 'Immagine', ['class' => 'label-input']) }}
+                {{ Form::file('image', ['class' => 'input in-box', 'required' => false, 'id' => 'Immagine']) }}
+            </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-                <div class="form-floating mb-3">
-                    {{ Form::textarea('Descrizione', '' , ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
-                    rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'Descrizione']) }}
-                    {{ Form::label('Descrizione', 'Descrizione', ['class' => 'label-input']) }}             
-                </div>
-                <div class="form-floating mb-3">
-                    {{ Form::date('Scadenza', '' ,['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
-                    rounded-0 bg-transparent no-outline', 'required' => true, 'id' => 'Scadenza']) }}
-                    {{ Form::label('Scadenza', 'Scadenza', ['class' => 'label-input']) }}                     
-                </div>
-                <div class="form-floating mb-3">
-                    {{ Form::file('image', ['class' => 'input form-control border-top-0 border-start-0 border-end-0 border-2 border-black  border-bottom-3 
-                    rounded-0 bg-transparent no-outline', 'required' => false, 'id' => 'Immagine']) }}
-                    {{ Form::label('Immagine', 'Immagine', ['class' => 'label-input']) }}                        
-                </div>
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                {{ Form::submit('Inserisci', ['class' => 'loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-100 mb-3 lh-1 rounded']) }}      
+            @endif
+            {{ Form::submit('Inserisci', ['class' => 'log-sub']) }}      
             {{ Form::close() }}
         </div>   
     </div>

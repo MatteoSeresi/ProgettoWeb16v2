@@ -148,69 +148,63 @@ footer a:hover{
 
 /*CONTATTACI*/
 #contact{
-	padding-top: 20px;
     height: auto;
     width: 100%;
+    padding: 1% 0;
 }
 #contact h1{
 	text-align: center;
 }
-#contact #uni{
-    width: 50%;
-    height: 445px;
-    border: 1px solid black;
+
+#uni{
+    width: 100%;
+    height: auto;
+    text-align: center;
 }
 
-#contact #uni img{
-    width: 300px;
-    height: 300px;
-    position: relative;
-    
+#uni #maps{
+    margin: 2% 5% 0 5%;
+    width: 90%;
+    height: 400px;
 }
 
-#contact #uni a{
-    font-size: 20px;
-    position: relative;
-    font-weight: bold;
-
-}
-
-#contact #autori{
-    width: 50%;
-    height: 445px;
-    position: relative;
-    border: 1px solid black;
-    left: 50%;
-    bottom: 445px;
-}
-
-#contact #autori h2{
+#uni i{
     font-size: 30px;
     position: relative;
-    font-weight: bold;
-}
-#contact #autori a{
-    font-size: 17px;
-    position: relative;
-    font-weight: bold;
-}
-#contact #autori p{
-    margin-bottom: 1%;
-    font-size: 20px;
-    position: relative;
-    font-weight: bold;
-}
-#contact #autori button{
-    font-size: 20px;
-    position: relative;
-    font-weight: bold;
+    right: 150px;
+    top: 20px;
 }
 
+#uni p{
+    margin: 0;
+}
 
+#autori{
+    width: 100%;
+    height: 10%;
+}
+.autori{
+    display: inline-block;
+    width: 24%;
+    height: auto;
+    text-align: center;
+}
+.autori a{
+    text-decoration: none;
+}
+
+.autori i{
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.autori p{
+    font-weight: bold;
+}
 /*AZIENDE*/
 #azienda{
     margin-top: 40px;
-    width: 100%;
+    width: 94%;
     height: auto;
     border: 6px solid orange;
     border-radius: 50px;
@@ -247,12 +241,17 @@ footer a:hover{
     margin-right: 75px;
     font-weight: bold;
 }
-#azienda #high_c img{
+#azienda #high_c #immagine-azienda{
     width: 75px;
     height: 75px;
-    position: relative;
+    position: absolute;
     border: 0.5px solid orange;
-    float: left;
+    margin-left: 3.5%;
+}
+
+#azienda #high_c img{
+    width: 100%;
+    height: 100%;
 }
 
 #azienda #low_c #slot{
@@ -277,7 +276,7 @@ footer a:hover{
 }
 
 #azienda #end_c a{
-    background-color: rgb(42, 187, 170);
+    background-color: rgb(255, 102, 0);
     border-radius: 10px;
     border: 0.5px solid grey;
     padding: 1%;
@@ -358,6 +357,7 @@ footer a:hover{
 }
 
 .filtro:focus{
+    outline: none;
     border: 0.5px solid orange;
 }
 
@@ -401,6 +401,7 @@ footer a:hover{
     padding: 1.5% 1%;
     border: 0.5px solid orange;
     border-radius: 20px;
+    margin-bottom: 20px;
 }
 .coup{
     width: 92%;
@@ -452,6 +453,36 @@ footer a:hover{
     display: none;
 }
 
+.add{
+    width: 50px;
+    padding: 6px;
+    border: none;
+    background-color: orange;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add i{
+    color: white;
+    font-size: 35px;
+}
+
+.offmod{
+    display: inline-block;
+    width: 50px;
+    padding: 6px;
+    border: none;
+    background-color: rgba(255, 165, 0, 1);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px
+}
+.offmod i{
+    color: white;
+    font-size: 35px;
+}
+
 /*AREA RISERVATA UTENTE*/
 
 #us_ar{
@@ -477,6 +508,8 @@ footer a:hover{
 
 #us_ar #dati h1{
     text-align: center;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 #us_ar #dati p{
@@ -486,11 +519,11 @@ footer a:hover{
 
 #us_ar #dati #edit{
     position: relative;
-    font-size: 25px;
+    font-size: 30px;
     float: right;
-    top: 5px;
-    right: 20px;
-    color: orange;
+    top: 35px;
+    right: 25px;
+    color: black;
     cursor: pointer;
 }
 #us_ar #dati #tel{
@@ -506,6 +539,13 @@ footer a:hover{
     float: left;
     color: orange;
     margin-right: 10px;
+}
+
+#us_ar #dati a{
+    position: relative;
+    left: 38%;
+    color: rgb(255, 102, 0);
+    font-weight: bold;
 }
 
 .row{
@@ -617,4 +657,160 @@ footer a:hover{
 
 #dati select{
     width: 100px;
+}
+
+/*LOGIN, REGISTRAZIONE, MODIFICA DATI*/
+#autorizzazione{
+    padding: 5% 32%;
+    margin: 0;
+    text-align: center;
+}
+
+.log{
+    width: 100%;
+    height: auto;
+    border: 6px solid orange;
+    background-color: #fffff6;
+    border-radius: 20px;
+    padding-bottom: 20px;
+}
+
+.log-head{
+    width: 99%;
+    height: auto;
+    background-color: orange;
+    margin: 0;
+    padding: 0.5%;
+}
+
+.log-head h1{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.log-form{
+    width: 100%;
+    height: auto;
+}
+
+.log-slot{
+    width: 80%;
+    height: auto;
+    padding: 10px 10%;
+    text-align: left;
+}
+
+.log-slot .label-input{
+    font-size: 20px;
+}
+
+.log-slot i{
+    font-size: 35px;
+}
+
+.log-slot .in-box{
+    display: block;
+    border: none;
+    border-bottom: 2px solid orange;
+    border-radius: 10px;
+    width: 100%;
+    height: 20px;
+    padding: 10px 5px;
+    background-color: rgba(255, 165, 0, 0.2);
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.in-box:focus{
+    outline: none;
+}
+
+#genere{
+    display: block;
+    border: none;
+    border-bottom: 2px solid orange;
+    border-radius: 10px;
+    width: 103%;
+    height: 45px;
+    padding: 10px 5px;
+    background-color: rgba(255, 165, 0, 0.2);
+    font-size: 17px;
+    margin-top: 10px;
+}
+#genere:focus{
+    outline: none;
+}
+
+.log-sub{
+    margin: 10px 10% 20px 10%;
+    width: 82%;
+    height: auto;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: orange;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.log-form a{
+    color: black;
+    font-size: 17px;
+}
+
+.back{
+    width: 50px;
+    padding: 6px;
+    border: none;
+    background-color: orange;
+    position: relative;
+    right: 80%;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.back i{
+    color: white;
+    font-size: 35px;
+}
+
+.send{
+    width: 50px;
+    padding: 6px;
+    border: none;
+    background-color: orange;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.send i{
+    color: white;
+    font-size: 35px;
+}
+
+.log-sel{
+    display: block;
+    border: none;
+    border-bottom: 2px solid orange;
+    border-radius: 10px;
+    width: 103%;
+    height: 45px;
+    padding: 10px 5px;
+    background-color: rgba(255, 165, 0, 0.2);
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.log-sel:focus{
+    outline: none;
+}
+
+.log-slot img{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
 }

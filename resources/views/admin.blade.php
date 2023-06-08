@@ -5,26 +5,14 @@
 
 
 @section('content')
-
 <section id="us_ar">
-   
-
-    <div id="central">
-        
-        <div id="col_1"></div>
-        
-        <div id="col_2">
-        <h1 class="text-center">Account Admin</h1>
-            <div id="dati">
-                <p>Nome: {{$admin->name}}</p>
-                <p>Cognome: {{$admin->surname}}</p>
-                <p>Data di nascita: {{$admin->data_nascita}}</p>
-                <p>Telefono: {{$admin->tel}}</p>
-                <p>Email: {{$admin->email}}</p>
-            </div>
-        </div>
-
-        <div id="col_3"></div>
+    <div id="dati">
+        <h1>Benvenuto</h1>
+        <p>Nome: {{$admin->name}}</p><br>
+        <p>Cognome: {{$admin->surname}}</p><br>
+        <p>Data di nascita: {{$admin->data_nascita}}</p><br>
+        <i class="fa fa-phone" id="tel" aria-hidden="true"></i><p>Telefono: {{$admin->telefono}}</p><br>
+        <i class="fa fa-envelope-o" id="mail" aria-hidden="true"></i><p>Email: {{$admin->email}}</p>
     </div>
 </section>
 @endsection
