@@ -25,25 +25,23 @@ class DatabaseSeeder extends Seeder {
         DB::table('users')->insert([
             ['id' => 1, 'username' => 'useruser', 'password' => Hash::make('Yg4Xzxjb'), 'name' => 'Franco', 'surname' => 'Rossi', 'genere' => 'Uomo', 'role' => 'user', 'email' => 'franco@rossi.it', 'telefono' => '3333102759', 'data_nascita' => '1945/10/05'],
             ['id' => 2, 'username' => 'staffstaff', 'password' => Hash::make('Yg4Xzxjb'), 'name' => 'Adele', 'surname' => 'Bianchi', 'genere' => 'Donna', 'role' => 'staff', 'email' => 'adele@bianchi.it', 'telefono' => '3663102759', 'data_nascita' => '1994/08/10'],
-            ['id' => 3, 'username' => 'adminadmin', 'password' => Hash::make('Yg4Xzxjb'), 'name' => 'LeBron', 'surname' => 'James', 'genere' => 'Uomo', 'role' => 'admin', 'email' => 'lebron@james.it', 'telefono' => '3493102759', 'data_nascita' => '2001/11/22'],
+            ['id' => 3, 'username' => 'adminadmin', 'password' => Hash::make('Yg4Xzxjb'), 'name' => 'Marco', 'surname' => 'Verdi', 'genere' => 'Uomo', 'role' => 'admin', 'email' => 'lebron@james.it', 'telefono' => '3493102759', 'data_nascita' => '2001/11/22'],
         ]);
 
        DB::table('offers')->insert([
-            ['ID_Offerta' => 1, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '1945/10/05', 'Immagine' => 'coup_5.png', 'ID_Azienda' => 2],
-            ['ID_Offerta' => 2, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '2024/10/05', 'Immagine' => 'coup_15.png', 'ID_Azienda' => 1],
-            ['ID_Offerta' => 3, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '2047/10/05', 'Immagine' => 'coup_20.png', 'ID_Azienda' => 4],
-            ['ID_Offerta' => 4, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '2000/10/05', 'Immagine' => 'coup_30.png', 'ID_Azienda' => 1],
-            ['ID_Offerta' => 5, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '1492/10/12', 'Immagine' => 'coup_50.png', 'ID_Azienda' => 5],
-            ['ID_Offerta' => 6, 'Nome' => 'Coupon', 'Descrizione' => self::DESCPROD, 'Scadenza' => '1789/07/14', 'Immagine' => 'coup_60.png', 'ID_Azienda' => 6],
+            ['ID_Offerta' => 1, 'Nome' => 'ScontoSeciale', 'Descrizione' => self::DESCPROD, 'Scadenza' => '1945/10/05', 'Immagine' => 'coup_5.png', 'ID_Azienda' => 2],
+            ['ID_Offerta' => 2, 'Nome' => 'OffertaImperdibile', 'Descrizione' => self::DESCPROD, 'Scadenza' => '2024/10/05', 'Immagine' => 'coup_15.png', 'ID_Azienda' => 1],
+            ['ID_Offerta' => 3, 'Nome' => 'RisparmiaOra', 'Descrizione' => self::DESCPROD, 'Scadenza' => '2047/10/05', 'Immagine' => 'coup_20.png', 'ID_Azienda' => 4],
+            ['ID_Offerta' => 4, 'Nome' => 'CouponEsclusivo', 'Descrizione' => self::DESCPROD, 'Scadenza' => '2000/10/05', 'Immagine' => 'coup_30.png', 'ID_Azienda' => 1],
+            ['ID_Offerta' => 5, 'Nome' => 'PrompFlash', 'Descrizione' => self::DESCPROD, 'Scadenza' => '1492/10/12', 'Immagine' => 'coup_50.png', 'ID_Azienda' => 5],
+            ['ID_Offerta' => 6, 'Nome' => 'AcquistoIntelligente', 'Descrizione' => self::DESCPROD, 'Scadenza' => '1789/07/14', 'Immagine' => 'coup_60.png', 'ID_Azienda' => 6],
         ]);
 
         DB::table('faqs')->insert([
-            ['id' => 1, 'Domanda' => 'Domanda?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
-            ['id' => 2, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
-            ['id' => 3, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
-            ['id' => 4, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
-            ['id' => 5, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
-            ['id' => 6, 'Domanda' => 'Consectetur adipisci elit, sed eiusmod tempor incidunt?', 'Risposta' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit'],
+            ['id' => 1, 'Domanda' => 'Di che cosa tratta il sito?', 'Risposta' => 'Il sito offre la pubblicizzazione di offerte promozionali per prodotti e servizi, con la possibilità di emettere coupon.'],
+            ['id' => 2, 'Domanda' => 'Come posso ottenere un coupon?', 'Risposta' => 'Bisogna essere registrati al sito, andare nella sezione catalogo e generare il coupon desiderato. Il cuopn generato sarà una pagina con un codice da dover stampare e presentare in negozio.'],
+            ['id' => 3, 'Domanda' => 'Come posso modificare i miei dati?', 'Risposta' => 'Nella tua area utente premi il bottone con la matita e aprirà la form di modifica dei dati.'],
+            ['id' => 4, 'Domanda' => 'Come posso ottenere assistenza tecnica?', 'Risposta' => 'Nella sezione contattaci puoi inviare una mail ad un contatto per segnalare problemi o fare domande.'],
         ]);
     }
 
