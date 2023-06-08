@@ -23,11 +23,23 @@
     <div class="navb">
         @include('layouts/_navpublic')
     </div>
+    @can('isAdmin')
+    <div class="navb">
+        @include('layouts/_navadminoptions')
+    </div>
+    @endcan
     </header>
 
+    @can('isAdmin')
+    <div class="cont-admin">
+        @yield('content')
+    </div>
+    @else
     <div id="container">
         @yield('content')
     </div>
+    @endcan
+    
         <footer>
             <p> Author:<br> Matteo Fabbri | Diego Settimi | Matteo Seresi | Mattia Sisi</p>
             <a class="trans-color-text" href="{{route ('faq')}}"> FAQ </a> | <span itemprop="telephone"><a href="{{route ('contattaci')}}"> CONTATTACI </a></span>|

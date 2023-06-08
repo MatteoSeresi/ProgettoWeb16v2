@@ -27,7 +27,7 @@
     </div>
     </header>
 
-    <div id="container">
+    <div class="cont-admin">
         @yield('content')
     </div>
     <footer>

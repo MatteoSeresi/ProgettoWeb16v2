@@ -112,8 +112,14 @@ nav a:hover{
 /*SECTION*/
 #container{
     width: 70%;
-    margin-top: 270px;
-    padding: 0 15%;
+    margin-top: 255px;
+    padding: 2% 15%;
+}
+
+.cont-admin{
+    width: 70%;
+    margin-top: 310px;
+    padding: 2% 15%;
 }
 
 /*FOOTER*/
@@ -282,7 +288,7 @@ footer a:hover{
     padding: 1%;
     text-decoration: none;
     color: white;
-}  
+}
 
 /*FAQ*/
 
@@ -339,7 +345,7 @@ footer a:hover{
 #filter {
     border: 6px solid orange;
     text-align: center;
-    width: 100%;
+    width: 96%;
     height: auto;
     padding: 10px 2%;
     border-radius: 10px;
@@ -363,7 +369,7 @@ footer a:hover{
 
 .catalogo{
     margin-top: 10px;
-    width: 74%;
+    width: 70%;
     height: auto;
     border: 6px solid orange;
     padding: 10px 15% 40px 15%;

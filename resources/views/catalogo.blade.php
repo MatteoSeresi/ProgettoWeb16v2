@@ -87,7 +87,7 @@ $(document).ready(function() {
       var aziendaFilter = $('#filter-azienda').val().toLowerCase();
       var descrizioneFilter = $('#filter-descrizione').val().toLowerCase();
 
-      $('.azienda').each(function() {
+      $('.catalogo').each(function() {
           var aziendaName = $(this).find('.name_a h1').text().toLowerCase();
           var offerte = $(this).find('.promo');
           var showAzienda = false;
@@ -96,8 +96,8 @@ $(document).ready(function() {
           $(this).hide();
 
           offerte.each(function() {
-              var nomeOfferta = $(this).find('.left_c h2').text().toLowerCase();
-              var descrizioneOfferta = $(this).find('.left_c p:eq(1)').text().toLowerCase();
+              var nomeOfferta = $(this).find('.promo .info h2').text().toLowerCase();
+              var descrizioneOfferta = $(this).find('.info h2:eq(0)').text().toLowerCase();
 
               // Mostra l'offerta solo se corrisponde ai filtri
               if (aziendaName.includes(aziendaFilter) && (nomeOfferta.includes(descrizioneFilter) || descrizioneOfferta.includes(descrizioneFilter))) {
