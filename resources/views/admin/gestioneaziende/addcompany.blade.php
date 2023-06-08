@@ -11,7 +11,7 @@
         </div>
         <div class="log-form">
             <h2>Aggiungi una nuova azienda</h2> 
-            {{ Form::open(array('route' => 'addcompany.store', 'class' => 'contact-form')) }}           
+            {{ Form::open(array('route' => 'addcompany.store', 'class' => 'contact-form', 'files' => true)) }}           
                 @csrf
                 <div class="log-slot">
                     {{ Form::label('P_Iva', 'Partita Iva', ['class' => 'label-input']) }}
@@ -121,6 +121,15 @@
                     {{ Form::label('Logo', 'Logo', ['class' => 'label-input']) }}
                     {{ Form::file('Logo', ['class' => 'input in-box', 'required' => false, 'id' => 'Logo']) }}
                 </div>
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 {{ Form::submit('Inserisci', ['class' => 'log-sub']) }}    
             {{ Form::close() }}
         </div>   

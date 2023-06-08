@@ -53,8 +53,8 @@ class AdminController extends Controller {
 
     public function storeAzienda(NewCompanyRequest $request) {
 
-        if ($request->hasFile('logo')) {
-            $logo = $request->file('logo');
+        if ($request->hasFile('Logo')) {
+            $logo = $request->file('Logo');
             $logoName = $logo->getClientOriginalName();
         } else {
             $logoName = NULL;
@@ -62,7 +62,7 @@ class AdminController extends Controller {
 
         $aznd = new Company;
         $aznd->fill($request->validated());
-        $aznd->logo = $logoName;
+        $aznd->Logo = $logoName;
         $aznd->save();
 
         if (!is_null($logoName)) {
