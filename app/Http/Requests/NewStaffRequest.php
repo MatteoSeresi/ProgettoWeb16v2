@@ -28,7 +28,7 @@ class NewStaffRequest extends FormRequest {
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'username' => ['required', 'string', 'min:8'],
-            'password' => ['required', 'confirmed'],
+            'password' => ['required', 'confirmed', 'min:8'],
             'data_nascita' => ['required', 'date'],
             'telefono' => ['required', 'string', 'digits:10'],
             'genere' => ['required']

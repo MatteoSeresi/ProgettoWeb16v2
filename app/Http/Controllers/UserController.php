@@ -33,7 +33,7 @@ class UserController extends Controller {
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.Auth::id()],
             'username' => ['required', 'string', 'min:8', 'unique:users,username,'.Auth::id()],
-            'password' => ['required', 'confirmed'],
+            'password' => ['required', 'confirmed', 'min:8'],
             'data_nascita' => ['required', 'date'],
             'telefono' => ['required', 'string', 'digits:10'],
         ]);
