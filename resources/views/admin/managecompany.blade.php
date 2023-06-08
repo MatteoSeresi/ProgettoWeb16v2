@@ -3,24 +3,15 @@
 @section('title', 'Gestione aziende')
 <head><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script></head>
 @section('content')
-<section id="azienda">
-<div id="filter">
-    <input type="text" class="filter" id="filter-azienda" placeholder="Filtro per azienda">
-    <input type="text" class="filter" id="filter-descrizione" placeholder="Filtro per descrizione">
-</div>
-    <button title="Crea una nuova azienda" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold 
-    text-uppercase d-block w-60 mb-3 lh-1 rounded" onclick="window.location.href = '{{ route('addcompany') }}'">
-    <i class="fas fa-user-plus"></i></button>
+<button title="Crea un nuova azienda" class="add" onclick="window.location.href = '{{ route('addcompany') }}'"><i class="fa fa-plus"></i></button>
     @isset($aziende)
         @foreach ($aziende as $azienda)
-        <section id="azienda" class="azienda filterable">
+        <section id="azienda">
             <div id="high_c">
-                <div id="immagine azienda">
-                    @include('helpers/aziendeImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->Logo])
+                <div id="immagine-azienda">
+                    <img src="../../../public/images/aziende/{{ $azienda->Logo }}">
                 </div>
-               <div class="name_a">
-                    <h1>{{ $azienda->Ragione_Sociale}}, {{ $azienda->id }}</h1>
-                </div>
+                <h1>{{ $azienda->Ragione_Sociale }}</h1>
             </div>
             <div id="low_c">
                 <div id="slot">
@@ -32,22 +23,19 @@
                     </iframe>
                 </div>
 
-                <div id="slot-descrizione">
-                    <h3>Descrizione:</h3>
+                <div id="slot">
                     <p>{{ $azienda->Descrizione }}</p>
                 </div>
 
-                <div id="slot" style="padding: 10px">
-                    <p>Localizzazione: {{$azienda->Localizzazione}}, {{$azienda->civico}}, {{$azienda->citta}}, {{$azienda->cap}}</p>
-                    <p>Telefono: {{$azienda->tel}}</p>
+                <div id="slot">
+                    <p>{{$azienda->Localizzazione}}, {{$azienda->civico}}, {{$azienda->citta}}, {{$azienda->cap}}</p><br>
+                    <p>Telefono: {{$azienda->tel}}</p><br>
                     <p>Email: <a href="mailto:{{$azienda->email}}" style="text-decoration: none">{{$azienda->email}}</a></p>
                 </div>
             </div>
-            <div class="d-flex justify-content-center align-items-center ">
-                <a href="{{ route('companymodify', ['company_id' => $azienda->id])}}" title="Modifica i dati dell'offerta" 
-                   class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded"><i class="fas fa-pencil-alt"></i></a>
-                <a href="{{ route('deletecompany', ['company_id' => $azienda->id]) }}" title="Elimina azienda" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" 
-                   onclick="event.preventDefault(); if (confirm('Sei sicuro di voler eliminare questa azienda?')) { document.getElementById('delete-form-{{ $azienda->id }}').submit(); }"> <i class="fa fa-trash"></i></a>
+            <div id="end_c">
+                <a href="{{ route('companymodify', ['company_id' => $azienda->id])}}" title="Modifica i dati ddell'azienda" class="offmod"><i class="fa fa-pencil"></i></a>
+                <a href="{{ route('deletecompany', ['company_id' => $azienda->id]) }}" title="Elimina azienda" class="offmod" onclick="event.preventDefault(); if (confirm('Sei sicuro di voler eliminare questa azienda?')) { document.getElementById('delete-form-{{ $azienda->id }}').submit(); }"> <i class="fa fa-trash"></i></a>
                 <form id="delete-form-{{ $azienda->id }}" action="{{ route('deletecompany', ['company_id' => $azienda->id]) }}" method="POST" style="display: none;">
                     @csrf
                     @method('DELETE')
@@ -56,7 +44,6 @@
         </section>
         @endforeach
     @endisset
-    </section>
 @endsection
 <script>
 

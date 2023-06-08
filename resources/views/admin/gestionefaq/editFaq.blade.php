@@ -3,20 +3,27 @@
 @section('title', 'Modifica FAQ')
 
 @section('content')
-<button onclick="window.location.href='{{route('managefaq')}}'" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 mb-3 
-            lh-1 rounded"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-<section id="azienda">
-    <div id="question" class = "question">
-    {{ Form::open(array('route' => ['editFaq', 'faq_id' => $faq->id], 'class' => 'contact-form')) }}
-        {{ Form::label('Domanda', 'Domanda', ['class' => 'label-input lab_in']) }}
-        {{ Form::textarea('Domanda', $faq->Domanda ?? old('Domanda'), ['class' => 'input te_in','id' => 'Domanda', 'required' => true, 'maxlength' => 500, value($faq->Domanda)]) }}<br><br>
-        {{ Form::label('Risposta', 'Risposta', ['class' => 'label-input lab_in']) }}
-        {{ Form::textarea('Risposta', $faq->Risposta ?? old('Risposta'), ['class' => 'input te_in','id' => 'Risposta', 'required' => true, 'maxlength' => 2500, value($faq->Risposta)]) }}<br><br>
-        <div class="d-flex justify-content-center align-items-center ">
-            <button title="Conferma" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" type = "submit"><i class="fa fa-check"></i></button>
-            <button title="Scarta modifiche" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" type = "reset"><i class="fa fa-undo" aria-hidden="true"></i></button>
+<section id="autorizzazione">
+<button onclick="window.location.href='{{route('managefaq')}}'" class="back" title="Indietro"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    <div class="log">
+        <div class="log-head">
+            <h1>BENVENUTO</h1>
         </div>
-    {{ Form::close() }}
+        <div class="log-form">
+            <h2>Modifica FAQ</h2>
+            {{ Form::open(array('route' => ['editFaq', 'faq_id' => $faq->id], 'class' => 'contact-form')) }}
+            <div class="log-slot">
+                {{ Form::label('Domanda', 'Domanda', ['class' => 'label-input']) }}
+                {{ Form::textarea('Domanda', $faq->Domanda ?? old('Domanda'), ['class' => 'input in-box','id' => 'Domanda', 'required' => true, 'maxlength' => 500, value($faq->Domanda), 'style' => 'height: 150px']) }}
+            </div>
+            <div class="log-slot">
+                {{ Form::label('Risposta', 'Risposta', ['class' => 'label-input']) }}
+                {{ Form::textarea('Risposta', $faq->Risposta ?? old('Risposta'), ['class' => 'input in-box','id' => 'Risposta', 'required' => true, 'maxlength' => 2500, value($faq->Risposta), 'style' => 'height: 150px']) }}
+            </div>
+            <button title="Conferma" class="send" type = "submit"><i class="fa fa-check"></i></button>
+            <button title="Scarta modifiche" class="send" type = "reset"><i class="fa fa-undo" aria-hidden="true"></i></button>       
+            {{ Form::close() }}
+        </div>
     </div>
 </section>
 @endsection

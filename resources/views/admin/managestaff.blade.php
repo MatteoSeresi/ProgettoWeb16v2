@@ -10,7 +10,7 @@
 <button title="Crea un nuovo utente staff" class="add" onclick="window.location.href = '{{ route('addstaff') }}'"><i class="fa fa-plus"></i></button>
 <div class="catalogo">
     <div class="name_a">
-        <h1>Elenco degli utenti registrati</h1>
+        <h1>Elenco dei membri dello staff</h1>
     </div>  
     @isset($staffs)
         @foreach ($staffs as $staff)

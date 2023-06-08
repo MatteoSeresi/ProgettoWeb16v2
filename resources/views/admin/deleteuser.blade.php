@@ -14,7 +14,8 @@
     @isset($utenti)
         @foreach ($utenti as $utente)
         <section id="azienda" class="azienda filterable" style="background-color: rgba(255, 165, 0, 0.2)">
-            <h1>{{ $utente->name }} {{ $utente->surname }}</h1>
+            <h2>{{ $utente->name }}</h2>
+            <h2>{{ $utente->surname }}</h2>
             <div id="dati">
                 <p>Data di nascita: {{ $utente->data_nascita }}</p>
                 <p>Telefono: {{ $utente->telefono }}</p>
@@ -46,8 +47,8 @@ $(document).ready(function() {
     
 
       $('.filterable').each(function() {
-          var nomeUser = $(this).find('h1:eq(0)').text().toLowerCase();
-          var cognomeUser = $(this).find('h1:eq(1)').text().toLowerCase();
+          var nomeUser = $(this).find('h2:eq(0)').text().toLowerCase();
+          var cognomeUser = $(this).find('h2:eq(1)').text().toLowerCase();
           var showUser = true;
 
           if (nomeFilter !== '' && !nomeUser.includes(nomeFilter)) {

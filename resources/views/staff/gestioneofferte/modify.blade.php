@@ -39,7 +39,8 @@
                         </ul>
                     </div>
                 @endif
-                {{ Form::submit('Modifica', ['class' => 'log-sub']) }}      
+            <button title="Conferma" class="send" type = "submit"><i class="fa fa-check"></i></button>
+            <button title="Scarta modifiche" class="send" type = "reset"><i class="fa fa-undo" aria-hidden="true"></i></button>       
             {{ Form::close() }}
         </div>   
     </div>

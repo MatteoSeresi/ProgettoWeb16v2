@@ -3,20 +3,27 @@
 @section('title', 'Aggiungi FAQ')
 
 @section('content')
-<button onclick="window.location.href='{{route('managefaq')}}'" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 mb-3 
-            lh-1 rounded"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-<section id="azienda">
-    <div id="question" class = "question">
-    {{ Form::open(array('route' => 'addFaq', 'class' => 'contact-form')) }}
-        {{ Form::label('Domanda', 'Domanda', ['class' => 'label-input lab_in']) }}
-        {{ Form::textarea('Domanda', '', ['class' => 'input te_in','id' => 'Domanda', 'required' => true, 'maxlength' => 500]) }}<br><br>
-        {{ Form::label('Risposta', 'Risposta', ['class' => 'label-input lab_in']) }}
-        {{ Form::textarea('Risposta', '', ['class' => 'input te_in','id' => 'Risposta', 'required' => true, 'maxlength' => 2500]) }}<br><br>
-        <div class="d-flex justify-content-center align-items-center ">
-            <button title="Conferma" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" type = "submit"><i class="fa fa-check"></i></button>
-            <button title="Scarta modifiche" class="btn-sm loader border-0 bg-black text-white p-3 text-center fw-bold text-uppercase d-block w-10 m-3 lh-1 rounded" type = "reset"><i class="fa fa-trash"></i></button>
+<section id="autorizzazione">
+<button onclick="window.location.href='{{route('managefaq')}}'" class="back" title="Indietro"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    <div class="log">
+        <div class="log-head">
+            <h1>BENVENUTO</h1>
         </div>
-    {{ Form::close() }}
+        <div class="log-form">
+            <h2>Aggiungi nuova FAQ</h2>
+            {{ Form::open(array('route' => 'addFaq', 'class' => 'contact-form')) }}
+            @csrf
+            <div class="log-slot">
+                {{ Form::label('Domanda', 'Domanda', ['class' => 'label-input']) }}
+                {{ Form::textarea('Domanda', '', ['class' => 'input in-box','id' => 'Domanda', 'required' => true, 'maxlength' => 500, 'style' => 'height: 150px']) }}
+            </div>
+            <div class="log-slot">
+                {{ Form::label('Risposta', 'Risposta', ['class' => 'label-input']) }}
+                {{ Form::textarea('Risposta', '', ['class' => 'input in-box','id' => 'Risposta', 'required' => true, 'maxlength' => 2500, 'style' => 'height: 150px']) }}
+            </div>
+            {{ Form::submit('Inserisci', ['class' => 'log-sub']) }}    
+            {{ Form::close() }}
+        </div>   
     </div>
 </section>
 @endsection
